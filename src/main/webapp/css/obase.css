@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/*
+ * My Training 用 cssライブラリー
+ * since 2024/07/18 - 
+*/
+h1{
+  line-height: 1.2em;
+  margin: 0;
+  font-weight: 300;
+  font-family: 'Dosis', 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 2.4em;
+  vertical-align: baseline; 
+  }
+  
+.bg-dark {
+  background-color: #252428;
+  color: #fff; }
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.text-left {
+  text-align: left; }
+
+.padding-y-5 {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.padding-y-10 {
+  padding-top: 10px;
+  padding-bottom: 10px; }

@@ -9,7 +9,8 @@ import java.time.format.DateTimeFormatter;
  * @since 2024/10/14
  * @version 1.00 新規作成
  */
-public class BaseCreate {
+public class BaseCreate implements I_BaseCreate {
+	
 	
 	/** 表示日付書式 */
 	protected static DateTimeFormatter fomat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
