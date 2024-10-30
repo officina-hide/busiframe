@@ -11,4 +11,8 @@ public interface I_BaseCreate {
 	public final  int SYSTEM_USER_ID = 1001;
 	public final String SYSTEM_USER_NAME = "systemAdmin";
 
+	
+	// 初期登録画面
+	// ログイン Lv.01
+	
 }

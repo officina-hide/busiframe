@@ -18,6 +18,12 @@ public interface I_BaseSQL {
 	/** カンマ「,」 */
 	public final String CM = ",";
 	
+	// 項目属性
+	/** 数値 */
+	public final String R_INTEGER = "integer";
+	/** 文字列 */
+	public final String R_STRING = "string";
+	
 	// テーブル共通項目
 	/** 登録日 */
 	public final String COLUMN_NAME_CREATED_AT = "created_at";
@@ -31,4 +37,16 @@ public interface I_BaseSQL {
 	/** 更新者 */
 	public final String COLUMN_NAME_UPDATED_BY = "updated_by";
 	public final String COLUMN_COMMENT_UPDATED_BY = "更新者";
+	
+	// SQL関連
+	/** テーブル共通項目構築用 */
+	public final String CREATE_BASE_COLUMN =
+			COLUMN_NAME_CREATED_AT + SP + "DATETIME NOT NULL DEFAULT NOW() COMMENT" + SP
+				+SQ+COLUMN_COMMENT_CREATED_AT + SQ + CM + LF
+			+ COLUMN_NAME_CREATED_BY + SP + "INT NOT NULL DEFAULT 1001 COMMENT" + SP
+				+SQ+COLUMN_COMMENT_CREATED_BY + SQ + CM + LF
+			+ COLUMN_NAME_UPDATED_AT + SP + "DATETIME NOT NULL DEFAULT NOW() ON UPDATE NOW() COMMENT" + SP
+				+ SQ + COLUMN_COMMENT_UPDATED_AT + SQ + CM + LF
+			+ COLUMN_NAME_UPDATED_BY + SP + "INT NOT NULL DEFAULT 1001 COMMENT" + SP
+				+SQ+COLUMN_COMMENT_UPDATED_BY + SQ + LF;
 }

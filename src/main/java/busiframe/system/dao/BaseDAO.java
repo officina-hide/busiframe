@@ -6,15 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import busiframe.system.Environment;
+import busiframe.system.jsp.I_BaseSQL;
 
 /**
  * DAO汎用クラス<br>
  * @since 2024/10/23
  * @version 1.00 新規作成
  */
-public class BaseDAO {
+public class BaseDAO implements I_BaseSQL {
 
 	/** 表示日付書式 */
 	protected static DateTimeFormatter fomat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -38,6 +40,49 @@ public class BaseDAO {
 		}
 	}
 
+	/**
+	 * データ登録
+	 * @param dc 
+	 * @param sql 
+	 * @param env 
+	 * @return
+	 */
+	public boolean addExecute(Environment env, String sql, DataCollection dc) {
+		boolean chk = false;
+		PreparedStatement pstmt = null;
+		try {
+			connection(env);
+			for(List<Object> dlist : dc.getDataList()) {
+				if(pstmt != null) {
+					pstmt.clearParameters();
+				}
+				pstmt = env.getConn().prepareStatement(sql);
+				for(int ix = 0; ix < dlist.size(); ix++) {
+					switch(dc.getitemType(ix)) {
+					case R_INTEGER:
+						pstmt.setInt(ix+1, (int) dlist.get(ix));
+						break;
+					case R_STRING:
+						pstmt.setString(ix+1, (String) dlist.get(ix));
+						break;
+					}
+				}
+				int rs = pstmt.executeUpdate();
+				if(rs == 1) {
+					chk = true;
+				} else {
+					chk = false;
+					break;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+		return chk;
+	}
+	
 	/**
 	 * データベース接続<br>
 	 * <p>環境情報にある接続情報に対してデータベースを接続する。</p>

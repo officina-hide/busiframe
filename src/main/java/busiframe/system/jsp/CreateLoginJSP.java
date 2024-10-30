@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 import busiframe.system.Environment;
+import busiframe.system.dao.X_Sys_Disp;
 import busiframe.system.servlet.BaseCreate;
 
 /**
@@ -27,12 +28,16 @@ public class CreateLoginJSP extends BaseCreate  {
 	public void create01(Environment env) {
 		// 開始メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : ログオンJSPの生成を開始します。");
+		// 表示情報取得
+		X_Sys_Disp disp = new X_Sys_Disp();
+		disp.loadByCd(env, "login01");
 		// 生成用ファイルOpen
 		try {
 			JspSource js = new JspSource();
-			js.setTitle("ログイン Lv.01");
-			js.setActionURI("./login01");
-			js.create();
+			js.setTitle(disp.getDispTitle());
+			js.setActionURI("./login01");		// TODO ActionURLはSys_DispActionから取得する。 未実装 2024/10/27
+			js.create(disp);
+
 			Path path = Paths.get(".\\src\\main\\webapp", "login.jsp");
 			BufferedWriter bw = Files.newBufferedWriter(path, StandardCharsets.UTF_8);
 			PrintWriter pw = new PrintWriter(bw);

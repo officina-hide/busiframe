@@ -31,12 +31,10 @@ public class JspSource implements I_BaseSQL {
 
 	/**
 	 * JSPコード生成<br>
+	 * @param disp 
 	 * @since 2024/10/16
 	 */
-	public void create() {
-		// 表示情報取得(Login01)
-		X_Sys_Disp disp = new X_Sys_Disp();
-		
+	public void create(X_Sys_Disp disp) {
 		hs = new HtmlSource();
 		hs.setActionURI(actionURI);
 		hs.createHead(title);
@@ -71,8 +69,6 @@ public class JspSource implements I_BaseSQL {
 		private StringBuffer header = new StringBuffer();
 		/** エラーソース */
 		private StringBuffer errhtml;
-		/** ページタイトル */
-		private String title;
 		/** Actionサーブレット名 */
 		private String actionURI;
 		
@@ -168,10 +164,6 @@ public class JspSource implements I_BaseSQL {
 			str.append(body.toString());
 			str.append("</html>");
 			return str.toString();
-		}
-
-		public void setTitle(String title) {
-			this.title = title;
 		}
 
 		public void setActionURI(String actionURI) {

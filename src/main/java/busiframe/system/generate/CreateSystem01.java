@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 import busiframe.system.Environment;
 import busiframe.system.dao.X_Sys_Disp;
+import busiframe.system.dao.X_Sys_DispDetail;
 import busiframe.system.servlet.I_BaseCreate;
 
 /**
@@ -33,6 +34,8 @@ public class CreateSystem01 implements I_BaseCreate {
 		// 表示情報関連生成
 		X_Sys_Disp disp = new X_Sys_Disp();
 		disp.create(env);
+		X_Sys_DispDetail dd = new X_Sys_DispDetail();
+		dd.create(env);
 		
 		System.out.println(LocalDateTime.now().format(fomat) + " : システムの構築完了しました。");
 	}
