@@ -1,0 +1,61 @@
+2024/11/01
+
+JSP001_ログイン処理
+
+	JSP名 : login.jsp
+	画面項目
+		・タイトル : 「ログイン Lv.01」
+		・Form Action : /login01
+		・項目
+			ログインID : Text
+			パスワード : Password
+		・サーブレット : LoginAction01.java
+	
+JSPファイル生成用
+	クラス名	JspCreate.java
+	構造体
+		JspDocument
+			<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+			<%@taglib prefix="c" uri="jakarta.tags.core"%>
+			<%@taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+			<!DOCTYPE html>
+		html <html> ～ </html>
+		head
+			<head>
+			<meta charset="UTF-8">
+			<title>xxxxx</title> ← 表示情報 : tag_title
+			<link rel="stylesheet" href="./css/skyblue_k.css">
+			</head>
+		body <body> ～ </body>
+			header
+			error_doc
+			body_doc
+				form <form action="xxxx" method="post"> ～ </form> : 表示情報 : form_action
+					form_item
+						表示詳細リストより展開する。
+						<label class="md-4 text-right  padding-x-10 padding-y-5">xxxx</label>
+							表示詳細情報
+								xxxx : ラベル : label
+						<div class="md-4"><input class="form-control" type="aaaa" id="bbbb" 
+							name="cccc" value="${dddd}"
+							表示詳細情報
+								aaaa : 項目タイプ : item_type
+								bbbb : 項目ID : item_id
+								cccc : 項目名 : item_name
+								dddd : 対象カラム : column_id
+									テーブルは表示情報のtable_idを使用。
+									テーブル略称はテーブル情報のtable_short_nameを使用。
+							required="required" maxlength="32"/>
+						</div>
+					form_button
+						<button type="aaaa" class="btn btn-dark btn-empty">bbbb</button>
+							表示アクション情報リストよりセットする。
+								aaaa : ボタンタイプ
+								bbbb : ボタン名称
+			footer
+				<footer>
+					<div class="container padding-y-5">
+						<p>xxxx</p> : システムパラメータ : copyright
+					</div>
+				</footer>
+
