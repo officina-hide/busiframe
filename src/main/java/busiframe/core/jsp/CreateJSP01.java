@@ -11,6 +11,8 @@ public class CreateJSP01 {
 	public static void main(String[] args) {
 		// ログインLv.01のJSPを生成する。
 		JspDocument jd = new JspDocument();
+		jd.setJspOutPath("./src/main/webapp");
+		jd.outputSouece();
 	}
 
 }
