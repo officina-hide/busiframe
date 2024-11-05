@@ -7,4 +7,11 @@ package busiframe.core.jsp;
  */
 public interface I_BaseCharacter {
 
+	// 文字定数定義
+	/** 改行 */
+	public final String LF = "\n";
+	/** 空白 */
+	public final String SP = " ";
+	/** ダブルクォーテーション */
+	public final String DQ = "\"";
 }

@@ -14,7 +14,13 @@ public class JspDocument implements I_BaseCharacter{
 	/** 出力Path */
 	private String jspOutPath;
 	/** JSPトップドキュメント */
-	private StringBuffer JspDocument;
+	private StringBuffer document;
+	/** JSPトークン */
+	private JSP_Page page = new JSP_Page();
+	private JSP_Taglib core = new JSP_Taglib("c","jakarta.tags.core");
+	private JSP_Taglib fmt = new JSP_Taglib("fmt","jakarta.tags.fmt");
+	/** htmlトークン */
+	private HtmlToken html = new HtmlToken();
 	
 	/**
 	 * コンストラクタ : 初期設定を行う。<br>
@@ -22,7 +28,7 @@ public class JspDocument implements I_BaseCharacter{
 	 */
 	public JspDocument() {
 		// JSP用HTMLヘッダーセット
-		JspDocument = createJSPDocument();
+		document = createJSPDocument();
 	}
 
 	/**
@@ -31,14 +37,19 @@ public class JspDocument implements I_BaseCharacter{
 	 * @return JSP用ドキュメントヘッダ
 	 */
 	private StringBuffer createJSPDocument() {
-		StringBuffer html = new StringBuffer();
-		html.append("").append(LF);
-		return html;
+		StringBuffer hl = new StringBuffer();
+		hl.append(page.toString()).append(LF);
+		hl.append(core.toString()).append(LF);
+		hl.append(fmt.toString()).append(LF);
+		hl.append("<!DOCTYPE html>").append(LF);
+		hl.append(html.toString());
+		return hl;
 	}
 
 	/**
 	 * JSPソース出力<br>
 	 * 出力ファイルPathの表示情報のJSP名を持つJSPファイルを出力する。<br>
+	 * @param jd 
 	 * @since 2024/11/02
 	 */
 	public void outputSouece() {
@@ -46,7 +57,7 @@ public class JspDocument implements I_BaseCharacter{
 			// 出力ファイルOpen
 			File file = new File(jspOutPath+"/"+"login.jsp");
 			OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
-			writer.write("test");
+			writer.write(document.toString());
 			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();

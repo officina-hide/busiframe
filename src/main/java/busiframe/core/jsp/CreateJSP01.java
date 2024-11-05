@@ -9,6 +9,8 @@ package busiframe.core.jsp;
 public class CreateJSP01 {
 
 	public static void main(String[] args) {
+		// ログインの表示情報を取得する。
+		M_SysDisp disp = new M_SysDisp();
 		// ログインLv.01のJSPを生成する。
 		JspDocument jd = new JspDocument();
 		jd.setJspOutPath("./src/main/webapp");
