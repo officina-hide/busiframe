@@ -1,5 +1,8 @@
 package busiframe.core.jsp;
 
+import busiframe.core.Environment;
+import busiframe.core.dao.M_SysDisp;
+
 /**
  * JSP生成実行用クラス<br>
  * TODO 本クラスの目的は、各種のJSP生成クラスのテスト用として使用されます。<br>
@@ -9,8 +12,13 @@ package busiframe.core.jsp;
 public class CreateJSP01 {
 
 	public static void main(String[] args) {
+		//環境設定
+		Environment env = new Environment();
+		env.setDbSw(env.DBSW_LOCAL);
+		
 		// ログインの表示情報を取得する。
 		M_SysDisp disp = new M_SysDisp();
+		disp.loadByCd(env, "login01");
 		// ログインLv.01のJSPを生成する。
 		JspDocument jd = new JspDocument();
 		jd.setJspOutPath("./src/main/webapp");
