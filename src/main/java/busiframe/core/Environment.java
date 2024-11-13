@@ -69,11 +69,11 @@ public class Environment {
 
 	public void setDbSw(int dbSw) {
 		if(dbSw == 1) {
-			setDsn("jdbc:mariadb://localhost:3306/training");
+			setDsn("jdbc:mariadb://localhost:3306/busiframe");
 			setDatabaseUser("root");
 			setDatabasePassword("root");
 		} else {
-			setDsn("jdbc:mariadb://www.officina-hide.net:3306/training");
+			setDsn("jdbc:mariadb://www.officina-hide.net:3306/busiframe");
 			setDatabaseUser("training");
 			setDatabasePassword("qaz12wsx");
 		}

@@ -14,4 +14,8 @@ public interface I_BaseCharacter {
 	public final String SP = " ";
 	/** ダブルクォーテーション */
 	public final String DQ = "\"";
+	/** シングルクォーテーション */
+	public final String SQ = "'";
+	/** カンマ */
+	public final String CM = ",";
 }

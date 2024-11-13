@@ -61,4 +61,24 @@ public class BaseDAO {
 		}
 	}
 
+	/**
+	 * データベース管理用SQL実行<br>
+	 * @since 2024/11/10
+	 * @param env 環境情報
+	 * @param sql 実行SQL文
+	 * @throws SQLException SQLエラー時は呼び出し元にエラーを返す。
+	 */
+	public void dbmExecute(Environment env, String sql) throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(sql);
+			pstmt.execute();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+	}
+
 }
