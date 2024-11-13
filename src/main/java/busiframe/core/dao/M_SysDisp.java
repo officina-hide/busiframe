@@ -31,6 +31,7 @@ public class M_SysDisp extends X_SysDisp implements I_SysDisp, I_Message {
 		try {
 			connection(env);
 			pstmt = env.getConn().prepareStatement(SQL_LOAD_BY_CODE);
+			pstmt.setString(1, dispCd);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				itemSet(rs);

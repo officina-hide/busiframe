@@ -22,6 +22,7 @@ public class CreateJSP01 {
 		// ログインLv.01のJSPを生成する。
 		JspDocument jd = new JspDocument();
 		jd.setJspOutPath("./src/main/webapp");
+		jd.setDisp(disp);
 		jd.outputSouece();
 	}
 

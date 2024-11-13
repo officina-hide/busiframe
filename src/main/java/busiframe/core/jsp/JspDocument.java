@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
+import busiframe.core.dao.M_SysDisp;
+
 /**
  * JSP構造体
  */
 public class JspDocument implements I_BaseCharacter{
 
+	/** 表示情報 */
+	private M_SysDisp disp = new M_SysDisp();
+	
 	/** 出力Path */
 	private String jspOutPath;
 	/** JSPトップドキュメント */
@@ -28,22 +33,7 @@ public class JspDocument implements I_BaseCharacter{
 	 */
 	public JspDocument() {
 		// JSP用HTMLヘッダーセット
-		document = createJSPDocument();
-	}
-
-	/**
-	 * JSP用ドキュメントヘッダー生成<br>
-	 * @since 2024/11/04
-	 * @return JSP用ドキュメントヘッダ
-	 */
-	private StringBuffer createJSPDocument() {
-		StringBuffer hl = new StringBuffer();
-		hl.append(page.toString()).append(LF);
-		hl.append(core.toString()).append(LF);
-		hl.append(fmt.toString()).append(LF);
-		hl.append("<!DOCTYPE html>").append(LF);
-		hl.append(html.toString());
-		return hl;
+//		document = createJSPDocument();
 	}
 
 	/**
@@ -57,6 +47,7 @@ public class JspDocument implements I_BaseCharacter{
 			// 出力ファイルOpen
 			File file = new File(jspOutPath+"/"+"login.jsp");
 			OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8);
+			document = createJSPDocument();
 			writer.write(document.toString());
 			writer.close();
 		} catch (IOException e) {
@@ -64,8 +55,28 @@ public class JspDocument implements I_BaseCharacter{
 		}
 	}
 
+	/**
+	 * JSP用ドキュメントヘッダー生成<br>
+	 * @since 2024/11/04
+	 * @return JSP用ドキュメントヘッダ
+	 */
+	private StringBuffer createJSPDocument() {
+		StringBuffer hl = new StringBuffer();
+		hl.append(page.toString()).append(LF);
+		hl.append(core.toString()).append(LF);
+		hl.append(fmt.toString()).append(LF);
+		hl.append("<!DOCTYPE html>").append(LF);
+		html.setDisp(disp);
+		html.create();
+		hl.append(html.toString());
+		return hl;
+	}
+
 	public void setJspOutPath(String jspOutPath) {
 		this.jspOutPath = jspOutPath;
+	}
+	public void setDisp(M_SysDisp disp) {
+		this.disp = disp;
 	}
 
 }

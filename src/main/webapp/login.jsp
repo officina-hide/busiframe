@@ -3,4 +3,9 @@
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8" >
+<title>ログイン Lv.01</title>
+<link rel="stylesheet" href="./css/skyblue_k.css">
+</head>
 </html>

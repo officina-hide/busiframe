@@ -25,6 +25,7 @@ public class X_SysDisp extends BaseDAO implements I_SysDisp {
 	public void itemSet(ResultSet rs) throws SQLException {
 		setDispId(rs.getInt(COLUMN_NAME_DISP_ID));
 		setDispCd(rs.getString(COLUMN_NAME_DISP_CD));
+		setTabTitle(rs.getString(COLUMN_NAME_TAB_TITLE));
 	}
 
 	public int getDispId() {
