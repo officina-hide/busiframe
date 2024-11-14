@@ -14,6 +14,8 @@ public class HtmlToken extends TokenData {
 	
 	/** head文字列 */
 	StringBuffer head = new StringBuffer();
+	/** body文字列 */
+	StringBuffer body = new StringBuffer();
 	/** metaトークン */
 	JSP_Meta meta = new JSP_Meta();
 	/** titleトークン */
@@ -26,8 +28,9 @@ public class HtmlToken extends TokenData {
 		StringBuffer str = new StringBuffer();
 		str.append("<html>").append(LF);
 		str.append(head);
+		str.append(body);
 		str.append("</html>").append(LF);
-		return str.toString();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    		return str.toString();
 	}
 
 	/**
@@ -35,13 +38,27 @@ public class HtmlToken extends TokenData {
 	 * @since 2024/11/13
 	 */
 	public void create() {
-		//head生成
+		// head生成
 		head.append("<head>").append(LF);
-		head.append(meta.toString()).append(LF);
+		head.append(TB).append(meta.toString()).append(LF);
 		title.setTabTitlel(disp.getTabTitle());
-		head.append(title.toString()).append(LF);
-		head.append(link.toString()).append(LF);
+		head.append(TB).append(title.toString()).append(LF);
+		head.append(TB).append(link.toString()).append(LF);
 		head.append("</head>").append(LF);
+		// body生成
+		body.append("<body>").append(LF);
+		body.append(createError());
+		body.append("</body>").append(LF);
+	}
+
+	/**
+	 * エラー表示追加
+	 * @since 2024/11/14
+	 * @return エラー表示用HTML文
+	 */
+	private String createError() {
+		StringBuffer str = new StringBuffer();
+		return str.toString();
 	}
 
 	public void setDisp(M_SysDisp disp) {

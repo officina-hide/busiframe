@@ -18,4 +18,8 @@ public interface I_BaseCharacter {
 	public final String SQ = "'";
 	/** カンマ */
 	public final String CM = ",";
+	/** タブ */
+	public final String TB = "\t";
+	public final String TB2 = "\t\t";
+	public final String TB3 = "\t\t\t";
 }
