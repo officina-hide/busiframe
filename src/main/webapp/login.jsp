@@ -9,6 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="./action01" method="post">
+			<div class="row text-center">
+				<button type="submit" class="btn btn-dark btn-empty">ログイン</button>
+			</div>
+</form>
 </body>
 </html>
