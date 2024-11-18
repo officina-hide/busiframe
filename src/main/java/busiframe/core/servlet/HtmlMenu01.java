@@ -43,6 +43,16 @@ public class HtmlMenu01 implements BaseCharacter {
 	private String createHtmlSource() {
 		StringBuffer str = new StringBuffer();
 		str.append("<!DOCTYPE html>").append(LF);
+		// 画面遷移用Javascript設定
+		// TODO ここは後で見直す予定。 2024/11/18
+		str.append("<script>").append(LF);
+		str.append(TB).append("function menu01() {").append(LF);
+		str.append(T2).append("document.menuform.action=\"./action01?actionName=educate01\";").append(LF);
+		str.append(T2).append("document.menuform.method=\"post\";").append(LF);
+		str.append(T2).append("document.menuform.submit();").append(LF);
+		str.append(TB).append("}").append(LF);
+		str.append("</script>").append(LF);
+		
 		str.append("<html>").append(LF);
 		str.append("<head>").append(LF);
 		str.append(TB).append(MetaTag.getSource(StandardCharsets.UTF_8)).append(LF);
@@ -53,6 +63,16 @@ public class HtmlMenu01 implements BaseCharacter {
 		str.append("<header>").append(LF);
 		str.append(TB).append(TitleBar.getSource("総合メニュー Lv.01"));
 		str.append("</header>").append(LF);
+		
+		// メニュー
+		str.append(TB).append("<form name=\"menuform\">").append(LF);
+		str.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
+		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">問題一覧Lv.01</button>")
+			.append(LF);
+		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">受注一覧Lv.01</button>")
+		.append(LF);
+		str.append(T2).append("</div>").append(LF);
+		str.append(TB).append("</form>").append(LF);		
 		str.append("</body>").append(LF);
 		str.append("</html>").append(LF);
 		return str.toString();

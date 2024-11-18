@@ -27,14 +27,18 @@ public class ActionServlet01 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String actionName = request.getParameter("actionName");
+		StringBuffer html = new StringBuffer();
 		
-		// Menu01表示
-		HtmlMenu01 menu01 = new HtmlMenu01();
-		String html = menu01.createHTML();
+		if(actionName == null || actionName.equals("menu01")) {
+			// Menu01表示
+			HtmlMenu01 menu01 = new HtmlMenu01();
+			html.append(menu01.createHTML());
+		}
 		
 		
 		PrintWriter out = response.getWriter();
-		out.print(html);
+		out.print(html.toString());
 		
 		return;
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
