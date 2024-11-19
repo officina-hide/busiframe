@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import busiframe.educate.servlet.HtmlEducateMenu01;
+
 /**
  * Servlet implementation class ActionServlet01
  */
@@ -34,6 +36,11 @@ public class ActionServlet01 extends HttpServlet {
 			// Menu01表示
 			HtmlMenu01 menu01 = new HtmlMenu01();
 			html.append(menu01.createHTML());
+		}
+		if(actionName != null && actionName.equals("educate01")) {
+			// 教育メニューLv.01表示
+			HtmlEducateMenu01 edu01 = new HtmlEducateMenu01();
+			html.append(edu01.createHTML());
 		}
 		
 		
