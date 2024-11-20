@@ -35,14 +35,9 @@ public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml {
 		str.append(T2).append("document.menuform.actionName.value=\"menu01\";").append(LF);
 		str.append(T2).append("document.menuform.submit();").append(LF);
 		str.append(TB).append("}").append(LF);
-		str.append(TB).append("function orderEntry01() {").append(LF);
+		str.append(TB).append("function order01(name) {").append(LF);
 		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
-		str.append(T2).append("document.menuform.actionName.value=\"orderEntry01\";").append(LF);
-		str.append(T2).append("document.menuform.submit();").append(LF);
-		str.append(TB).append("}").append(LF);
-		str.append(TB).append("function orderList01() {").append(LF);
-		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
-		str.append(T2).append("document.menuform.actionName.value=\"orderList01\";").append(LF);
+		str.append(T2).append("document.menuform.actionName.value=name;").append(LF);
 		str.append(T2).append("document.menuform.submit();").append(LF);
 		str.append(TB).append("}").append(LF);
 		str.append("</script>").append(LF);
@@ -68,9 +63,9 @@ public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml {
 		str.append(T2).append("</div>").append(LF);
 		// メニューボタン（1行目)
 		str.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
-		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"orderEntry01()\">")
+		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01('orderEntry01')\">")
 			.append("受注登録 Lv.01").append("</button>").append(LF);
-		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"orderList01()\">")
+		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01('orderList01')\">")
 			.append("受注一覧 Lv.01").append("</button>").append(LF);
 		str.append(T2).append("</div>").append(LF);
 		

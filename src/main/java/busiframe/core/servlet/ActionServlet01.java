@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import busiframe.educate.servlet.HtmlEducateMenu01;
+import busiframe.order.servlet.HtmlOrderEntry01;
 import busiframe.order.servlet.HtmlOrderMenu01;
 
 /**
@@ -47,6 +48,11 @@ public class ActionServlet01 extends HttpServlet {
 			// 受注メニューLv.01表示
 			HtmlOrderMenu01 order01 = new HtmlOrderMenu01();
 			html.append(order01.createHTML());
+		}
+		if(actionName != null && actionName.equals("orderEntry01")) {
+			// 受注登録 Lv.01表示
+			HtmlOrderEntry01 orderEntry01 = new HtmlOrderEntry01();
+			html.append(orderEntry01.createHTML());
 		}
 		
 		
