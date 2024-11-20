@@ -10,6 +10,10 @@ public interface BaseHtml {
 
 	// 画面名称 TODO データベース化 2024/11/19
 	public static final String EDUCATE_MENU_01_TITLE = "教育メニュー Lv.01";
+	public static final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";
+	
+	public static final String HTML_START = "<html>";
+	public static final String HTML_END = "</html>";
 
 	
 	

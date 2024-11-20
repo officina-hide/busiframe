@@ -35,10 +35,10 @@ public class HtmlMenu01 implements BaseCharacter, BaseHtml {
 	}
 
 	/**
-	 * HTML : JSP用ドキュメントヘッド生成<br>
+	 * HTML : 総合メニューソース生成<br>
 	 * TODO 要汎用化 2024/11/16
 	 * @since 2024/11/16
-	 * @return ドキュメントヘッドソース文字列
+	 * @return  総合メニューHTML文字列
 	 */
 	private String createHtmlSource() {
 		StringBuffer str = new StringBuffer();
@@ -47,11 +47,13 @@ public class HtmlMenu01 implements BaseCharacter, BaseHtml {
 		// TODO ここは後で見直す予定。 2024/11/18
 		str.append("<script>").append(LF);
 		str.append(TB).append("function menu01() {").append(LF);
-		str.append(T2).append("document.menuform.action=\"./action01?actionName=educate01\";").append(LF);
+		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
+		str.append(T2).append("document.menuform.actionName.value=\"educate01\";").append(LF);
 		str.append(T2).append("document.menuform.submit();").append(LF);
 		str.append(TB).append("}").append(LF);
 		str.append(TB).append("function menu02() {").append(LF);
-		str.append(T2).append("document.menuform.action=\"./action01?actionName=order01\";").append(LF);
+		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
+		str.append(T2).append("document.menuform.actionName.value=\"order01\";").append(LF);
 		str.append(T2).append("document.menuform.submit();").append(LF);
 		str.append(TB).append("}").append(LF);
 		str.append("</script>").append(LF);
@@ -71,11 +73,12 @@ public class HtmlMenu01 implements BaseCharacter, BaseHtml {
 		
 		// メニュー
 		str.append(TB).append("<form name=\"menuform\" method=\"post\">").append(LF);
+		str.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
 		str.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
 		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
 			+ EDUCATE_MENU_01_TITLE + "</button>").append(LF);
-		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">受注メニュー Lv.01</button>")
-			.append(LF);
+		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">"
+			+ ORDER_MENU_01_TITLE + "</button>").append(LF);
 		str.append(T2).append("</div>").append(LF);
 		
 		str.append(TB).append("</form>").append(LF);		
