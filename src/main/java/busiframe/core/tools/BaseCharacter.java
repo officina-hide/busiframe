@@ -14,6 +14,8 @@ public interface BaseCharacter {
 	public final String SP = " ";
 	/** ダブルクォーテーション */
 	public final String DQ = "\"";
+	/** シングルクォーテーション */
+	public final String SQ = "'";
 	/** タブ */
 	public final String TB = "\t";
 	public final String T2 = "\t\t";
