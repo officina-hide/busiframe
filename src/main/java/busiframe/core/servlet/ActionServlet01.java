@@ -5,9 +5,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import busiframe.core.dao.Environment;
 import busiframe.educate.servlet.HtmlEducateMenu01;
 import busiframe.order.servlet.HtmlOrderEntry01;
 import busiframe.order.servlet.HtmlOrderMenu01;
@@ -33,11 +36,17 @@ public class ActionServlet01 extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String actionName = request.getParameter("actionName");
 		StringBuffer html = new StringBuffer();
+		HttpSession session = request.getSession();
 		
 		if(actionName == null || actionName.equals("menu01")) {
 			// Menu01表示
 			HtmlMenu01 menu01 = new HtmlMenu01();
 			html.append(menu01.createHTML());
+			// 環境情報をsessionにセットする。
+			Environment env = new Environment();
+			env.setDbSw(1);
+			env.setLoginUserId(1001);
+			session.setAttribute("env", env);
 		}
 		if(actionName != null && actionName.equals("educate01")) {
 			// 教育メニューLv.01表示

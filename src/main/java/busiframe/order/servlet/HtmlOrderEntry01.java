@@ -27,7 +27,7 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 		// Javascript
 		html.append("<script>").append(LF);
 		html.append(TB).append("function entry() {").append(LF);
-		html.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
+		html.append(T2).append("document.menuform.action=\"./order01\";").append(LF);
 		html.append(T2).append("document.menuform.actionName.value=\"entry\";").append(LF);
 		html.append(T2).append("if(window.confirm('登録してよろしいですか？')){").append(LF);
 		html.append(T3).append("document.menuform.submit();").append(LF);
