@@ -2,10 +2,10 @@ package busiframe.core.servlet;
 
 import java.nio.charset.StandardCharsets;
 
-import busiframe.core.JSP.LinkTag;
-import busiframe.core.JSP.MetaTag;
-import busiframe.core.JSP.TitleBar;
-import busiframe.core.JSP.TitleTag;
+import busiframe.core.jsp.LinkTag;
+import busiframe.core.jsp.MetaTag;
+import busiframe.core.jsp.TitleBar;
+import busiframe.core.jsp.TitleTag;
 import busiframe.core.tools.BaseCharacter;
 
 /**
