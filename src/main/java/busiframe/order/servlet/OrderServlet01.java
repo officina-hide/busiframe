@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 
 import busiframe.core.dao.Environment;
@@ -44,7 +45,9 @@ public class OrderServlet01 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		StringBuffer html = new StringBuffer();
 		Environment env = (Environment) session.getAttribute("env");
+		// 入力チェック TODO 未実装 2024/11/22
 		// 処理を判定する。
 		String actionName = request.getParameter("actionName");
 		if(actionName != null && actionName.equals("entry")) {
@@ -54,7 +57,16 @@ public class OrderServlet01 extends HttpServlet {
 			M_Order01 order = new M_Order01();
 			order.getOrder().setOrderDate(orderDate);
 			order.save(env);
+			// TODO 登録確認 未実装 2024/11/22
+			// 受注一覧へ遷移する。
+			HTMLOrderList01 orderLIst = new HTMLOrderList01();
+			html.append(orderLIst.createHTML());
 		}
+		
+		PrintWriter out = response.getWriter();
+		out.print(html.toString());
+		
+		return;
 	}
 
 }

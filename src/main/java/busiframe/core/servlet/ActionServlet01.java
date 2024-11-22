@@ -69,7 +69,6 @@ public class ActionServlet01 extends HttpServlet {
 		out.print(html.toString());
 		
 		return;
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
