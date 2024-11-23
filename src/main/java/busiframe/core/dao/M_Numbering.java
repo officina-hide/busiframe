@@ -1,6 +1,7 @@
 package busiframe.core.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -59,5 +60,50 @@ public class M_Numbering extends BaseDAO implements I_Numbering {
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * 採番<br>
+	 * テーブル単位で管理するID等の番号を採番する。<br>
+	 * @since 2024/11/23
+	 * @param env 環境情報
+	 * @param tableId テーブル情報ID
+	 * @return 採番番号
+	 */
+	public int newNumber(Environment env, int tableId) {
+		int id = 0;
+		int numberingId = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_NUMBERING);
+			pstmt.setInt(1, tableId);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				id = rs.getInt(COL_NAME_CURRENT_NUMBER) + 1;
+				numberingId = rs.getInt(COL_NAME_NUMBERING_ID);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+		
+		// 現在値更新
+		if(numberingId > 0) {
+			try {
+				connection(env);
+				pstmt = env.getConn().prepareStatement(SQL_UPDATE_NUMBERING);
+				pstmt.setInt(1, id);
+				pstmt.setInt(2, numberingId);
+				pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt, rs);
+			}
+		}
+		return id;
 	}
 }

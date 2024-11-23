@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.M_Numbering;
 
 /**
  * 受注情報 Lv.01クラス<br>
@@ -54,7 +55,8 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 	 */
 	public void save(Environment env) {
 		// ID採番 TODO 未実装 2024/11/22
-		getOrder().setOrderId(10002);
+		M_Numbering num = new M_Numbering();
+		getOrder().setOrderId(num.newNumber(env, I_Order01.TABLE_ID_ORDER));
 		// 追加登録 TODO 汎用化未実装 2024/11/22
 		PreparedStatement pstmt = null;
 		try {

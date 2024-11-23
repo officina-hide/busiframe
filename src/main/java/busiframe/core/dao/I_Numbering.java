@@ -36,4 +36,11 @@ public interface I_Numbering extends BaseCharacter {
 	public final String SQL_INSERT_NUMBERING = "INSERT INTO" + SP + TABLE_NAME_NUMBERING + SP
 			+ "(" + COL_NAME_NUMBERING_ID + CM + COL_NAME_CURRENT_NUMBER + CM
 			+ COL_NAME_TABLE_ID + ") VALUES (?,?,?)" + SP;
+	/** SQL : 取得（テーブルIDのみ) */
+	public final String SQL_LOAD_NUMBERING = "SELECT * FROM" + SP + TABLE_NAME_NUMBERING + SP
+			+ "WHERE" + SP + COL_NAME_TABLE_ID + " = ?" + SP;
+	/** SQL : 更新 */
+	public final String SQL_UPDATE_NUMBERING = "UPDATE" + SP + TABLE_NAME_NUMBERING + SP
+			+ "SET" + SP + COL_NAME_CURRENT_NUMBER + " = ? "
+			+ "WHERE" + SP + COL_NAME_NUMBERING_ID + " = ? ";
 }
