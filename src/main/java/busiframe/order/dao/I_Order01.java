@@ -11,11 +11,14 @@ public interface I_Order01 extends I_BaseDAO {
 
 	// テーブル関連
 	public final String TABLE_NAME_ORDER = "ord_order";
+	public final String TABLE_COMMENT_ORDER = "受注情報 Lv.01";
+	public final int TABLE_ID_ORDER = 1101;	// TODO 受注情報のテーブル情報IDは固定 2024/11/22
 	
 	// テーブル項目関連
 	// 受注情報ID
 	public final String COL_NAME_ORDER_ID = "order_id";
 	public final String COL_COMMENT_ORDER_ID = "受注情報ID";
+	public final int COL_ID_ORDER_ID = 1101001;
 	// 受注日
 	public final String COL_NAME_ORDER_DATE = "order_date";
 	public final String COL_COMMENT_ORDER_DATE = "受注日";

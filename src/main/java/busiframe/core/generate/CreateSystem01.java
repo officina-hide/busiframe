@@ -26,6 +26,9 @@ public class CreateSystem01 implements BaseGenerate {
 		// システム管理者をログインユーザーとして設定
 		env.setLoginUserId(SYSTEM_USER_ID);
 		
+		// 基盤システム関連
+		CreateBaseSystem01 cbs = new CreateBaseSystem01();
+		cbs.execute(env);
 		// 受注関連生成
 		CreateOrderSystem01 cos = new CreateOrderSystem01();
 		cos.execute(env);

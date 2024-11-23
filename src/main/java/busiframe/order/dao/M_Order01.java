@@ -25,7 +25,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 	 * @param env 環境情報
 	 */
 	public void dropTable(Environment env) {
-		dropTable(env, "ord_order");
+		dropTable(env, TABLE_NAME_ORDER);
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 	 */
 	public void createTable(Environment env) {
 		// 基本構築
-		createTable(env, "ord_order", "受注情報", "order_id", "受注情報ID");
+		createTable(env, TABLE_NAME_ORDER, TABLE_COMMENT_ORDER, COL_NAME_ORDER_ID, COL_COMMENT_ORDER_ID);
 		// 項目追加
 		addColumn(env, COL_ALTER_ORDER_DATE);
 	}
