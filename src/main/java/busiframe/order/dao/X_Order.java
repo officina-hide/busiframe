@@ -14,6 +14,8 @@ public class X_Order {
 	private int orderId;
 	/** 受注日 */
 	private LocalDate orderDate;
+	/** 相手先名 */ //addition 2024/11/25
+	private String partnerName;
 	
 	
 	public int getOrderId() {
@@ -27,5 +29,11 @@ public class X_Order {
 	}
 	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
+	}
+	public String getPartnerName() {
+		return partnerName;
+	}
+	public void setPartnerName(String partnerName) {
+		this.partnerName = partnerName;
 	}
 }

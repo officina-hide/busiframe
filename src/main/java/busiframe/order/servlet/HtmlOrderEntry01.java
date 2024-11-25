@@ -54,11 +54,19 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 		html.append("<form name=\"menuform\" method=\"post\">").append(LF);
 		html.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
 		html.append(TB).append("<div class=\"padding-x-100 padding-y-5\">").append(LF);
-		// 項目一覧の表示
+		// 項目の表示 TODO 表示明細情報から展開出来るようにする。 2024/11/25
+		// 受注日 
 		html.append(T2).append("<div class=\"row\">").append(LF);
 		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">受注日</label>").append(LF);
 		html.append(T3).append("<div class=\"md-2\">").append(LF);
 		html.append(T4).append("<input class=\"form-control\"  type=\"date\" id=\"orderDate\" name=\"orderDate\">").append(LF);
+		html.append(T3).append("</div>").append(LF);
+		html.append(T2).append("</div>").append(LF);
+		// 相手先名
+		html.append(T2).append("<div class=\"row\">").append(LF);
+		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">相手先名</label>").append(LF);
+		html.append(T3).append("<div class=\"md-4\">").append(LF);
+		html.append(T4).append("<input class=\"form-control\"  type=\"text\" id=\"partnerName\" name=\"partnerName\">").append(LF);
 		html.append(T3).append("</div>").append(LF);
 		html.append(T2).append("</div>").append(LF);
 	

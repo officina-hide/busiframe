@@ -39,6 +39,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		createTable(env, TABLE_NAME_ORDER, TABLE_COMMENT_ORDER, COL_NAME_ORDER_ID, COL_COMMENT_ORDER_ID);
 		// 項目追加
 		addColumn(env, COL_ALTER_ORDER_DATE);
+		addColumn(env, COL_ALTER_PARTNER_NAME);
 	}
 
 	public X_Order getOrder() {
@@ -65,6 +66,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 			pstmt.setInt(1, order.getOrderId());
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			pstmt.setTimestamp(2, new Timestamp(df.parse(order.getOrderDate().toString()).getTime()));
+			pstmt.setString(3, order.getPartnerName());
 			pstmt.executeUpdate();
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();

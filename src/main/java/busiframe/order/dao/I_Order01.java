@@ -26,11 +26,19 @@ public interface I_Order01 extends I_BaseDAO {
 	public final String COL_ALTER_ORDER_DATE = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
 			+ "add  order_date DATE COMMENT" + SP
 			+ SQ + COL_COMMENT_ORDER_DATE + SQ + SP;
+	// 相手先名 addition 2024/11/25
+	public final String COL_NAME_PARTNER_NAME = "partner_name";
+	public final String COL_COMMENT_PARTNER_NAME = "相手先名";
+	public final String COL_DESCRIPTION_PARTNER_NAME = "商品を受注した相手先の名称"
+			+ "<br>Lv.01では受注・納品・請求の全てがこの相手先ととなる。マスター管理もしない。";
+	public final String COL_ALTER_PARTNER_NAME = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
+			+ "ADD" + SP + COL_NAME_PARTNER_NAME + SP + "VARCHAR(100)" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_PARTNER_NAME + SQ + SP;
 	
 	// SQL関係
 	/** SQL : 追加用 */
 	public final String SQL_INSERT_ORDER = "INSERT INTO" + SP + TABLE_NAME_ORDER + " ("
-			+ COL_NAME_ORDER_ID + CM + COL_NAME_ORDER_DATE
-			+ ") VALUES (?,?)" + SP;
+			+ COL_NAME_ORDER_ID + CM + COL_NAME_ORDER_DATE + CM + COL_NAME_PARTNER_NAME
+			+ ") VALUES (?,?,?)" + SP;
 	
 }

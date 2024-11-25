@@ -56,11 +56,12 @@ public class OrderServlet01 extends HttpServlet {
 			// 受注情報登録
 			M_Order01 order = new M_Order01();
 			order.getOrder().setOrderDate(orderDate);
+			order.getOrder().setPartnerName(request.getParameter("partnerName"));
 			order.save(env);
 			// TODO 登録確認 未実装 2024/11/22
 			// 受注一覧へ遷移する。
-			HTMLOrderList01 orderLIst = new HTMLOrderList01();
-			html.append(orderLIst.createHTML());
+			HTMLOrderList01 orderList = new HTMLOrderList01();
+			html.append(orderList.createHTML());
 		}
 		
 		PrintWriter out = response.getWriter();
