@@ -7,10 +7,14 @@ package busiframe.core.servlet;
  * @version 1.00 新規作成
  */
 public interface BaseHtml {
+	// actionName
+	/** 生産メニュー */
+	public static final String MENU_PRODUCT01 = "product01";
 
 	// 画面名称 TODO データベース化 2024/11/19
 	public static final String EDUCATE_MENU_01_TITLE = "教育メニュー Lv.01";
 	public static final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";
+	public static final String PRODUCT_MENU_01_TITLE = "生産メニュー Lv.01";	// addition 2024/11/25
 	public static final String ORDER_ENTRY_01_TITLE = "受注登録 Lv.01";
 	public static final String ORDER_LIST_01_TITLE = "受注一覧 Lv.01";
 	
@@ -20,7 +24,7 @@ public interface BaseHtml {
 	public static final String HEAD_START = "<head>";
 	public static final String HEAD_END = "</head>";
 
-	
+
 	
 	/** DOCTYPE */
 	public static final String DOCTYPE_HTML = "<!DOCTYPE html>";

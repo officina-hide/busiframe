@@ -41,50 +41,58 @@ public class HtmlMenu01 implements BaseCharacter, BaseHtml {
 	 * @return  総合メニューHTML文字列
 	 */
 	private String createHtmlSource() {
-		StringBuffer str = new StringBuffer();
-		str.append(DOCTYPE_HTML).append(LF);
+		StringBuffer html = new StringBuffer();
+		html.append(DOCTYPE_HTML).append(LF);
 		// 画面遷移用Javascript設定
 		// TODO ここは後で見直す予定。 2024/11/18
-		str.append("<script>").append(LF);
-		str.append(TB).append("function menu01() {").append(LF);
-		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
-		str.append(T2).append("document.menuform.actionName.value=\"educate01\";").append(LF);
-		str.append(T2).append("document.menuform.submit();").append(LF);
-		str.append(TB).append("}").append(LF);
-		str.append(TB).append("function menu02() {").append(LF);
-		str.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
-		str.append(T2).append("document.menuform.actionName.value=\"order01\";").append(LF);
-		str.append(T2).append("document.menuform.submit();").append(LF);
-		str.append(TB).append("}").append(LF);
-		str.append("</script>").append(LF);
+		html.append("<script>").append(LF);
+		// menu01
+		html.append(TB).append("function menu01() {").append(LF);
+		html.append(T2).append("document.menuform.actionName.value=\"educate01\";").append(LF);
+		html.append(T2).append("document.menuform.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		// menu02
+		html.append(TB).append("function menu02() {").append(LF);
+		html.append(T2).append("document.menuform.actionName.value=\"order01\";").append(LF);
+		html.append(T2).append("document.menuform.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		// menu03 addtion 2024/11/26
+		html.append(TB).append("function menu03() {").append(LF);
+		html.append(T2).append("document.menuform.actionName.value=\""+MENU_PRODUCT01+"\";").append(LF);
+		html.append(T2).append("document.menuform.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		html.append("</script>").append(LF);
 		
-		str.append("<html>").append(LF);
+		html.append("<html>").append(LF);
 		
-		str.append("<head>").append(LF);
-		str.append(TB).append(MetaTag.getSource(StandardCharsets.UTF_8)).append(LF);
-		str.append(TB).append(TitleTag.getSource("総合メニュー Lv.01")).append(LF);
-		str.append(TB).append(LinkTag.getSource("stylesheet", "./css/skyblue_k.css")).append(LF);
-		str.append("</head>").append(LF);
+		html.append("<head>").append(LF);
+		html.append(TB).append(MetaTag.getSource(StandardCharsets.UTF_8)).append(LF);
+		html.append(TB).append(TitleTag.getSource("総合メニュー Lv.01")).append(LF);
+		html.append(TB).append(LinkTag.getSource("stylesheet", "./css/skyblue_k.css")).append(LF);
+		html.append("</head>").append(LF);
 		
-		str.append("<body>").append(LF);
-		str.append("<header>").append(LF);
-		str.append(TB).append(TitleBar.getSource("総合メニュー Lv.01"));
-		str.append("</header>").append(LF);
+		html.append("<body>").append(LF);
+		html.append("<header>").append(LF);
+		html.append(TB).append(TitleBar.getSource("総合メニュー Lv.01"));
+		html.append("</header>").append(LF);
 		
 		// メニュー
-		str.append(TB).append("<form name=\"menuform\" method=\"post\">").append(LF);
-		str.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
-		str.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
-		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
+		// function()からaction設定を削除しformに追加する。 2024/11/26
+		html.append(TB).append("<form name=\"menuform\" action=\"./action01\" method=\"post\">").append(LF);
+		html.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
+		html.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
+		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
 			+ EDUCATE_MENU_01_TITLE + "</button>").append(LF);
-		str.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">"
+		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">"
 			+ ORDER_MENU_01_TITLE + "</button>").append(LF);
-		str.append(T2).append("</div>").append(LF);
+		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu03()\">"
+			+ PRODUCT_MENU_01_TITLE + "</button>").append(LF);
+		html.append(T2).append("</div>").append(LF);
 		
-		str.append(TB).append("</form>").append(LF);		
-		str.append("</body>").append(LF);
-		str.append("</html>").append(LF);
-		return str.toString();
+		html.append(TB).append("</form>").append(LF);		
+		html.append("</body>").append(LF);
+		html.append("</html>").append(LF);
+		return html.toString();
 	}
 
 }

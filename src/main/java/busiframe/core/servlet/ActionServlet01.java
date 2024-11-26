@@ -1,5 +1,12 @@
 package busiframe.core.servlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import busiframe.core.dao.Environment;
+import busiframe.educate.servlet.HtmlEducateMenu01;
+import busiframe.order.servlet.HtmlOrderMenu01;
+import busiframe.product.servlet.HtmlProductMenu01;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,19 +14,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import busiframe.core.dao.Environment;
-import busiframe.educate.servlet.HtmlEducateMenu01;
-import busiframe.order.servlet.HtmlOrderEntry01;
-import busiframe.order.servlet.HtmlOrderMenu01;
-
 /**
  * Servlet implementation class ActionServlet01
  */
 @WebServlet("/action01")
-public class ActionServlet01 extends HttpServlet {
+public class ActionServlet01 extends HttpServlet implements BaseHtml {
+
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -58,12 +58,11 @@ public class ActionServlet01 extends HttpServlet {
 			HtmlOrderMenu01 order01 = new HtmlOrderMenu01();
 			html.append(order01.createHTML());
 		}
-		if(actionName != null && actionName.equals("orderEntry01")) {
-			// 受注登録 Lv.01表示
-			HtmlOrderEntry01 orderEntry01 = new HtmlOrderEntry01();
-			html.append(orderEntry01.createHTML());
+		if(actionName != null && actionName.equals(MENU_PRODUCT01)) {
+			// 生産メニュー Lv.01表示
+			HtmlProductMenu01 product01 = new HtmlProductMenu01();
+			html.append(product01.createHTML());
 		}
-		
 		
 		PrintWriter out = response.getWriter();
 		out.print(html.toString());
