@@ -1,6 +1,7 @@
 package busiframe.core.generate;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
 
 /**
@@ -20,6 +21,10 @@ public class CreateBaseSystem01 {
 		M_Numbering num = new M_Numbering();
 		num.dropTable(env);
 		num.createTable(env);
+		// 表示関連情報
+		M_Display disp = new M_Display();
+		disp.dropTable(env);
+		disp.createTable(env);
 	}
 
 }

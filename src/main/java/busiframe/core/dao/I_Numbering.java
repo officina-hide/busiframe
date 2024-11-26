@@ -22,7 +22,7 @@ public interface I_Numbering extends BaseCharacter {
 	public final String COL_COMMENT_CURRENT_NUMBER = "現在値";
 	public final String COL_DESCRIPTION_CURRENT_NUMBER = "採番等で現在発行されている最大の値";
 	public final String COL_ALTER_CURRENT_NUMBER = "ALTER TABLE" + SP + TABLE_NAME_NUMBERING + SP
-			+ "add" + SP + COL_NAME_CURRENT_NUMBER + SP + "INT NOT NULL UNIQUE COMMENT" + SP
+			+ "add" + SP + COL_NAME_CURRENT_NUMBER + SP + "INT NOT NULL COMMENT" + SP
 			+ SQ + COL_COMMENT_CURRENT_NUMBER + SQ + SP;
 	// テーブル情報ID TODO テーブル情報インターフェースクラスで定義予定 2024/11/22
 	public final String COL_NAME_TABLE_ID = "table_id";
