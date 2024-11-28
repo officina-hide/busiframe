@@ -7,7 +7,7 @@ import busiframe.core.tools.BaseCharacter;
  * @since 2024/11/27
  * @version 1.00 新規作成
  */
-public interface I_SysDispDetail  extends BaseCharacter {
+public interface I_SysDispDetail  extends BaseCharacter, BaseTable {
 	
 	// テーブル関連
 	public final String TABLE_NAME_SYS_DISPDETAIL = "sys_dispdetail";
@@ -51,4 +51,11 @@ public interface I_SysDispDetail  extends BaseCharacter {
 	public final String COL_ALTER_ITEM_TYPE = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISPDETAIL + SP
 			+ "ADD" + SP + COL_NAME_ITEM_TYPE + SP + "VARCHAR(32) NOT NULL" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_ITEM_TYPE + SQ + SP;
+	
+	// SQL関連
+	/** SQL : 新規追加 */
+	public final String SQL_INSERT_DISPDETAIL = "INSERT INTO" + SP + TABLE_NAME_SYS_DISPDETAIL + SP + "("
+			+ COL_NAME_DISP_DETAIL_ID + CM + I_SysDisp.COL_NAME_DISP_ID + CM
+			+ COL_NAME_ITEM_CD + CM + COL_NAME_ITEM_SEQ + CM + COL_NAME_ITEM_LABEL + CM
+			+ COL_NAME_ITEM_TYPE + ")" + SP + "VALUES" + SP + "(?,?,?,?,?,?)";
 }

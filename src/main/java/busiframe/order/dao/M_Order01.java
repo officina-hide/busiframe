@@ -40,6 +40,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		// 項目追加
 		addColumn(env, COL_ALTER_ORDER_DATE);
 		addColumn(env, COL_ALTER_PARTNER_NAME);
+		addColumn(env, COL_ALTER_PRODUCT_NAME);
 	}
 
 	public X_Order getOrder() {

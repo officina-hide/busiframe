@@ -34,6 +34,14 @@ public interface I_Order01 extends I_BaseDAO {
 	public final String COL_ALTER_PARTNER_NAME = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
 			+ "ADD" + SP + COL_NAME_PARTNER_NAME + SP + "VARCHAR(100)" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_PARTNER_NAME + SQ + SP;
+	// 商品名 Addition 2024/11/28
+	public final String COL_NAME_PRODUCT_NAME = "product_name";
+	public final String COL_COMMENT_PRODUCT_NAME = "商品名";
+	public final String COL_DESCRIPTION_PRODUCT_NAME = "受注した商品の名前<br>"
+			+ "Lv.01では実際に相手先に販売する商品の会社側で命名した名前を扱う。";
+	public final String COL_ALTER_PRODUCT_NAME = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
+			+ "ADD" + SP + COL_NAME_PRODUCT_NAME + SP + "VARCHAR(200)" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_PRODUCT_NAME + SQ + SP;
 	
 	// SQL関係
 	/** SQL : 追加用 */

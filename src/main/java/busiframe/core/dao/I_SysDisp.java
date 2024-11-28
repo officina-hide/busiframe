@@ -26,4 +26,10 @@ public interface I_SysDisp extends BaseCharacter {
 	public final String COL_ALTER_DISP_CD = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISP + SP
 			+ "ADD" + SP + COL_NAME_DISP_CD + SP + "VARCHAR(100) NOT NULL UNIQUE" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DISP_CD + SQ + SP;
+	
+	// SQL関連
+	/** SQL : 追加 */
+	public final String SQL_INSERT_DISP = "INSERT INTO" + SP + TABLE_NAME_SYS_DISP + SP + "("
+			+ COL_NAME_DISP_ID + CM + COL_NAME_DISP_CD + ")" + SP
+			+ "VALUES" + SP + "(?,?)" + SP;
 }
