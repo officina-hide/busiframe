@@ -1,6 +1,7 @@
 package busiframe.core.generate;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.I_SysDispDetail;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
 
@@ -25,6 +26,12 @@ public class CreateBaseSystem01 {
 		M_Display disp = new M_Display();
 		disp.dropTable(env);
 		disp.createTable(env);
+		// 表示詳細情報用採番情報の登録
+		M_Numbering num_disp = new M_Numbering();
+		num_disp.getNumbering().setNumberingId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
+		num_disp.getNumbering().setCurrentNumber(100000);
+		num_disp.getNumbering().setTableId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
+		num_disp.save(env);
 	}
 
 }
