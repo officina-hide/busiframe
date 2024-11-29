@@ -36,7 +36,7 @@ public class OrderServlet01 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		return;
 	}
 
 	/**
@@ -47,9 +47,20 @@ public class OrderServlet01 extends HttpServlet {
 		HttpSession session = request.getSession();
 		StringBuffer html = new StringBuffer();
 		Environment env = (Environment) session.getAttribute("env");
+		PrintWriter out = response.getWriter();
+		String actionName = request.getParameter("actionName");
+
+		// メニューからの遷移の場合。
+		if(actionName.equals("orderEntry01")) {
+			HtmlOrderEntry01 oe01 = new HtmlOrderEntry01();
+			html.append(oe01.createHTML());
+			out.print(html.toString());
+			return;
+		}
+		
+		
 		// 入力チェック TODO 未実装 2024/11/22
 		// 処理を判定する。
-		String actionName = request.getParameter("actionName");
 		if(actionName != null && actionName.equals("entry")) {
 			// 受注日取得
 			LocalDate orderDate = LocalDate.parse(request.getParameter("orderDate"));
@@ -64,7 +75,6 @@ public class OrderServlet01 extends HttpServlet {
 			html.append(orderList.createHTML());
 		}
 		
-		PrintWriter out = response.getWriter();
 		out.print(html.toString());
 		
 		return;

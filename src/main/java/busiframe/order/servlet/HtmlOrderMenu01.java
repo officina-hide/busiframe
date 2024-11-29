@@ -36,7 +36,7 @@ public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml {
 		html.append(T2).append("document.menuform.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
 		html.append(TB).append("function order01(name) {").append(LF);
-		html.append(T2).append("document.menuform.action=\"./action01\";").append(LF);
+		html.append(T2).append("document.menuform.action=\"./order01\";").append(LF);
 		html.append(T2).append("document.menuform.actionName.value=name;").append(LF);
 		html.append(T2).append("document.menuform.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
