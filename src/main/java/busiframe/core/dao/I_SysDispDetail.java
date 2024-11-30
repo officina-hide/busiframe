@@ -58,4 +58,8 @@ public interface I_SysDispDetail  extends BaseCharacter, BaseTable {
 			+ COL_NAME_DISP_DETAIL_ID + CM + I_SysDisp.COL_NAME_DISP_ID + CM
 			+ COL_NAME_ITEM_CD + CM + COL_NAME_ITEM_SEQ + CM + COL_NAME_ITEM_LABEL + CM
 			+ COL_NAME_ITEM_TYPE + ")" + SP + "VALUES" + SP + "(?,?,?,?,?,?)";
+	/** SQL : 取得 Addition 2024/11/30 */ 
+	public final String SQL_LOAD_DISPDETAIL = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISPDETAIL + SP
+			+ "WHERE" + SP + I_SysDisp.COL_NAME_DISP_ID + " = ? "
+			+ "ORDER BY" + SP + COL_NAME_ITEM_SEQ;
 }

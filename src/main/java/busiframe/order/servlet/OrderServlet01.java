@@ -53,7 +53,7 @@ public class OrderServlet01 extends HttpServlet {
 		// メニューからの遷移の場合。
 		if(actionName.equals("orderEntry01")) {
 			HtmlOrderEntry01 oe01 = new HtmlOrderEntry01();
-			html.append(oe01.createHTML());
+			html.append(oe01.createHTML(env));
 			out.print(html.toString());
 			return;
 		}

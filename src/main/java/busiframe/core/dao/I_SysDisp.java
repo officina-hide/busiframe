@@ -32,4 +32,7 @@ public interface I_SysDisp extends BaseCharacter {
 	public final String SQL_INSERT_DISP = "INSERT INTO" + SP + TABLE_NAME_SYS_DISP + SP + "("
 			+ COL_NAME_DISP_ID + CM + COL_NAME_DISP_CD + ")" + SP
 			+ "VALUES" + SP + "(?,?)" + SP;
+	/** SQL : 取得  Addition 2024/11/30 */
+	public final String SQL_LOAD_DISP = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISP + SP
+			+ "WHERE" + SP + COL_NAME_DISP_CD + " = ? ";
 }

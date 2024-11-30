@@ -2,6 +2,9 @@ package busiframe.order.servlet;
 
 import java.nio.charset.StandardCharsets;
 
+import busiframe.core.dao.Environment;
+import busiframe.core.dao.M_Display;
+import busiframe.core.dao.X_sysDispDetail;
 import busiframe.core.jsp.LinkTag;
 import busiframe.core.jsp.MetaTag;
 import busiframe.core.jsp.TitleBar;
@@ -21,7 +24,17 @@ import busiframe.core.tools.BaseCharacter;
  */
 public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 
-	public String createHTML() {
+	/**
+	 * 受注登録HTMLソース生成<br>
+	 * @since 2024/11/20
+	 * @param env 環境情報
+	 * @return HTML文字列
+	 */
+	public String createHTML(Environment env) {
+		// 表示情報取得
+		M_Display disp = new M_Display();
+		disp.load(env, "OrderEntry01");
+		
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);
 		// Javascript
@@ -55,20 +68,51 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 		html.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
 		html.append(TB).append("<div class=\"padding-x-100 padding-y-5\">").append(LF);
 		// 項目の表示 TODO 表示明細情報から展開出来るようにする。 2024/11/25
-		// 受注日 
-		html.append(T2).append("<div class=\"row\">").append(LF);
-		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">受注日</label>").append(LF);
-		html.append(T3).append("<div class=\"md-2\">").append(LF);
-		html.append(T4).append("<input class=\"form-control\"  type=\"date\" id=\"orderDate\" name=\"orderDate\">").append(LF);
-		html.append(T3).append("</div>").append(LF);
-		html.append(T2).append("</div>").append(LF);
-		// 相手先名
-		html.append(T2).append("<div class=\"row\">").append(LF);
-		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">相手先名</label>").append(LF);
-		html.append(T3).append("<div class=\"md-4\">").append(LF);
-		html.append(T4).append("<input class=\"form-control\"  type=\"text\" id=\"partnerName\" name=\"partnerName\">").append(LF);
-		html.append(T3).append("</div>").append(LF);
-		html.append(T2).append("</div>").append(LF);
+		for(int ix = 0; ix < disp.getDetails().size(); ix++) {
+			X_sysDispDetail detail = disp.getDetails().get(ix);
+			html.append(T2).append("<div class=\"row\">").append(LF);
+			// ラベル
+			html.append(T3).append("<label class=" + DQ +"md-1 text-right  padding-x-10 padding-y-5"+DQ+">")
+				.append(detail.getItemLabel()).append("</label>").append(LF);
+			// 項目
+			switch(detail.getItemType()) {
+			case "date":	//日付
+				html.append(T3).append("<div class=\"md-2\">").append(LF);
+				html.append(T4).append("<input class=").append(DQ).append("form-control").append(DQ).append(SP)
+					.append("type=").append(DQ).append("date").append(DQ).append(SP)
+					.append("id=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
+					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(">").append(LF);
+				html.append(T3).append("</div>").append(LF);
+				break;
+			case "string":	//文字列
+				html.append(T3).append("<div class=\"md-4\">").append(LF);
+				html.append(T4).append("<input class=").append(DQ).append("form-control").append(DQ).append(SP)
+					.append("type=").append(DQ).append("text").append(DQ).append(SP)
+					.append("id=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
+					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(">").append(LF);
+				html.append(T3).append("</div>").append(LF);
+				break;
+			}
+			html.append(T2).append("</div>").append(LF);
+		}
+		
+		
+		
+		
+//		// 受注日 
+//		html.append(T2).append("<div class=\"row\">").append(LF);
+//		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">受注日</label>").append(LF);
+//		html.append(T3).append("<div class=\"md-2\">").append(LF);
+//		html.append(T4).append("<input class=\"form-control\"  type=\"date\" id=\"orderDate\" name=\"orderDate\">").append(LF);
+//		html.append(T3).append("</div>").append(LF);
+//		html.append(T2).append("</div>").append(LF);
+//		// 相手先名
+//		html.append(T2).append("<div class=\"row\">").append(LF);
+//		html.append(T3).append("<label class=\"md-1 text-right  padding-x-10 padding-y-5\">相手先名</label>").append(LF);
+//		html.append(T3).append("<div class=\"md-4\">").append(LF);
+//		html.append(T4).append("<input class=\"form-control\"  type=\"text\" id=\"partnerName\" name=\"partnerName\">").append(LF);
+//		html.append(T3).append("</div>").append(LF);
+//		html.append(T2).append("</div>").append(LF);
 	
 		// 登録ボタン
 		html.append(T2).append("<div class=\"row\">").append(LF);

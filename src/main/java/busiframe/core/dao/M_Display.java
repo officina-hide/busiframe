@@ -1,7 +1,10 @@
 package busiframe.core.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 表示関連情報クラス<br>
@@ -10,6 +13,11 @@ import java.sql.SQLException;
  */
 public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 
+	/** 表示情報 */
+	private X_SysDisp dispData = new X_SysDisp();
+	/** 表示詳細情報リスト */
+	private List<X_sysDispDetail> details = new ArrayList<>();
+	
 	/**
 	 * テーブル削除<br>
 	 * @since 2024/11/27
@@ -94,6 +102,52 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * 取得<br>
+	 * @param env 環境情報
+	 * @param orderCd 表示識別コード
+	 */
+	public void load(Environment env, String orderCd) {
+		// 表示情報を取得する。
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_DISP);
+			pstmt.setString(1, orderCd);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dispData.setItems(rs);
+			}
+			if(dispData.getDispId() > 0) {
+				// 表示詳細情報取得
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPDETAIL);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispDetail detail = new X_sysDispDetail();
+					detail.setItems(rs);
+					getDetails().add(detail);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+	}
+
+	public X_SysDisp getDispData() {
+		return dispData;
+	}
+
+	public List<X_sysDispDetail> getDetails() {
+		if(details == null) {
+			details = new ArrayList<>();
+		}
+		return details;
 	}
 
 }
