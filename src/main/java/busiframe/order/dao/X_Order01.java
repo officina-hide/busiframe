@@ -8,14 +8,16 @@ import java.time.LocalDate;
  * @since 2024/11/21
  * @version 1.00 新規作成
  */
-public class X_Order {
+public class X_Order01 implements I_Order01 {
 
 	/** 受注情報ID */
 	private int orderId;
 	/** 受注日 */
 	private LocalDate orderDate;
-	/** 相手先名 */ //addition 2024/11/25
+	/** 相手先名 addition 2024/11/25 */
 	private String partnerName;
+	/** 商品名 Addition 2024/11/30 */
+	private String productName; 
 	
 	
 	public int getOrderId() {
@@ -35,5 +37,11 @@ public class X_Order {
 	}
 	public void setPartnerName(String partnerName) {
 		this.partnerName = partnerName;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 }

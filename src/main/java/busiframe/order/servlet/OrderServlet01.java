@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 
 import busiframe.core.dao.Environment;
+import busiframe.order.dao.I_Order01;
 import busiframe.order.dao.M_Order01;
 
 /**
@@ -50,24 +51,29 @@ public class OrderServlet01 extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String actionName = request.getParameter("actionName");
 
+		// 処理を判定する。
+
 		// メニューからの遷移の場合。
 		if(actionName.equals("orderEntry01")) {
+			// 受注登録画面へ遷移する。
 			HtmlOrderEntry01 oe01 = new HtmlOrderEntry01();
 			html.append(oe01.createHTML(env));
 			out.print(html.toString());
 			return;
 		}
 		
-		
 		// 入力チェック TODO 未実装 2024/11/22
-		// 処理を判定する。
-		if(actionName != null && actionName.equals("entry")) {
-			// 受注日取得
-			LocalDate orderDate = LocalDate.parse(request.getParameter("orderDate"));
+		if(actionName.equals("entry")) {
 			// 受注情報登録
 			M_Order01 order = new M_Order01();
+			// TODO 表示情報からの項目展開は未実装 2024/11/30
+			// 受注日
+			LocalDate orderDate = LocalDate.parse(request.getParameter(I_Order01.COL_NAME_ORDER_DATE));
 			order.getOrder().setOrderDate(orderDate);
-			order.getOrder().setPartnerName(request.getParameter("partnerName"));
+			// 相手先
+			order.getOrder().setPartnerName(request.getParameter(I_Order01.COL_NAME_PARTNER_NAME));
+			// 商品名
+			order.getOrder().setProductName(request.getParameter(I_Order01.COL_NAME_PRODUCT_NAME));
 			order.save(env);
 			// TODO 登録確認 未実装 2024/11/22
 			// 受注一覧へ遷移する。

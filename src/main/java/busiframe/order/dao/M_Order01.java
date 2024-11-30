@@ -18,7 +18,7 @@ import busiframe.core.dao.M_Numbering;
 public class M_Order01 extends BaseDAO implements I_Order01{
 
 	/** 受注情報構造体 */
-	private X_Order order;
+	private X_Order01 order;
 	
 	/**
 	 * 受注テーブル削除<br>
@@ -43,9 +43,9 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		addColumn(env, COL_ALTER_PRODUCT_NAME);
 	}
 
-	public X_Order getOrder() {
+	public X_Order01 getOrder() {
 		if(order == null) {
-			order = new X_Order();
+			order = new X_Order01();
 		}
 		return order;
 	}
@@ -68,6 +68,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 			pstmt.setTimestamp(2, new Timestamp(df.parse(order.getOrderDate().toString()).getTime()));
 			pstmt.setString(3, order.getPartnerName());
+			pstmt.setString(4, order.getProductName());
 			pstmt.executeUpdate();
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();

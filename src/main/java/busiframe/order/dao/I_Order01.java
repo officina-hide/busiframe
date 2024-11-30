@@ -46,7 +46,8 @@ public interface I_Order01 extends I_BaseDAO {
 	// SQL関係
 	/** SQL : 追加用 */
 	public final String SQL_INSERT_ORDER = "INSERT INTO" + SP + TABLE_NAME_ORDER + " ("
-			+ COL_NAME_ORDER_ID + CM + COL_NAME_ORDER_DATE + CM + COL_NAME_PARTNER_NAME
-			+ ") VALUES (?,?,?)" + SP;
+			+ COL_NAME_ORDER_ID + CM + COL_NAME_ORDER_DATE + CM + COL_NAME_PARTNER_NAME + CM
+			+ COL_NAME_PRODUCT_NAME
+			+ ") VALUES (?,?,?,?)" + SP;
 	
 }
