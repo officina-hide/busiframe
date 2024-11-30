@@ -21,6 +21,8 @@ public class X_Order01 implements I_Order01 {
 	private String productName;
 	/** 受注数 Addition 2024/11/30 */
 	private BigDecimal orderNumber;
+	/** 受注金額 Addition 2024/11/30 */
+	private BigDecimal orderAmount;
 	
 	
 	public int getOrderId() {
@@ -52,5 +54,11 @@ public class X_Order01 implements I_Order01 {
 	}
 	public void setOrderNumber(BigDecimal orderNumber) {
 		this.orderNumber = orderNumber;
+	}
+	public BigDecimal getOrderAmount() {
+		return orderAmount;
+	}
+	public void setOrderAmount(BigDecimal orderAmount) {
+		this.orderAmount = orderAmount;
 	}
 }

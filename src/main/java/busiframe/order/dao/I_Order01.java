@@ -49,6 +49,13 @@ public interface I_Order01 extends I_BaseDAO {
 	public final String COL_ALTER_ORDER_NUMBER = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
 			+ "ADD" + SP + COL_NAME_ORDER_NUMBER + SP + "DECIMAL(10,0) DEFAULT 0" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_ORDER_NUMBER + SQ + SP;
+	// 受注金額 Addition 2024/11/30
+	public final String COL_NAME_ORDER_AMOUNT = "order_amount";
+	public final String COL_COMMENT_ORDER_AMOUNT = "受注金額";
+	public final String COL_DESCRIPTION_ORDER_AMOUNT = "受注した商品の金額";
+	public final String COL_ALTER_ORDER_AMOUNT = "ALTER TABLE" + SP + TABLE_NAME_ORDER + SP
+			+ "ADD" + SP + COL_NAME_ORDER_AMOUNT + SP + "DECIMAL(20,0) DEFAULT 0" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_ORDER_AMOUNT + SQ + SP;
 	
 	// SQL関係
 	/** SQL : 追加用 */
