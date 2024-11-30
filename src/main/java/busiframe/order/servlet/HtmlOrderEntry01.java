@@ -94,6 +94,13 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(">").append(LF);
 				html.append(T3).append("</div>").append(LF);
 				break;
+			case "number":	//数値
+				html.append(T3).append("<div class=\"md-2\">").append(LF);
+				html.append(T4).append("<input class=").append(DQ).append("form-control").append(DQ).append(SP)
+					.append("type=").append(DQ).append("number").append(DQ).append(SP)
+					.append("id=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
+					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(">").append(LF);
+				html.append(T3).append("</div>").append(LF);
 			}
 			html.append(T2).append("</div>").append(LF);
 		}

@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import busiframe.core.dao.Environment;
@@ -74,6 +75,9 @@ public class OrderServlet01 extends HttpServlet {
 			order.getOrder().setPartnerName(request.getParameter(I_Order01.COL_NAME_PARTNER_NAME));
 			// 商品名
 			order.getOrder().setProductName(request.getParameter(I_Order01.COL_NAME_PRODUCT_NAME));
+			// 受注数
+			BigDecimal onum = new BigDecimal(request.getParameter(I_Order01.COL_NAME_ORDER_NUMBER));
+			order.getOrder().setOrderNumber(onum);
 			order.save(env);
 			// TODO 登録確認 未実装 2024/11/22
 			// 受注一覧へ遷移する。

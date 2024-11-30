@@ -70,6 +70,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 			pstmt.setTimestamp(2, new Timestamp(df.parse(order.getOrderDate().toString()).getTime()));
 			pstmt.setString(3, order.getPartnerName());
 			pstmt.setString(4, order.getProductName());
+			pstmt.setBigDecimal(5, order.getOrderNumber());
 			pstmt.executeUpdate();
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();
