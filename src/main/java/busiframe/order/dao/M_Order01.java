@@ -41,6 +41,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		addColumn(env, COL_ALTER_ORDER_DATE);
 		addColumn(env, COL_ALTER_PARTNER_NAME);
 		addColumn(env, COL_ALTER_PRODUCT_NAME);
+		addColumn(env, COL_ALTER_ORDER_NUMBER);
 	}
 
 	public X_Order01 getOrder() {

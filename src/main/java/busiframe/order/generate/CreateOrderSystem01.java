@@ -36,6 +36,7 @@ public class CreateOrderSystem01 {
 		disp.addDispDetailData(env, 10001, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date");
 		disp.addDispDetailData(env, 10001, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
 		disp.addDispDetailData(env, 10001, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
+		disp.addDispDetailData(env, 10001, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number");
 	}
 
 }

@@ -1,5 +1,6 @@
 package busiframe.order.dao;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 /**
@@ -17,7 +18,9 @@ public class X_Order01 implements I_Order01 {
 	/** 相手先名 addition 2024/11/25 */
 	private String partnerName;
 	/** 商品名 Addition 2024/11/30 */
-	private String productName; 
+	private String productName;
+	/** 受注数 Addition 2024/11/30 */
+	private BigDecimal orderNumber;
 	
 	
 	public int getOrderId() {
@@ -43,5 +46,11 @@ public class X_Order01 implements I_Order01 {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	public BigDecimal getOrderNumber() {
+		return orderNumber;
+	}
+	public void setOrderNumber(BigDecimal orderNumber) {
+		this.orderNumber = orderNumber;
 	}
 }
