@@ -11,7 +11,7 @@ import busiframe.core.html.BaseDisplay;
  * @since 2024/11/22
  * @version 1.00 新規作成
  */
-public class HTMLOrderList01 extends BaseHTML implements BaseDisplay {
+public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 
 	/**
 	 * 受注一覧表示用HTML生成<br>
@@ -25,7 +25,6 @@ public class HTMLOrderList01 extends BaseHTML implements BaseDisplay {
 		// 表示情報取得 Addition 2024/12/02
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_CD_ORDER_LIST_01);
-		System.out.println(disp.getDispData().getDispId());
 		
 		// script
 		// html

@@ -2,6 +2,7 @@ package busiframe.order.servlet;
 
 import java.nio.charset.StandardCharsets;
 
+import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.LinkTag;
 import busiframe.core.html.MetaTag;
 import busiframe.core.html.TitleBar;
@@ -18,7 +19,7 @@ import busiframe.core.tools.BaseCharacter;
  * @since 2024/11/19
  * @version 1.00 新規作成
  */
-public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml {
+public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml, BaseDisplay {
 
 	/**
 	 * HTML : 受注メニュー用HTML生成<br>
@@ -63,9 +64,11 @@ public class HtmlOrderMenu01 implements BaseCharacter, BaseHtml {
 		html.append(T2).append("</div>").append(LF);
 		// メニューボタン（1行目)
 		html.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
-		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01('orderEntry01')\">")
+		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01("
+				+	SQ + DISPLAY_CD_ORDER_ENTRY_01 + SQ + ")" + DQ+ ">")
 			.append("受注登録 Lv.01").append("</button>").append(LF);
-		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01('orderList01')\">")
+		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"order01("
+				+ SQ + DISPLAY_CD_ORDER_LIST_01 + SQ + ")" + DQ + ">")
 			.append("受注一覧 Lv.01").append("</button>").append(LF);
 		html.append(T2).append("</div>").append(LF);
 		

@@ -62,6 +62,6 @@ public interface I_Order01 extends I_BaseDAO {
 	public final String SQL_INSERT_ORDER = "INSERT INTO" + SP + TABLE_NAME_ORDER + " ("
 			+ COL_NAME_ORDER_ID + CM + COL_NAME_ORDER_DATE + CM + COL_NAME_PARTNER_NAME + CM
 			+ COL_NAME_PRODUCT_NAME + CM + COL_NAME_ORDER_NUMBER
-			+ ") VALUES (?,?,?,?,?)" + SP;
-	
+			+ CM + COL_NAME_ORDER_AMOUNT
+			+ ") VALUES (?,?,?,?,?,?)" + SP;
 }

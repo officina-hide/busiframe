@@ -72,6 +72,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 			pstmt.setString(3, order.getPartnerName());
 			pstmt.setString(4, order.getProductName());
 			pstmt.setBigDecimal(5, order.getOrderNumber());
+			pstmt.setBigDecimal(6, order.getOrderAmount());
 			pstmt.executeUpdate();
 		} catch (SQLException | ParseException e) {
 			e.printStackTrace();

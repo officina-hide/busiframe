@@ -65,7 +65,7 @@ public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 		}
 		if(actionName.equals(DISPLAY_CD_ORDER_LIST_01)) {
 			// 受注一覧画面へ遷移する。
-			HTMLOrderList01 ol01 = new HTMLOrderList01();
+			HtmlOrderList01 ol01 = new HtmlOrderList01();
 			html.append(ol01.createHTML(env));
 			out.print(html.toString());
 			return;
@@ -86,10 +86,14 @@ public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 			// 受注数
 			BigDecimal onum = new BigDecimal(request.getParameter(I_Order01.COL_NAME_ORDER_NUMBER));
 			order.getOrder().setOrderNumber(onum);
+			// 受注金額
+			BigDecimal oamt = new BigDecimal(request.getParameter(I_Order01.COL_NAME_ORDER_AMOUNT));
+			order.getOrder().setOrderAmount(oamt);
+			
 			order.save(env);
 			// TODO 登録確認 未実装 2024/11/22
 			// 受注一覧へ遷移する。
-			HTMLOrderList01 orderList = new HTMLOrderList01();
+			HtmlOrderList01 orderList = new HtmlOrderList01();
 			html.append(orderList.createHTML(env));
 		}
 		
