@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.html.BaseDisplay;
 import busiframe.order.dao.I_Order01;
 import busiframe.order.dao.M_Order01;
 
@@ -24,7 +25,7 @@ import busiframe.order.dao.M_Order01;
  * Servlet implementation class OrderServlet01
  */
 @WebServlet("/order01")
-public class OrderServlet01 extends HttpServlet {
+public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -55,10 +56,17 @@ public class OrderServlet01 extends HttpServlet {
 		// 処理を判定する。
 
 		// メニューからの遷移の場合。
-		if(actionName.equals("orderEntry01")) {
+		if(actionName.equals(DISPLAY_CD_ORDER_ENTRY_01)) {
 			// 受注登録画面へ遷移する。
 			HtmlOrderEntry01 oe01 = new HtmlOrderEntry01();
 			html.append(oe01.createHTML(env));
+			out.print(html.toString());
+			return;
+		}
+		if(actionName.equals(DISPLAY_CD_ORDER_LIST_01)) {
+			// 受注一覧画面へ遷移する。
+			HTMLOrderList01 ol01 = new HTMLOrderList01();
+			html.append(ol01.createHTML(env));
 			out.print(html.toString());
 			return;
 		}
@@ -82,7 +90,7 @@ public class OrderServlet01 extends HttpServlet {
 			// TODO 登録確認 未実装 2024/11/22
 			// 受注一覧へ遷移する。
 			HTMLOrderList01 orderList = new HTMLOrderList01();
-			html.append(orderList.createHTML());
+			html.append(orderList.createHTML(env));
 		}
 		
 		out.print(html.toString());

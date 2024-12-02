@@ -1,4 +1,4 @@
-package busiframe.core.jsp;
+package busiframe.core.html;
 
 import busiframe.core.tools.BaseCharacter;
 

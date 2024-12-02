@@ -1,4 +1,4 @@
-package busiframe.core.jsp;
+package busiframe.core.html;
 
 import java.nio.charset.Charset;
 

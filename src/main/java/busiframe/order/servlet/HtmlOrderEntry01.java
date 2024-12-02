@@ -5,10 +5,11 @@ import java.nio.charset.StandardCharsets;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.X_sysDispDetail;
-import busiframe.core.jsp.LinkTag;
-import busiframe.core.jsp.MetaTag;
-import busiframe.core.jsp.TitleBar;
-import busiframe.core.jsp.TitleTag;
+import busiframe.core.html.BaseDisplay;
+import busiframe.core.html.LinkTag;
+import busiframe.core.html.MetaTag;
+import busiframe.core.html.TitleBar;
+import busiframe.core.html.TitleTag;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
 
@@ -23,7 +24,8 @@ import busiframe.core.tools.BaseCharacter;
  * @version 1.00 新規作成
  * @version 1.01 表示情報から項目を生成する。 2024/11/30
  */
-public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
+public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml, BaseDisplay {
+
 
 	/**
 	 * 受注登録HTMLソース生成<br>
@@ -34,7 +36,7 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml {
 	public String createHTML(Environment env) {
 		// 表示情報取得
 		M_Display disp = new M_Display();
-		disp.load(env, "OrderEntry01");
+		disp.load(env, DISPLAY_CD_ORDER_ENTRY_01);
 		
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);

@@ -1,9 +1,9 @@
 package busiframe.order.generate;
 
-import busiframe.core.dao.BaseDisplay;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
+import busiframe.core.html.BaseDisplay;
 import busiframe.order.dao.I_Order01;
 import busiframe.order.dao.M_Order01;
 
@@ -33,12 +33,17 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		num.save(env);
 		// 受注登録画面 : 表示情報登録
 		M_Display disp = new M_Display();
-		disp.addDispData(env, ORDER_ENTRY_01, "OrderEntry01");
-		disp.addDispDetailData(env, ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date");
-		disp.addDispDetailData(env, ORDER_ENTRY_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
-		disp.addDispDetailData(env, ORDER_ENTRY_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
-		disp.addDispDetailData(env, ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number");
-		disp.addDispDetailData(env, ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_AMOUNT, 4, "受注金額","number");
+		disp.addDispData(env, DISPLAY_ID_ORDER_ENTRY_01, DISPLAY_CD_ORDER_ENTRY_01);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_AMOUNT, 5, "受注金額","number");
+		// 受注一覧画面登録
+		disp.addDispData(env, DISPLAY_ID_ORDER_LIST_01, DISPLAY_CD_ORDER_LIST_01);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
 	}
 
 }
