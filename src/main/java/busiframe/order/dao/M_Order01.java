@@ -1,10 +1,13 @@
 package busiframe.order.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
@@ -79,6 +82,33 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * 受注一覧生成<br>
+	 * 本処理では、登録された要る全ての受注情報を一覧として取得する。<br> 
+	 * @param env 環境情報
+	 * @return 受注一覧
+	 */
+	public List<X_Order01> getOrderList(Environment env) {
+		List<X_Order01> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_ALL);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				X_Order01 order = new X_Order01();
+				order.setItems(rs);
+				list.add(order);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+		return list;
 	}
 
 }

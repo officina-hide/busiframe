@@ -24,6 +24,11 @@ public interface BaseHtml {
 	public static final String HEAD_START = "<head>";
 	public static final String HEAD_END = "</head>";
 
+	public static final String BODY_START = "<body>";
+	public static final String BODY_END = "</body>";
+	
+	public static final String HEADER_START = "<header>";
+	public static final String HEADER_END = "</header>";
 
 	
 	/** DOCTYPE */

@@ -1,6 +1,8 @@
 package busiframe.order.dao;
 
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 /**
@@ -24,6 +26,20 @@ public class X_Order01 implements I_Order01 {
 	/** 受注金額 Addition 2024/11/30 */
 	private BigDecimal orderAmount;
 	
+	/**
+	 * 検査結果から項目をセットする。<br>
+	 * @since 2024/12/03
+	 * @param rs 検索結果
+	 * @throws SQLException 
+	 */
+	public void setItems(ResultSet rs) throws SQLException {
+		setOrderId(rs.getInt(COL_NAME_ORDER_ID));
+		setOrderDate(rs.getTimestamp(COL_NAME_ORDER_DATE).toLocalDateTime().toLocalDate());
+		setPartnerName(rs.getString(COL_NAME_PARTNER_NAME));
+		setProductName(rs.getString(COL_NAME_PRODUCT_NAME));
+		setOrderNumber(rs.getBigDecimal(COL_NAME_ORDER_NUMBER));
+		setOrderAmount(rs.getBigDecimal(COL_NAME_ORDER_AMOUNT));
+	}
 	
 	public int getOrderId() {
 		return orderId;

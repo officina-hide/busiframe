@@ -64,4 +64,6 @@ public interface I_Order01 extends I_BaseDAO {
 			+ COL_NAME_PRODUCT_NAME + CM + COL_NAME_ORDER_NUMBER
 			+ CM + COL_NAME_ORDER_AMOUNT
 			+ ") VALUES (?,?,?,?,?,?)" + SP;
+	/** SQL : 全件取得用 */
+	public final String SQL_LOAD_ALL = "SELECT * FROM" + SP + TABLE_NAME_ORDER + SP;
 }

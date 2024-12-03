@@ -23,4 +23,5 @@ public interface BaseCharacter {
 	public final String T2 = "\t\t";
 	public final String T3 = "\t\t\t";
 	public final String T4 = "\t\t\t\t";
+	public final String T5 = "\t\t\t\t\t";
 }
