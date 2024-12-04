@@ -33,14 +33,14 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		num.save(env);
 		// 受注登録画面 : 表示情報登録
 		M_Display disp = new M_Display();
-		disp.addDispData(env, DISPLAY_ID_ORDER_ENTRY_01, DISPLAY_CD_ORDER_ENTRY_01);
+		disp.addDispData(env, DISPLAY_ID_ORDER_ENTRY_01, DISPLAY_CD_ORDER_ENTRY_01, "受注登録 Lv.01");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_AMOUNT, 5, "受注金額","number");
 		// 受注一覧画面登録
-		disp.addDispData(env, DISPLAY_ID_ORDER_LIST_01, DISPLAY_CD_ORDER_LIST_01);
+		disp.addDispData(env, DISPLAY_ID_ORDER_LIST_01, DISPLAY_CD_ORDER_LIST_01, "受注一覧 Lv.01");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");

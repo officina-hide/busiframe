@@ -40,6 +40,7 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 		createTable(env, TABLE_NAME_SYS_DISP, TABLE_COMMENT_SYS_DISP,
 				COL_NAME_DISP_ID, COL_COMMENT_DISP_ID);
 		addColumn(env, COL_ALTER_DISP_CD);
+		addColumn(env, COL_ALTER_DISP_TITLE);		// Addition 2024/12/04
 		// 表示詳細情報テーブル構築
 		createTable(env, TABLE_NAME_SYS_DISPDETAIL, TABLE_COMMENT_SYS_DISPDETAIL,
 				COL_NAME_DISP_DETAIL_ID, COL_COMMENT_DISP_DETAIL_ID);
@@ -56,14 +57,16 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 	 * @param env 環境情報
 	 * @param dispId 表示情報ID
 	 * @param dispCd 表示識別コード
+	 * @param dispTitle 表示タイトル Addition 2024/12/04
 	 */
-	public void addDispData(Environment env, int dispId, String dispCd) {
+	public void addDispData(Environment env, int dispId, String dispCd, String dispTitle) {
 		PreparedStatement pstmt = null;
 		try {
 			connection(env);
 			pstmt = env.getConn().prepareStatement(SQL_INSERT_DISP);
 			pstmt.setInt(1, dispId);
 			pstmt.setString(2, dispCd);
+			pstmt.setString(3, dispTitle);		// Addition 2024/12/04
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

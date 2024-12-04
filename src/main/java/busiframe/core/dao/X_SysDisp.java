@@ -14,6 +14,8 @@ public class X_SysDisp implements I_SysDisp {
 	private int dispId;
 	/** 表示識別コード */
 	private String dispCd;
+	/** 表示タイトル Addition 2024/12/04 */
+	private String dispTitle;
 	
 	/**
 	 * 検索結果からの項目セット<br>
@@ -24,6 +26,7 @@ public class X_SysDisp implements I_SysDisp {
 	public void setItems(ResultSet rs) throws SQLException {
 		dispId = rs.getInt(COL_NAME_DISP_ID);
 		dispCd = rs.getString(COL_NAME_DISP_CD);
+		dispTitle = rs.getString(COL_NAME_DISP_TITLE);		// Addition 2024/12/05
 	}
 	
 	
@@ -38,5 +41,15 @@ public class X_SysDisp implements I_SysDisp {
 	}
 	public void setDispCd(String dispCd) {
 		this.dispCd = dispCd;
+	}
+
+
+	public String getDispTitle() {
+		return dispTitle;
+	}
+
+
+	public void setDispTitle(String dispTitle) {
+		this.dispTitle = dispTitle;
 	}
 }
