@@ -32,6 +32,7 @@ public class CreateBaseSystem01 {
 		num_disp.getNumbering().setCurrentNumber(100000);
 		num_disp.getNumbering().setTableId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
 		num_disp.save(env);
+		// メニュ情報ー
 	}
 
 }
