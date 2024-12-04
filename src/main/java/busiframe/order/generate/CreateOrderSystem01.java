@@ -25,7 +25,7 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		M_Order01 od = new M_Order01();
 		od.dropTable(env);
 		od.createTable(env);
-		// 受注情報用採番情報登録
+		// 受注情報用採番情報登録 
 		M_Numbering num = new M_Numbering();
 		num.getNumbering().setNumberingId(10001);
 		num.getNumbering().setCurrentNumber(100000);
