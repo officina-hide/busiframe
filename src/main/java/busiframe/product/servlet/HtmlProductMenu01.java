@@ -1,5 +1,6 @@
 package busiframe.product.servlet;
 
+import busiframe.core.dao.Environment;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
 
@@ -11,9 +12,12 @@ import busiframe.core.tools.BaseCharacter;
 public class HtmlProductMenu01 implements BaseCharacter, BaseHtml {
 
 	/**
-	 * @return
+	 * 生産メニューLv.01HTMLソース生成<br>
+	 * @since 2024/12/04
+	 * @param env 環境情報
+	 * @return HTMLソース文字列
 	 */
-	public String createHTML() {
+	public String createHTML(Environment env) {
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);
 		return html.toString();

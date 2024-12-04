@@ -16,10 +16,15 @@ import busiframe.core.tools.BaseCharacter;
  */
 public class BaseHTML implements BaseCharacter, BaseHtml {
 
+	/** POST */
+	public final String H_POST = "post";
+	
 	/**
-	 * @param charName
-	 * @param title
-	 * @return
+	 * headタグソース生成
+	 * @since 2024/11/22
+	 * @param charName キャラクターセット名
+	 * @param title タイトル
+	 * @return headタグソース文字列
 	 */
 	public String createHead(Charset charName, String title) {
 		StringBuffer html = new StringBuffer();
@@ -31,6 +36,12 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 		return html.toString();
 	}
 	
+	/**
+	 * bodyタグ内のheaderタグソース生成
+	 * @since 2024/11/22
+	 * @param title タイトル文字列
+	 * @return headerタグソース文字列
+	 */
 	public String createHeader(String title) {
 		StringBuffer html = new StringBuffer();
 		html.append(HEADER_START).append(LF);

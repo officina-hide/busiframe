@@ -37,21 +37,27 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml {
 		String actionName = request.getParameter("actionName");
 		StringBuffer html = new StringBuffer();
 		HttpSession session = request.getSession();
+		Environment env = null;
+		if(session.getAttribute("env") != null) {
+			env = (Environment) session.getAttribute("env");			
+		}
 		
 		if(actionName == null || actionName.equals("menu01")) {
 			// Menu01表示
 			HtmlMenu01 menu01 = new HtmlMenu01();
 			html.append(menu01.createHTML());
-			// 環境情報をsessionにセットする。
-			Environment env = new Environment();
-			env.setDbSw(1);
-			env.setLoginUserId(1001);
-			session.setAttribute("env", env);
+			if(env == null) {
+				// 環境情報をsessionにセットする。
+				env = new Environment();
+				env.setDbSw(1);
+				env.setLoginUserId(1001);
+				session.setAttribute("env", env);
+			}
 		}
 		if(actionName != null && actionName.equals("educate01")) {
 			// 教育メニューLv.01表示
 			HtmlEducateMenu01 edu01 = new HtmlEducateMenu01();
-			html.append(edu01.createHTML());
+			html.append(edu01.createHTML(env));
 		}
 		if(actionName != null && actionName.equals("order01")) {
 			// 受注メニューLv.01表示
@@ -61,7 +67,7 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml {
 		if(actionName != null && actionName.equals(MENU_PRODUCT01)) {
 			// 生産メニュー Lv.01表示
 			HtmlProductMenu01 product01 = new HtmlProductMenu01();
-			html.append(product01.createHTML());
+			html.append(product01.createHTML(env));
 		}
 		
 		PrintWriter out = response.getWriter();
