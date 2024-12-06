@@ -17,6 +17,8 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	private X_SysDisp dispData = new X_SysDisp();
 	/** 表示詳細情報リスト */
 	private List<X_sysDispDetail> details = new ArrayList<>();
+	/** 表示メニュー情報リスト */
+	private List<X_sysDispMenu> menus = new ArrayList<>();
 	
 	/**
 	 * テーブル削除<br>
@@ -55,6 +57,8 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 		createTable(env, TABLE_NAME_SYS_DISPMENU, TABLE_COMMENT_SYS_DISPMENU,
 				COL_NAME_DISPMENU_ID, COL_COMMENT_DISPMENU_ID);
 		addColumn(env, COL_ALTER_DISPMENU_CD);
+		addColumn(env, COL_ALTER_MENU_TITLE);
+		addColumn(env,COL_ALTER_MENU_ACTION);
 	}
 
 	/**
@@ -140,6 +144,8 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 					detail.setItems(rs);
 					getDetails().add(detail);
 				}
+				// 表示メニュー情報取得
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -157,6 +163,13 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 			details = new ArrayList<>();
 		}
 		return details;
+	}
+
+	public List<X_sysDispMenu> getMenus() {
+		if(menus == null) {
+			menus = new ArrayList<>();
+		}
+		return menus;
 	}
 
 }
