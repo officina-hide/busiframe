@@ -10,5 +10,6 @@ public interface BaseTable {
 
 	// 固定テーブルID
 	public final int TABLE_ID_SYS_DISPDETAIL = 1012;	//表示詳細情報
+	public final int TABLE_ID_SYS_DISPMENU = 1013;		//表示メニュー情報
 
 }
