@@ -11,7 +11,7 @@ import java.util.List;
  * @since 2024/11/26
  * @version 1.00 新規作成
  */
-public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
+public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_SysDispMenu {
 
 	/** 表示情報 */
 	private X_SysDisp dispData = new X_SysDisp();
@@ -28,6 +28,8 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 		dropTable(env, TABLE_NAME_SYS_DISPDETAIL);
 		// 表示情報テーブル削除
 		dropTable(env, TABLE_NAME_SYS_DISP);
+		// 表示メニュー情報テーブル削除 Addition 2024/12/05
+		dropTable(env, TABLE_NAME_SYS_DISPMENU);
 	}
 
 	/**
@@ -49,6 +51,10 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail {
 		addColumn(env, COL_ALTER_ITEM_SEQ);
 		addColumn(env, COL_ALTER_ITEM_LABEL);
 		addColumn(env, COL_ALTER_ITEM_TYPE);
+		// 表示メニュー情報テーブル構築
+		createTable(env, TABLE_NAME_SYS_DISPMENU, TABLE_COMMENT_SYS_DISPMENU,
+				COL_NAME_DISPMENU_ID, COL_COMMENT_DISPMENU_ID);
+		addColumn(env, COL_ALTER_DISPMENU_CD);
 	}
 
 	/**

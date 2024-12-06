@@ -20,6 +20,10 @@ public class CreateEducateSystem01 implements BaseDisplay {
 		// 表示情報に教育メニュー Lv.01を登録する。
 		M_Display disp = new M_Display();
 		disp.addDispData(env, DISPLAY_ID_EDUCATE_MENU_01, DISPLAY_CD_EDUCATE_MENU_01, "教育メニュー");
+		/*
+		 *  表示情報にメニュー情報を登録する。<br> Addition 2023/12/05
+		 *  メニュー : カテゴリー一覧
+		 */
 	}
 
 }
