@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script>
+	function menufunction() {
+		document.menuForm.action="./educate01";
+		document.menuForm.submit();
+	}
+</script>
+<head>
+	<meta charset="UTF-8">
+	<title>教育メニュー</title>
+	<link rel="stylesheet" href="./css/skyblue_k.css">
+</head>
+<body>
+<header>
+		<div class="container bg-dark padding-y-10">
+		<h1>教育メニュー</h1>
+	</div>
+</header>
+<div class="container padding-y-5 text-left">
+	<form name="menuForm" method="post" >
+		<div class="container padding-y-5 text-center">
+			<button type="button" class="btn btn-dark" onclick="menufunction()">カテゴリー一覧</button>
+		</div>
+	</form>
+</div></body>
+</html>

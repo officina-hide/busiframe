@@ -20,8 +20,9 @@ public class FormTag implements BaseCharacter {
 		StringBuffer html = new StringBuffer();
 		//html.append(TB).append("<form name=\"menuform\" method=\"post\">").append(LF);
 		html.append("<form").append(SP)
-			.append("name=").append(DQ).append(name).append(SQ).append(SP)
-			.append("method=").append(DQ).append(method).append(DQ).append(SP);
+			.append("name=").append(DQ).append(name).append(DQ).append(SP)
+			.append("method=").append(DQ).append(method).append(DQ).append(SP)
+			.append(">");
 		return html.toString();
 	}
 

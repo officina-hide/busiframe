@@ -12,23 +12,26 @@ public interface BaseHtml {
 	public static final String MENU_PRODUCT01 = "product01";
 
 	// 画面名称 TODO データベース化 2024/11/19
-	public static final String EDUCATE_MENU_01_TITLE = "教育メニュー Lv.01";
-	public static final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";
-	public static final String PRODUCT_MENU_01_TITLE = "生産メニュー Lv.01";	// addition 2024/11/25
-	public static final String ORDER_ENTRY_01_TITLE = "受注登録 Lv.01";
-	public static final String ORDER_LIST_01_TITLE = "受注一覧 Lv.01";
+	public final String EDUCATE_MENU_01_TITLE = "教育メニュー Lv.01";
+	public final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";
+	public final String PRODUCT_MENU_01_TITLE = "生産メニュー Lv.01";	// addition 2024/11/25
+	public final String ORDER_ENTRY_01_TITLE = "受注登録 Lv.01";
+	public final String ORDER_LIST_01_TITLE = "受注一覧 Lv.01";
 	
-	public static final String HTML_START = "<html>";
-	public static final String HTML_END = "</html>";
-
-	public static final String HEAD_START = "<head>";
-	public static final String HEAD_END = "</head>";
-
-	public static final String BODY_START = "<body>";
-	public static final String BODY_END = "</body>";
+	public final String SCRIPT_START = "<script>";
+	public final String SCRIPT_END = "</script>";
 	
-	public static final String HEADER_START = "<header>";
-	public static final String HEADER_END = "</header>";
+	public final String HTML_START = "<html>";
+	public final String HTML_END = "</html>";
+
+	public final String HEAD_START = "<head>";
+	public final String HEAD_END = "</head>";
+
+	public final String BODY_START = "<body>";
+	public final String BODY_END = "</body>";
+	
+	public final String HEADER_START = "<header>";
+	public final String HEADER_END = "</header>";
 
 	
 	/** DOCTYPE */

@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
-import busiframe.core.dao.X_sysDispDetail;
+import busiframe.core.dao.X_sysDispMenu;
 import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.DivTag;
 import busiframe.core.html.FormTag;
@@ -31,36 +31,41 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		// 表示情報取得 Addition 2024/12/02
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_CD_EDUCATE_MENU_01);
-		System.out.println(disp.getDispData().getDispCd());
-		
+		// HTML
 		html.append(DOCTYPE_HTML).append(LF);
 		html.append(HTML_START).append(LF);
+		
+		// JavaScript
+		html.append(SCRIPT_START).append(LF);
+		html.append(TB).append("function").append(SP).append("menufunction()").append(SP).append("{").append(LF);
+		html.append(T2).append("document.menuForm.action=")
+			.append(DQ).append("./educate01").append(DQ).append(";").append(LF);
+		html.append(T2).append("document.menuForm.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		html.append(SCRIPT_END).append(LF);
+
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
 		html.append(BODY_START).append(LF);
 		html.append(createHeader(disp.getDispData().getDispTitle()));
 		html.append(DivTag.getSourve("container padding-y-5 text-left")).append(LF);	// 1 -->
+		
+		// メニュー用Form
 		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);
 		// 遷移ボタン
 		// メニューボタン
-//		html.append(T2).append("<div class=\"container padding-y-5 text-center\">").append(LF);
 		html.append(T2).append("<div").append(SP)
 			.append("class=").append(DQ).append("container padding-y-5 text-center").append(DQ).append(">").append(LF);
-		for(X_sysDispDetail detail : disp.getDetails()) {
-//			html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
-//					+ EDUCATE_MENU_01_TITLE + "</button>").append(LF);
+		for(X_sysDispMenu menu : disp.getMenus()) {
 			html.append(T3).append("<button").append(SP)
-				.append("tyoe=").append(DQ).append("button").append(DQ).append(SP)
+				.append("type=").append(DQ).append("button").append(DQ).append(SP)
 				.append("class=").append(DQ).append("btn btn-dark").append(DQ).append(SP)
 				.append("onclick=").append(DQ).append("menufunction()").append(DQ).append(">")
-				.append(LF);
+				.append(menu.getMenuTItle())
+				.append("</button>").append(LF);
 		}
-		
-		
-		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
-				+ EDUCATE_MENU_01_TITLE + "</button>").append(LF);
-		
 		html.append(T2).append("</div>").append(LF);
 		html.append(TB).append(FormTag.getEndTag()).append(LF);
+		
 		html.append("</div>");	// <-- 1
 		html.append(BODY_END).append(LF);
 		html.append(HTML_END).append(LF);
