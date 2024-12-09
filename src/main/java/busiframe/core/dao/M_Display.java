@@ -56,6 +56,7 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 		// 表示メニュー情報テーブル構築
 		createTable(env, TABLE_NAME_SYS_DISPMENU, TABLE_COMMENT_SYS_DISPMENU,
 				COL_NAME_DISPMENU_ID, COL_COMMENT_DISPMENU_ID);
+		addColumn(env, COL_ALTER_DISP_ID_DISPMENU);
 		addColumn(env, COL_ALTER_DISPMENU_CD);
 		addColumn(env, COL_ALTER_MENU_TITLE);
 		addColumn(env,COL_ALTER_MENU_ACTION);
@@ -71,12 +72,15 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	 */
 	public void addDispData(Environment env, int dispId, String dispCd, String dispTitle) {
 		PreparedStatement pstmt = null;
+		getDispData().setDispId(dispId);
+		getDispData().setDispCd(dispCd);
+		getDispData().setDispTitle(dispTitle);
 		try {
 			connection(env);
 			pstmt = env.getConn().prepareStatement(SQL_INSERT_DISP);
-			pstmt.setInt(1, dispId);
-			pstmt.setString(2, dispCd);
-			pstmt.setString(3, dispTitle);		// Addition 2024/12/04
+			pstmt.setInt(1, getDispData().getDispId());
+			pstmt.setString(2, getDispData().getDispCd());
+			pstmt.setString(3, getDispData().getDispTitle());		// Addition 2024/12/04
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -116,6 +120,34 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 			close(pstmt, null);
 		}
 	}
+	
+	/**
+	 * 表示メニュー情報登録<br>
+	 * @since 2024/12/07
+	 * @param env 環境情報
+	 * @param dispId 表示情報ID
+	 * @param menuCd メニュー識別コード
+	 * @param menuTItle メニュータイトル
+	 * @param menuAction メニューアクション
+	 */
+	public void addMenuData(Environment env, int dispId, String menuCd, String menuTItle, String menuAction) {
+		PreparedStatement pstmt = null;
+		M_Numbering num = new M_Numbering();
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_INSERT_DISPMENU);
+			pstmt.setInt(1, num.newNumber(env, TABLE_ID_SYS_DISPMENU));
+			pstmt.setInt(2, dispId);
+			pstmt.setString(3, menuCd);
+			pstmt.setString(4, menuTItle);
+			pstmt.setString(5, menuAction);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+	}
 
 	/**
 	 * 取得<br>
@@ -145,7 +177,14 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 					getDetails().add(detail);
 				}
 				// 表示メニュー情報取得
-				
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPMENU);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispMenu menu = new X_sysDispMenu();
+					menu.setItems(rs);
+					getMenus().add(menu);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
