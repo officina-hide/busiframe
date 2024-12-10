@@ -37,9 +37,9 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		
 		// JavaScript
 		html.append(SCRIPT_START).append(LF);
-		html.append(TB).append("function").append(SP).append("menufunction()").append(SP).append("{").append(LF);
-		html.append(T2).append("document.menuForm.action=")
-			.append(DQ).append("./educate01").append(DQ).append(";").append(LF);
+		html.append(TB).append("function").append(SP).append("menufunction(name, uri)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.menuForm.action=").append("uri").append(";").append(LF);
+		html.append(T2).append("document.menuForm.actionName.value=").append("name").append(";").append(LF);
 		html.append(T2).append("document.menuForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
 		html.append(SCRIPT_END).append(LF);
@@ -51,6 +51,11 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		
 		// メニュー用Form
 		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);
+		// actionName変数
+		html.append(T2).append("<input").append(SP)
+			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
+			.append("id=").append(DQ).append("actionName").append(DQ).append(SP)
+			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
 		// 遷移ボタン
 		// メニューボタン
 		html.append(T2).append("<div").append(SP)
@@ -59,7 +64,10 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 			html.append(T3).append("<button").append(SP)
 				.append("type=").append(DQ).append("button").append(DQ).append(SP)
 				.append("class=").append(DQ).append("btn btn-dark").append(DQ).append(SP)
-				.append("onclick=").append(DQ).append("menufunction()").append(DQ).append(">")
+				.append("onclick=").append(DQ).append("menufunction(")
+				.append(SQ).append(menu.getDispMenuCd()).append(SQ).append(CM)
+				.append(SQ).append(menu.getMenuAction()).append(SQ)
+				.append(")").append(DQ).append(">")
 				.append(menu.getMenuTItle())
 				.append("</button>").append(LF);
 		}

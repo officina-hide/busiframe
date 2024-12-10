@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <script>
-	function menufunction() {
-		document.menuForm.action="./educate01";
+	function menufunction(name, uri) {
+		document.menuForm.action=uri;
+		document.menuForm.actionName.value=name;
 		document.menuForm.submit();
 	}
 </script>
@@ -20,7 +21,7 @@
 <div class="container padding-y-5 text-left">
 	<form name="menuForm" method="post" >
 		<div class="container padding-y-5 text-center">
-			<button type="button" class="btn btn-dark" onclick="menufunction()">カテゴリー一覧</button>
+			<button type="button" class="btn btn-dark" onclick="menufunction('educateMenu01' , './educate01' )">カテゴリー一覧</button>
 		</div>
 	</form>
 </div></body>
