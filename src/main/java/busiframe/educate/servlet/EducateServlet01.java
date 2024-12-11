@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import busiframe.core.dao.Environment;
 
 /**
  * Servlet implementation class EducateServlet01
@@ -36,7 +39,17 @@ public class EducateServlet01 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		
+		String actionName = request.getParameter("actionName");
+		StringBuffer html = new StringBuffer();
+		Environment env = (Environment) session.getAttribute("env");
+		PrintWriter out = response.getWriter();
+		// カテゴリー一覧
+		if(actionName.equals("")) {
+			HtmlEduCategoryList ecl = new HtmlEduCategoryList();
+			html.append(ecl.createHTML(env));
+			out.print(html.toString());
+			return;
+		}
 	}
 
 }
