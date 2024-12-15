@@ -11,5 +11,11 @@ public interface BaseTable {
 	// 固定テーブルID
 	public final int TABLE_ID_SYS_DISPDETAIL = 10102;	//表示詳細情報
 	public final int TABLE_ID_SYS_DISPMENU = 10103;		//表示メニュー情報
-
+	
+	//教育カテゴリー情報
+	public final int TABLE_ID_EDU_CATEGORY = 10201;
+	public final int COL_ID_CATEGORY_ID = 11020001;
+	public final int COL_ID_CATEGORY_CD = 11020002;
+	public final int COL_ID_CATEGORY_NAME = 11020002;
+	
 }

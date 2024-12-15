@@ -5,6 +5,7 @@ import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
 import busiframe.core.html.BaseDisplay;
+import busiframe.educate.dao.M_EduCategory;
 
 /**
  * 教育関連システム初期生成クラス<br>
@@ -33,6 +34,10 @@ public class CreateEducateSystem01 implements BaseDisplay, BaseTable {
 		 *  メニュー : カテゴリー一覧
 		 */
 		disp.addMenuData(env, disp.getDispData().getDispId(), "educateMenu01", "カテゴリー一覧", "./educate01");
+		// 教育カテゴリー情報を構築する。
+		M_EduCategory ecat = new M_EduCategory();
+		ecat.dropTable(env);
+		ecat.createTable(env);
 	}
 
 }
