@@ -22,4 +22,15 @@ public class TableTag implements BaseCharacter {
 		return html.toString();
 	}
 
+	/**
+	 * HTML : Table END タグソース生成<br>
+	 * @since 2024/12/15
+	 * @return Table END タグソース文字列
+	 */
+	public static Object getEndTag() {
+		StringBuffer html = new StringBuffer();
+		html.append("</table>");
+		return html.toString();
+	}
+
 }

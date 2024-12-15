@@ -38,10 +38,10 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		// script
 		// html
 		html.append(HTML_START).append(LF);
-		html.append(createHead(StandardCharsets.UTF_8, ORDER_LIST_01_TITLE));
+		html.append(createHead(StandardCharsets.UTF_8, DISPLAY_TITLE_ORDER_LIST_01));
 		html.append(BODY_START).append(LF);
-		html.append(createHeader(ORDER_LIST_01_TITLE));
-		html.append(DivTag.getSourve("container padding-y-5 text-left")).append(LF);
+		html.append(createHeader(DISPLAY_TITLE_ORDER_LIST_01));
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);
 		html.append(TB).append(TableTag.getSource("table table-striped table-bordered")).append(LF);
 		// タイトル
 		html.append(T2).append("<thead>").append(LF);

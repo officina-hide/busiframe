@@ -16,7 +16,6 @@ public interface BaseHtml {
 	public final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";
 	public final String PRODUCT_MENU_01_TITLE = "生産メニュー Lv.01";	// addition 2024/11/25
 	public final String ORDER_ENTRY_01_TITLE = "受注登録 Lv.01";
-	public final String ORDER_LIST_01_TITLE = "受注一覧 Lv.01";
 	
 	public final String SCRIPT_START = "<script>";
 	public final String SCRIPT_END = "</script>";

@@ -11,12 +11,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.html.BaseDisplay;
 
 /**
  * Servlet implementation class EducateServlet01
  */
 @WebServlet("/educate01")
-public class EducateServlet01 extends HttpServlet {
+public class EducateServlet01 extends HttpServlet implements BaseDisplay{
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -44,7 +45,7 @@ public class EducateServlet01 extends HttpServlet {
 		Environment env = (Environment) session.getAttribute("env");
 		PrintWriter out = response.getWriter();
 		// カテゴリー一覧
-		if(actionName.equals("")) {
+		if(actionName.equals(DISPLAY_CD_EDUCATE_MENU_01)) {
 			HtmlEduCategoryList ecl = new HtmlEduCategoryList();
 			html.append(ecl.createHTML(env));
 			out.print(html.toString());

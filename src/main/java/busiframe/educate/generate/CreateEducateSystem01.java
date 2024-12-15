@@ -5,6 +5,7 @@ import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
 import busiframe.core.html.BaseDisplay;
+import busiframe.educate.dao.I_EduCategory;
 import busiframe.educate.dao.M_EduCategory;
 
 /**
@@ -38,6 +39,11 @@ public class CreateEducateSystem01 implements BaseDisplay, BaseTable {
 		M_EduCategory ecat = new M_EduCategory();
 		ecat.dropTable(env);
 		ecat.createTable(env);
+		// 教育カテゴリー一覧を表示情報に登録する。
+		disp.addDispData(env, DISPLAY_ID_EDUCATE_CATEGORY_01, DISPLAY_CD_EDUCATE_CATEGORY_01,
+				DISPLAY_TITLE_EDUCATE_CATEGORY_01);
+		disp.addDispDetailData(env, DISPLAY_ID_EDUCATE_CATEGORY_01, I_EduCategory.COL_NAME_CATEGORY_NAME,	1,
+				"カテゴリー名", "String");
 	}
 
 }

@@ -47,7 +47,7 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
 		html.append(BODY_START).append(LF);
 		html.append(createHeader(disp.getDispData().getDispTitle()));
-		html.append(DivTag.getSourve("container padding-y-5 text-left")).append(LF);	// 1 -->
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 -->
 		
 		// メニュー用Form
 		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);

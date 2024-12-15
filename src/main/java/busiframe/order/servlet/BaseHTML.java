@@ -2,6 +2,7 @@ package busiframe.order.servlet;
 
 import java.nio.charset.Charset;
 
+import busiframe.core.dao.X_sysDispDetail;
 import busiframe.core.html.LinkTag;
 import busiframe.core.html.MetaTag;
 import busiframe.core.html.TitleBar;
@@ -49,4 +50,17 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 		html.append(HEADER_END).append(LF);
 		return html.toString();
 	}
+	
+	/**
+	 * HTML : テーブルタイトル項目ソース生成<br>
+	 * @since 2024/12/16
+	 * @param detail 表示詳細情報
+	 * @return テーブルタイトル項目ソース文字列
+	 */
+	public String getTableTitleItem(X_sysDispDetail detail) {
+		StringBuffer html = new StringBuffer();
+		html.append("<th>").append(detail.getItemLabel()).append("</th>");
+		return html.toString();
+	}
+
 }

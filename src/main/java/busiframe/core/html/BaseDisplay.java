@@ -14,8 +14,14 @@ public interface BaseDisplay {
 	/** 受注一覧 Lv.01 */
 	public final int DISPLAY_ID_ORDER_LIST_01 = 10002;
 	public final String DISPLAY_CD_ORDER_LIST_01 = "orderList01";
+	public final String DISPLAY_TITLE_ORDER_LIST_01 = "受注一覧 Lv.01";
+
 	/** 教育メニュー Lv.01 */
 	public final int DISPLAY_ID_EDUCATE_MENU_01 = 10201;
 	public final String DISPLAY_CD_EDUCATE_MENU_01 = "educateMenu01";
 	public final String ACTION_URI_EDUCATE_MENU_01 = "./educate01";
+	/** 教育カテゴリー一覧 Lv.01 */
+	public final int DISPLAY_ID_EDUCATE_CATEGORY_01 = 10202;
+	public final String DISPLAY_CD_EDUCATE_CATEGORY_01 = "eduCategoryList01";
+	public final String DISPLAY_TITLE_EDUCATE_CATEGORY_01 = "教育カテゴリー一覧 Lv.01";
 }
