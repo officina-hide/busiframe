@@ -44,6 +44,9 @@ public class CreateEducateSystem01 implements BaseDisplay, BaseTable {
 				DISPLAY_TITLE_EDUCATE_CATEGORY_01);
 		disp.addDispDetailData(env, DISPLAY_ID_EDUCATE_CATEGORY_01, I_EduCategory.COL_NAME_CATEGORY_NAME,	1,
 				"カテゴリー名", "String");
+		// 教育カテゴリー情報の初期登録を行う。
+		ecat.addData(env, I_EduCategory.CATEGORY_ID_JAVA_BASIC, "javaBasic", "Java基礎");
+		ecat.addData(env, I_EduCategory.CATEGORY_ID_SQL, "sql", "SQL");
 	}
 
 }

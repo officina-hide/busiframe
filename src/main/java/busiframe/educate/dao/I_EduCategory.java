@@ -31,4 +31,16 @@ public interface I_EduCategory extends BaseCharacter {
 	public final String COL_ALTER_CATEGORY_NAME = "ALTER TABLE" + SP + TABLE_NAME_EDU_CATEGORY + SP
 			+ "ADD" + SP + COL_NAME_CATEGORY_NAME + SP + "VARCHAR(200)" +  SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_CATEGORY_NAME + SQ + SP;
+	
+	// 初期登録時の教育カテゴリー情報ID
+	/** ID : Java基礎 */
+	public final int CATEGORY_ID_JAVA_BASIC = 1001;
+	/** ID : SQL */
+	public final int CATEGORY_ID_SQL = 1002;
+	
+	// SQL関連
+	/** 新規登録 */
+	public final String SQL_INSERT_CATEGORY = "INSERT INTO" + SP + TABLE_NAME_EDU_CATEGORY + SP + "("
+			+ COL_NAME_CATEGORY_ID + CM + COL_NAME_CATEGORY_CD
+			+ CM + COL_NAME_CATEGORY_NAME + ") VALUES (?,?,?)" + SP;
 }
