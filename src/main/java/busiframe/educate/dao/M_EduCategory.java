@@ -1,7 +1,10 @@
 package busiframe.educate.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
@@ -63,6 +66,34 @@ public class M_EduCategory extends BaseDAO implements I_EduCategory {
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * カテゴリー一覧生成<br>
+	 * 登録されている全ての教育カテゴリー情報の一覧リストを生成する。<br>
+	 * @since 2024/12/17
+	 * @param env 環境情報
+	 * @return カテゴリー一覧
+	 */
+	public List<X_EduCategory> getCategoryList(Environment env) {
+		List<X_EduCategory> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LIST_ALL);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				X_EduCategory cat = new X_EduCategory();
+				cat.setItems(rs);
+				list.add(cat);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+		return list;
 	}
 
 	public X_EduCategory getCategory() {

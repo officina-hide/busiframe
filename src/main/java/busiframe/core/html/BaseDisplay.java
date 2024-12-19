@@ -24,4 +24,8 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_EDUCATE_CATEGORY_01 = 10202;
 	public final String DISPLAY_CD_EDUCATE_CATEGORY_01 = "eduCategoryList01";
 	public final String DISPLAY_TITLE_EDUCATE_CATEGORY_01 = "教育カテゴリー一覧 Lv.01";
+	/** 問題一覧 Lv.01 */
+	public final int DISPLAY_ID_QUESTION_LIST_01 = 10203;
+	public final String DISPLAY_CD_QUESTION_LIST_01 = "eduQuestionList01";
+	public final String DISPLAY_TITLE_QUESTION_LIST_01 = "教育問題一覧 Lv01";
 }

@@ -1,28 +1,43 @@
+
 <!DOCTYPE html>
 <html>
 <script>
-	function menufunction(name, uri) {
-		document.menuForm.action=uri;
-		document.menuForm.actionName.value=name;
-		document.menuForm.submit();
+	function question() {
+		document.categoryList.action="./educate01";
+		document.menuForm.actionName.value="questionList";
+		document.categoryList.submit();
 	}
 </script>
 <head>
 	<meta charset="UTF-8">
-	<title>教育メニュー</title>
+	<title>教育カテゴリー一覧 Lv.01</title>
 	<link rel="stylesheet" href="./css/skyblue_k.css">
 </head>
 <body>
 <header>
 		<div class="container bg-dark padding-y-10">
-		<h1>教育メニュー</h1>
+		<h1>教育カテゴリー一覧 Lv.01</h1>
 	</div>
 </header>
 <div class="container padding-y-5 text-left">
-	<form name="menuForm" method="post" >
-		<div class="container padding-y-5 text-center">
-			<button type="button" class="btn btn-dark" onclick="menufunction('educateMenu01' , './educate01' )">カテゴリー一覧</button>
-		</div>
+	<form name="categoryList" method="post" >
+	<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>カテゴリー名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Java基礎</td>
+				<td><button type="button" class="btn btn-dark" onclick="question()">問題一覧</button></td>
+			</tr>
+			<tr>
+				<td>SQL</td>
+				<td><button type="button" class="btn btn-dark" onclick="question()">問題一覧</button></td>
+			</tr>
+		</tbody>
+	</table>
 	</form>
 </div></body>
 </html>

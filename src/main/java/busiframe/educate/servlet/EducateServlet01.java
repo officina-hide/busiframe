@@ -40,14 +40,22 @@ public class EducateServlet01 extends HttpServlet implements BaseDisplay{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String actionName = request.getParameter("actionName");
 		StringBuffer html = new StringBuffer();
-		Environment env = (Environment) session.getAttribute("env");
 		PrintWriter out = response.getWriter();
+
+		String actionName = request.getParameter("actionName");
+		System.out.println(actionName);
+		
+		Environment env = (Environment) session.getAttribute("env");
 		// カテゴリー一覧
 		if(actionName.equals(DISPLAY_CD_EDUCATE_MENU_01)) {
 			HtmlEduCategoryList ecl = new HtmlEduCategoryList();
 			html.append(ecl.createHTML(env));
+			out.print(html.toString());
+			return;
+		}
+		// 問題一覧
+		if(actionName.equals(DISPLAY_CD_QUESTION_LIST_01)) {
 			out.print(html.toString());
 			return;
 		}

@@ -43,4 +43,6 @@ public interface I_EduCategory extends BaseCharacter {
 	public final String SQL_INSERT_CATEGORY = "INSERT INTO" + SP + TABLE_NAME_EDU_CATEGORY + SP + "("
 			+ COL_NAME_CATEGORY_ID + CM + COL_NAME_CATEGORY_CD
 			+ CM + COL_NAME_CATEGORY_NAME + ") VALUES (?,?,?)" + SP;
+	/** 教育カテゴリー情報一覧取得用 : ALL */
+	public final String SQL_LIST_ALL = "SELECT * FROM" + SP + TABLE_NAME_EDU_CATEGORY + SP;
 }
