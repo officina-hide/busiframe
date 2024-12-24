@@ -28,4 +28,15 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_QUESTION_LIST_01 = 10203;
 	public final String DISPLAY_CD_QUESTION_LIST_01 = "eduQuestionList01";
 	public final String DISPLAY_TITLE_QUESTION_LIST_01 = "教育問題一覧 Lv01";
+	
+	// 生産メニュー Lv.01関連
+	/** 生産メニュー Lv,01 */
+	public final int DISPLAY_ID_PRODUCT_MENU_01 = 10301;
+	public final String DISPLAY_CD_PRODUCT_MENU_01 = "productMenu01";
+	public final String DISPLAY_TITLE_PRODUCT_MENU_01 = "生産メニュー Lv.01";
+	/** メニュー情報 :  */
+	public final String MENU_CD_PRODUCT_LIST = "productList01";
+	public final String MENU_TITLE_PRODUCT_LIST = "商品一覧 Lv.01";
+	public final String MENU_ACTION_PRODUCT_LIST = "./productAction01";
+	
 }

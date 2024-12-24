@@ -3,6 +3,7 @@ package busiframe.core.generate;
 import busiframe.core.dao.Environment;
 import busiframe.educate.generate.CreateEducateSystem01;
 import busiframe.order.generate.CreateOrderSystem01;
+import busiframe.product.generate.CreateProductSyste01;
 
 /**
  * システム生成クラス<br>
@@ -36,6 +37,9 @@ public class CreateSystem01 implements BaseGenerate {
 		// 教育関連生成 Addition 2024/12/04
 		CreateEducateSystem01 ces = new CreateEducateSystem01();
 		ces.execute(env);
+		// 生産関連生成 Addition 2024/12/20
+		CreateProductSyste01 cps = new CreateProductSyste01();
+		cps.execute(env);
 		
 		// 完了メッセージ
 		System.out.println("システムの生成を完了しました。");
