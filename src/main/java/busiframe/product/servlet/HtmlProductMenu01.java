@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
+import busiframe.core.dao.X_sysDispMenu;
 import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.DivTag;
 import busiframe.core.html.FormTag;
@@ -49,11 +50,22 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 -->
 		// メニュー用Form
 		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);		// form -->
+		// actionName変数
+		html.append(T2).append("<input").append(SP)
+			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
+			.append("id=").append(DQ).append("actionName").append(DQ).append(SP)
+			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
 		// 遷移ボタン
 		//　メニューへ戻るボタン
 		html.append(setMoveButton()).append(LF);
 		// メニュー一覧
-		
+		html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	// 2 -->
+		// 1行のみメニュー表示としています Addition 2024/12/26
+		html.append(T3);
+		for(X_sysDispMenu menu : disp.getMenus()) {
+			html.append(setMenuButton(menu)).append(LF);
+		}
+		html.append(T2).append(DivTag.getEndTag()).append(LF);	// <-- 2
 		html.append(FormTag.getEndTag());		// <-- form
 		html.append(DivTag.getEndTag()).append(LF);	// <-- 1
 		html.append(BODY_END).append(LF);
