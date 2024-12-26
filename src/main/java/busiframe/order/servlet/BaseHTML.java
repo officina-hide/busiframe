@@ -3,6 +3,8 @@ package busiframe.order.servlet;
 import java.nio.charset.Charset;
 
 import busiframe.core.dao.X_sysDispDetail;
+import busiframe.core.html.ButtonTag;
+import busiframe.core.html.DivTag;
 import busiframe.core.html.LinkTag;
 import busiframe.core.html.MetaTag;
 import busiframe.core.html.TitleBar;
@@ -63,4 +65,17 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 		return html.toString();
 	}
 
+	/**
+	 * HTML : 遷移ボタンソース生成<br>
+	 * @since 2024/12/25
+	 * @return 遷移ボタンソース文字列
+	 */
+	public String setMoveButton() {
+		StringBuffer html = new StringBuffer();
+		// メニューへ戻る
+		html.append(T2).append(DivTag.getSource("row text-right")).append(LF);
+		html.append(T3).append(ButtonTag.getSource("メニューへ戻る", "returnMenu('menu01','./action01')")).append(LF);
+		html.append(T2).append(DivTag.getEndTag()).append(LF);
+		return html.toString();
+	}
 }

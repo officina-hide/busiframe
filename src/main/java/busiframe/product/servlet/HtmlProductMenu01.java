@@ -1,25 +1,63 @@
 package busiframe.product.servlet;
 
+import java.nio.charset.StandardCharsets;
+
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.M_Display;
+import busiframe.core.html.BaseDisplay;
+import busiframe.core.html.DivTag;
+import busiframe.core.html.FormTag;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
+import busiframe.order.servlet.BaseHTML;
 
 /**
  * 生産メニュー Lv.01生成クラス<br>
  * @since 2024/11/26
  * @version 1.00 新規作成
  */
-public class HtmlProductMenu01 implements BaseCharacter, BaseHtml {
+public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHtml, BaseDisplay {
 
 	/**
 	 * 生産メニューLv.01HTMLソース生成<br>
 	 * @since 2024/12/04
-	 * @param env 環境情報
+	 * @param env 環境情報x
 	 * @return HTMLソース文字列
 	 */
 	public String createHTML(Environment env) {
 		StringBuffer html = new StringBuffer();
+		
+		// 表示情報取得 Addition 2024/12/02
+		M_Display disp = new M_Display();
+		disp.load(env, DISPLAY_CD_PRODUCT_MENU_01);
+
 		html.append(DOCTYPE_HTML).append(LF);
+		html.append(HTML_START).append(LF);
+		// JavaScript
+		html.append(SCRIPT_START).append(LF);
+		html.append(TB).append("function").append(SP).append("returnMenu(name, uri)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.menuForm.actionName.value=").append("name").append(";").append(LF);
+		html.append(T2).append("document.menuForm.action=").append("uri").append(";").append(LF);
+		html.append(T2).append("document.menuForm.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		html.append(SCRIPT_END).append(LF);
+		
+		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
+		
+		html.append(BODY_START).append(LF);
+		html.append(createHeader(disp.getDispData().getDispTitle()));
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 -->
+		// メニュー用Form
+		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);		// form -->
+		// 遷移ボタン
+		//　メニューへ戻るボタン
+		html.append(setMoveButton()).append(LF);
+		// メニュー一覧
+		
+		html.append(FormTag.getEndTag());		// <-- form
+		html.append(DivTag.getEndTag()).append(LF);	// <-- 1
+		html.append(BODY_END).append(LF);
+		html.append(HTML_END).append(LF);
 		return html.toString();
 	}
 
