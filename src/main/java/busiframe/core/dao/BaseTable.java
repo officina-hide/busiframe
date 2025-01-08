@@ -17,5 +17,8 @@ public interface BaseTable {
 	public final int COL_ID_CATEGORY_ID = 11020001;
 	public final int COL_ID_CATEGORY_CD = 11020002;
 	public final int COL_ID_CATEGORY_NAME = 11020002;
+
+	// 商品情報
+	public final int TABLE_ID_PRD_PRODUCT = 10301;
 	
 }

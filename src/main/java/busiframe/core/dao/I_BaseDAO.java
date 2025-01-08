@@ -9,6 +9,16 @@ import busiframe.core.tools.BaseCharacter;
  */
 public interface I_BaseDAO extends BaseCharacter {
 
+	// テーブル項目(共通化出来るものをここで管理する。) Addition 2025/01/06
+	// 名前<br>ALTERについては各テーブルのインターフェースクラスで作成する。
+	public final String COL_NAME_NAME = "name";
+	public final String COL_COMMENT_NAME = "名前";
+	public final String COL_DESCRIPTION_NAME = "主に各情報の識別コード対応する呼び名を表す項目";
+	// 説明<br>ALTERについては各テーブルのインターフェースクラスで作成する。
+	public final String COL_NAME_DESCRIPTION = "description";
+	public final String COL_COMMENT_DESCRIPTION = "説明";
+	public final String COL_DESCRIPTION_DESCRIPTION = "当該の情報に関する説明を管理する。";
+	
 	// SQL関連
 	/** SQL : 汎用テーブル削除 */
 	public final String SQL_TABLE_DROP = "DROP TABLE IF EXISTS <01>";
