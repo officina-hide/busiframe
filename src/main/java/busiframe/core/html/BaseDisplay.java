@@ -38,5 +38,9 @@ public interface BaseDisplay {
 	public final String MENU_CD_PRODUCT_LIST = "productList01";
 	public final String MENU_TITLE_PRODUCT_LIST = "商品一覧 Lv.01";
 	public final String MENU_ACTION_PRODUCT_LIST = "./productAction01";
+	// 商品一覧 Lv.01 Addition 2025/01/09
+	public final int DISPLAY_ID_PRODUCT_LIST_01 = 10302;
+	public final String DISPLAY_CD_PRODUCT_LIST_01 = "productList01";
+	public final String DISPLAY_TITLE_PRODUCT_LIST_01 = "商品一覧 Lv.01";
 	
 }
