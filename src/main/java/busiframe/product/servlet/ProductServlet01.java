@@ -1,13 +1,16 @@
 package busiframe.product.servlet;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import busiframe.core.dao.Environment;
+import busiframe.core.html.BaseDisplay;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import java.io.IOException;
 
 /**
  * 生産関係サーブレットクラス<br>
@@ -16,7 +19,7 @@ import java.io.IOException;
  * Servlet implementation class ProductServlet01
  */
 @WebServlet("/productAction01")
-public class ProductServlet01 extends HttpServlet {
+public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -39,6 +42,19 @@ public class ProductServlet01 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
+		StringBuffer html = new StringBuffer();
+		Environment env = (Environment) session.getAttribute("env");
+		System.out.println(env);
+		PrintWriter out = response.getWriter();
+
+		String actionName = request.getParameter("actionName");
+		// 商品一覧画面へ遷移する。
+		if(actionName.equals(DISPLAY_CD_PRODUCT_LIST_01)) {
+			HtmlProProductList ppl = new HtmlProProductList();
+			html.append(ppl.createHTML(env));
+			out.print(html.toString());
+			return;
+		}
 	}
 
 }
