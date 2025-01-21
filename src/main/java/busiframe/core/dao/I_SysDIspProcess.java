@@ -47,7 +47,7 @@ public interface I_SysDIspProcess extends BaseCharacter {
 	
 	// 登録関係
 	/** SQL : 新規登録 Addition 2025/01/21 */
-	public final String SQL_INSERT = "INSERT INOT" + SP + TABLE_NAME_SYS_DISPPROCESS + SP
+	public final String SQL_INSERT = "INSERT INTO" + SP + TABLE_NAME_SYS_DISPPROCESS + SP
 			+ "(" + COL_NAME_DISP_PROCESS_ID + CM + I_SysDisp.COL_NAME_DISP_ID
 			+ CM + COL_NAME_BUTTON_TITLE + CM + COL_NAME_ACTION_URL
 			+ CM + COL_NAME_ACTION_NAME + ")" + SP +  "VALUES" + SP + "(?,?,?,?,?)" + SP;
