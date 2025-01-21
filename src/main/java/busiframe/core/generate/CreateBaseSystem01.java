@@ -1,5 +1,6 @@
 package busiframe.core.generate;
 
+import busiframe.core.dao.BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_SysDispDetail;
 import busiframe.core.dao.M_Display;
@@ -10,7 +11,7 @@ import busiframe.core.dao.M_Numbering;
  * @version 2024/11/22
  * @version 1.00 新規作成
  */
-public class CreateBaseSystem01 {
+public class CreateBaseSystem01 implements BaseTable {
 
 	/**
 	 * 生成実行<br>
@@ -32,6 +33,12 @@ public class CreateBaseSystem01 {
 		num_disp.getNumbering().setCurrentNumber(100000);
 		num_disp.getNumbering().setTableId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
 		num_disp.save(env);
+		// 表示処理情報用採番情報の登録 Addition 2025/01/21
+		M_Numbering num_proc = new M_Numbering();
+		num_proc.getNumbering().setNumberingId(TABLE_ID_SYS_DISPPROCESS);
+		num_proc.getNumbering().setCurrentNumber(100000);
+		num_proc.getNumbering().setTableId(TABLE_ID_SYS_DISPPROCESS);
+		num_proc.save(env);
 	}
 
 }

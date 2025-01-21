@@ -38,6 +38,9 @@ public class CreateProductSyste01 implements BaseDisplay, I_BaseDAO, I_BaseRefer
 				1, "商品コード", R_STRING);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_LIST_01, I_Product.COL_NAME_NAME,
 				2, "名前", R_STRING);
+		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "/productEntry01", "productEntry01");
+		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "/productMenu01", "productMenu601");
+		
 	}
 
 }

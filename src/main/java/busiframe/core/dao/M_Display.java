@@ -160,6 +160,36 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	}
 
 	/**
+	 * 表示処理情報登録<br>
+	 * @since 2025/01/21
+	 * @param env 環境情報
+	 * @param dispprocessId
+	 * @param dispId
+	 * @param buttonTitle
+	 * @param actionURL
+	 * @param actionName
+	 */
+	public void addDispProcessData(Environment env, int dispprocessId, int dispId, String buttonTitle,
+			String actionURL, String actionName) {
+		PreparedStatement pstmt = null;
+		M_Numbering num = new M_Numbering();
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(I_SysDIspProcess.SQL_INSERT);
+			pstmt.setInt(1, num.newNumber(env, TABLE_ID_SYS_DISPPROCESS));
+			pstmt.setInt(2, dispId);
+			pstmt.setString(3, buttonTitle);
+			pstmt.setString(4, actionURL);
+			pstmt.setString(5, actionName);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+	}
+
+	/**
 	 * 取得<br>
 	 * @param env 環境情報
 	 * @param orderCd 表示識別コード
