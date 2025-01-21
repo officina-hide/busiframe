@@ -11,7 +11,7 @@ import java.util.List;
  * @since 2024/11/26
  * @version 1.00 新規作成
  */
-public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_SysDispMenu {
+public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_SysDispMenu, I_SysDIspProcess {
 
 	/** 表示情報 */
 	private X_SysDisp dispData = new X_SysDisp();
@@ -26,12 +26,15 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	 * @param env 関連情報
 	 */
 	public void dropTable(Environment env) {
+		// 表示処理情報テーブル削除 Addition 2025/01/16
+		dropTable(env, TABLE_NAME_SYS_DISPPROCESS);
 		// 表示詳細テーブル削除
 		dropTable(env, TABLE_NAME_SYS_DISPDETAIL);
-		// 表示情報テーブル削除
-		dropTable(env, TABLE_NAME_SYS_DISP);
 		// 表示メニュー情報テーブル削除 Addition 2024/12/05
 		dropTable(env, TABLE_NAME_SYS_DISPMENU);
+
+		// 表示情報テーブル削除
+		dropTable(env, TABLE_NAME_SYS_DISP);
 	}
 
 	/**
@@ -60,6 +63,13 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 		addColumn(env, COL_ALTER_DISPMENU_CD);
 		addColumn(env, COL_ALTER_MENU_TITLE);
 		addColumn(env,COL_ALTER_MENU_ACTION);
+		// 表示処理情報テーブル構築 Addition 2025/01/16
+		createTable(env, TABLE_NAME_SYS_DISPPROCESS, TABLE_COMMENT_SYS_DISPPROCESS,
+				COL_NAME_DISP_PROCESS_ID, COL_COMMENT_DISP_PROCESS_ID);
+		addColumn(env, I_SysDIspProcess.COL_ALTER_DISP_ID_SYS_DISPPROCESS);
+		addColumn(env, COL_ALTER_BUTTON_TITLE);
+		addColumn(env, COL_ALTER_ACTION_URL);
+		addColumn(env, COL_ALTER_ACTION_NAME);
 	}
 
 	/**

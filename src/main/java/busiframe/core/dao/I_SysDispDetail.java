@@ -18,7 +18,7 @@ public interface I_SysDispDetail  extends BaseCharacter, BaseTable {
 	// 表示詳細情報ID
 	public final String COL_NAME_DISP_DETAIL_ID = "disp_detail_id";
 	public final String COL_COMMENT_DISP_DETAIL_ID = "表示詳細情報ID";
-	public final String COL_DESCRIPTION_DISP_DETAIL_ID = "表示詳細情報を一意に管理する為のID情報、採番情報から連番を取得する。";
+	public final String COL_DESCRIPTION_DISP_DETAIL_ID = "表示詳細情報を一意に管理する為のID情報で固定のIDが付与される。";
 	// 表示情報ID → I_SysDispにて設定（Alterのみここで定義する)
 	public final String COL_ALTER_DISP_ID_SYS_DISPDETAIL = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISPDETAIL + SP
 			+ "ADD" + SP + I_SysDisp.COL_NAME_DISP_ID + SP + "INT NOT NULL" + SP
