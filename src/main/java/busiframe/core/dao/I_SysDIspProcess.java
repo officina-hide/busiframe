@@ -51,4 +51,7 @@ public interface I_SysDIspProcess extends BaseCharacter {
 			+ "(" + COL_NAME_DISP_PROCESS_ID + CM + I_SysDisp.COL_NAME_DISP_ID
 			+ CM + COL_NAME_BUTTON_TITLE + CM + COL_NAME_ACTION_URL
 			+ CM + COL_NAME_ACTION_NAME + ")" + SP +  "VALUES" + SP + "(?,?,?,?,?)" + SP;
+	/** SQL : 一覧取得 Addition 2025/01/22 */
+	public final String SQL_LOAD_DISPPROCESS = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISPPROCESS + SP
+			+ "WHERE" + SP + I_SysDisp.COL_NAME_DISP_ID + " = ? ";
 }

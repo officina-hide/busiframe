@@ -19,6 +19,8 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	private List<X_sysDispDetail> details = new ArrayList<>();
 	/** 表示メニュー情報リスト */
 	private List<X_sysDispMenu> menus = new ArrayList<>();
+	/** 表示処理情報リスト */
+	private List<X_sysDispProcess> processes = new ArrayList<>();
 	
 	/**
 	 * テーブル削除<br>
@@ -163,11 +165,11 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 	 * 表示処理情報登録<br>
 	 * @since 2025/01/21
 	 * @param env 環境情報
-	 * @param dispprocessId
-	 * @param dispId
-	 * @param buttonTitle
-	 * @param actionURL
-	 * @param actionName
+	 * @param dispprocessId 表示処理情報ID
+	 * @param dispId 表示情報ID
+	 * @param buttonTitle ボタンタイトル
+	 * @param actionURL アクションURL
+	 * @param actionName アクション名
 	 */
 	public void addDispProcessData(Environment env, int dispprocessId, int dispId, String buttonTitle,
 			String actionURL, String actionName) {
@@ -225,6 +227,15 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 					menu.setItems(rs);
 					getMenus().add(menu);
 				}
+				// 表示処理情報取得 Addition 2025/01/22
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPPROCESS);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispProcess process = new X_sysDispProcess();
+					process.setItems(rs);
+					getProcesses().add(process);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -249,6 +260,13 @@ public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_
 			menus = new ArrayList<>();
 		}
 		return menus;
+	}
+
+	public List<X_sysDispProcess> getProcesses() {
+		if(processes == null) {
+			processes = new ArrayList<>();
+		}
+		return processes;
 	}
 
 }
