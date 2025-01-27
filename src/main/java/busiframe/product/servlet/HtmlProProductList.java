@@ -27,20 +27,30 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		html.append(DOCTYPE_HTML).append(LF);
 		// html
 		html.append(HTML_START).append(LF);
+		
+		// JavaScript
+		html.append(SCRIPT_START).append(LF);
+		html.append(TB).append("function").append(SP).append("moveAction(name, uri)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.actionForm.actionName.value=").append("name").append(";").append(LF);
+		html.append(T2).append("document.actionForm.action=").append("uri").append(";").append(LF);
+		html.append(T2).append("document.actionForm.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
+		html.append(SCRIPT_END).append(LF);
+		
 		html.append(createHead(StandardCharsets.UTF_8, DISPLAY_TITLE_PRODUCT_LIST_01));
 		html.append(BODY_START).append(LF);
 		html.append(createHeader(DISPLAY_TITLE_PRODUCT_LIST_01));
 		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	//-->1
 		// Form内にテーブルを作成する。
-		html.append(TB).append(FormTag.getSource("categoryList", H_POST)).append(LF);
+		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);
 		// actionName変数
 		html.append(T2).append("<input").append(SP)
 			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
 			.append("id=").append(DQ).append("actionName").append(DQ).append(SP)
 			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
 		
-		//　メニューへ戻るボタン
-		html.append(setMoveButton()).append(LF);
+		// 遷移ボタン表示
+		html.append(setMoveButton(disp)).append(LF);
 		// 一覧表
 		html.append(TB).append(TableTag.getSource("table table-striped table-bordered")).append(LF);
 		// タイトル
@@ -50,7 +60,10 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		}
 		html.append(T2).append("</thead>").append(LF);
 		// 明細
-		html.append(TB).append("</table>").append(LF);
+		
+		
+		
+		html.append(TB).append(TableTag.getEndTag()).append(LF);	//<-- 一覧表 End
 		
 		html.append(TB).append(FormTag.getEndTag()).append(LF);
 		html.append(DivTag.getEndTag()).append(LF);	//<--1

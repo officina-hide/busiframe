@@ -1,5 +1,6 @@
 package busiframe.core.dao;
 
+import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,9 @@ import java.util.List;
  * @since 2024/11/26
  * @version 1.00 新規作成
  */
-public class M_Display extends BaseDAO implements I_SysDisp, I_SysDispDetail, I_SysDispMenu, I_SysDIspProcess {
+public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_SysDispDetail, I_SysDispMenu, I_SysDIspProcess {
+
+	private static final long serialVersionUID = 1L;
 
 	/** 表示情報 */
 	private X_SysDisp dispData = new X_SysDisp();

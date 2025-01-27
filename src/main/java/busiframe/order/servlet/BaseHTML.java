@@ -2,8 +2,10 @@ package busiframe.order.servlet;
 
 import java.nio.charset.Charset;
 
+import busiframe.core.dao.M_Display;
 import busiframe.core.dao.X_sysDispDetail;
 import busiframe.core.dao.X_sysDispMenu;
+import busiframe.core.dao.X_sysDispProcess;
 import busiframe.core.html.ButtonTag;
 import busiframe.core.html.DivTag;
 import busiframe.core.html.LinkTag;
@@ -68,14 +70,20 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 
 	/**
 	 * HTML : 遷移ボタンソース生成<br>
-	 * @since 2024/12/25
+	 * @since 2024/12/25、2025/01/23
+	 * @param disp 表示情報
 	 * @return 遷移ボタンソース文字列
 	 */
-	public String setMoveButton() {
+	public String setMoveButton(M_Display disp) {
 		StringBuffer html = new StringBuffer();
-		// メニューへ戻る
 		html.append(T2).append(DivTag.getSource("row text-right")).append(LF);
-		html.append(T3).append(ButtonTag.getSource("メニューへ戻る", "returnMenu('menu01','./action01')")).append(LF);
+		// 表示処理リストの処理ボタンを表示する。
+		for(X_sysDispProcess process : disp.getProcesses()) {
+			StringBuffer fname = new StringBuffer("moveAction(").append(SQ).append(process.getActionName()).append(SQ)
+					.append(CM).append(SQ).append(process.getActionURL()).append(SQ).append(")");
+			html.append(T3).append(ButtonTag.getSource(process.getButtonTitle(), fname.toString())).append(LF);
+		}
+		
 		html.append(T2).append(DivTag.getEndTag()).append(LF);
 		return html.toString();
 	}

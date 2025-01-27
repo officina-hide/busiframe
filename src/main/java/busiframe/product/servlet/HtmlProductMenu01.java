@@ -57,7 +57,7 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
 		// 遷移ボタン
 		//　メニューへ戻るボタン
-		html.append(setMoveButton()).append(LF);
+		html.append(setMoveButton(disp)).append(LF);
 		// メニュー一覧
 		html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	// 2 -->
 		// 1行のみメニュー表示としています Addition 2024/12/26
