@@ -41,6 +41,10 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 				2, "名前", R_STRING);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "./productEntry01", "productEntry01");
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", MENU_PRODUCT01);
+		// 商品情報 Lv.01 : 初期登録用商品情報の登録
+        M_Product product01 = new M_Product();
+        product01.insertProduct(env, "P0001", "商品A", "商品Aの説明");
+        
 		
 	}
 

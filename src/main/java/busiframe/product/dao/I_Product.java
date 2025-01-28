@@ -32,4 +32,7 @@ public interface I_Product extends I_BaseDAO {
 	public final String COL_ALTER_DESCRIPTION = "ALTER TABLE" + SP + TABLE_NAME_PRODUCT + SP
 			+ "ADD" + SP + COL_NAME_DESCRIPTION + SP + "VARCHAR(3000)"
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DESCRIPTION + SQ + SP;
+	
+	// SQL関連
+	/** 4 */
 }
