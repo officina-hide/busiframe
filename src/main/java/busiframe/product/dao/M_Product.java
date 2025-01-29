@@ -1,12 +1,15 @@
 package busiframe.product.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Numbering;
-import busiframe.core.html.BaseDisplay;
 
 /**
  * 商品情報クラス<br>
@@ -16,7 +19,7 @@ import busiframe.core.html.BaseDisplay;
  public class M_Product extends BaseDAO implements I_Product, BaseTable {
 
 	 /** 商品情報 */
-	 X_Priduct product = new X_Priduct();
+	 X_Product product = new X_Product();
 	 
 	/**
 	 * テーブル削除<br>
@@ -64,11 +67,11 @@ import busiframe.core.html.BaseDisplay;
 	 * @param env 環境情報
 	 * @param product 商品情報
 	 */
-	private void save(Environment env, X_Priduct product) {
+	private void save(Environment env, X_Product product) {
 		PreparedStatement pstmt = null;
 		try {
-//			String sql = "INSERT INTO " + TABLE_NAME_PRODUCT + " VALUES(?, ?, ?, ?, ?)";
 			pstmt = env.getConn().prepareStatement(I_Product.SQL_INSERT);
+			connection(env);
 			pstmt.setInt(1, product.getProductId());
 			pstmt.setString(2, product.getProductCd());
 			pstmt.setString(3, product.getName());
@@ -79,5 +82,32 @@ import busiframe.core.html.BaseDisplay;
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * 商品情報一覧生成<br>
+	 * @since 2025/01/29
+	 * @param env 環境情報
+	 * @return 商品情報一覧
+	 */
+	public List<X_Product> getList(Environment env) {
+		List<X_Product> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_GET_LIST);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				X_Product pr = new X_Product();
+				pr.setItems(rs);
+				list.add(pr);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+		return list;
 	}
 }

@@ -38,4 +38,6 @@ public interface I_Product extends I_BaseDAO {
 	public final String SQL_INSERT = "INSERT INTO" + SP + TABLE_NAME_PRODUCT + SP
 			+ "(" + COL_NAME_PRODUCT_ID + CM + COL_NAME_PRODUCT_CD + CM
 			+ COL_NAME_NAME + CM + COL_NAME_DESCRIPTION + ") VALUES (?,?,?,?)";
+	/** SQL : 商品情報一覧取得 */
+	public final String SQL_GET_LIST = "SELECT * FROM" + SP + TABLE_NAME_PRODUCT + SP;
 }

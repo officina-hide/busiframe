@@ -1,6 +1,8 @@
 package busiframe.product.servlet;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
@@ -10,6 +12,8 @@ import busiframe.core.html.DivTag;
 import busiframe.core.html.FormTag;
 import busiframe.core.html.TableTag;
 import busiframe.order.servlet.BaseHTML;
+import busiframe.product.dao.M_Product;
+import busiframe.product.dao.X_Product;
 
 /**
  * 商品一覧 Lv.01生成クラス
@@ -23,6 +27,9 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		// 表示情報取得
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_CD_PRODUCT_LIST_01);
+		// 商品情報一覧
+		M_Product product = new M_Product();
+		List<X_Product> products = product.getList(env);
 
 		html.append(DOCTYPE_HTML).append(LF);
 		// html
@@ -60,7 +67,10 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		}
 		html.append(T2).append("</thead>").append(LF);
 		// 明細
+		html.append(T2).append("<tbody>").append(LF);
 		
+		
+		html.append(T2).append("</tbody>").append(LF);
 		
 		
 		html.append(TB).append(TableTag.getEndTag()).append(LF);	//<-- 一覧表 End
