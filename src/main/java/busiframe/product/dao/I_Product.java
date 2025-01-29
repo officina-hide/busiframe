@@ -34,5 +34,8 @@ public interface I_Product extends I_BaseDAO {
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DESCRIPTION + SQ + SP;
 	
 	// SQL関連
-	/** 4 */
+	/** SQL : 新規登録 */
+	public final String SQL_INSERT = "INSERT INTO" + SP + TABLE_NAME_PRODUCT + SP
+			+ "(" + COL_NAME_PRODUCT_ID + CM + COL_NAME_PRODUCT_CD + CM
+			+ COL_NAME_NAME + CM + COL_NAME_DESCRIPTION + ") VALUES (?,?,?,?)";
 }

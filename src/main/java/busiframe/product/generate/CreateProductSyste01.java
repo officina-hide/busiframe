@@ -1,9 +1,11 @@
 package busiframe.product.generate;
 
+import busiframe.core.dao.BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseDAO;
 import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.M_Display;
+import busiframe.core.dao.M_Numbering;
 import busiframe.core.html.BaseDisplay;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.product.dao.I_Product;
@@ -14,7 +16,7 @@ import busiframe.product.dao.M_Product;
  * @since 2024/12/20
  * @version 1.00 新規作成
  */
-public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I_BaseReference {
+public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I_BaseReference, BaseTable {
 
 	/**
 	 * 生成処理実行<br>
@@ -41,9 +43,16 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 				2, "名前", R_STRING);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "./productEntry01", "productEntry01");
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", MENU_PRODUCT01);
+		// 商品情報 Lv.01 : 採番情報登録
+		M_Numbering num = new M_Numbering();
+		num.getNumbering().setNumberingId(TABLE_ID_PRD_PRODUCT);
+		num.getNumbering().setCurrentNumber(100000);
+		num.getNumbering().setTableId(TABLE_ID_PRD_PRODUCT);
+		num.save(env);
 		// 商品情報 Lv.01 : 初期登録用商品情報の登録
         M_Product product01 = new M_Product();
         product01.insertProduct(env, "P0001", "商品A", "商品Aの説明");
+        product01.insertProduct(env, "P0002", "商品B", "商品Bの説明");
         
 		
 	}

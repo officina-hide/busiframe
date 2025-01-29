@@ -67,8 +67,8 @@ import busiframe.core.html.BaseDisplay;
 	private void save(Environment env, X_Priduct product) {
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "INSERT INTO " + TABLE_NAME_PRODUCT + " VALUES(?, ?, ?, ?, ?)";
-			pstmt = env.getConn().prepareStatement(sql);
+//			String sql = "INSERT INTO " + TABLE_NAME_PRODUCT + " VALUES(?, ?, ?, ?, ?)";
+			pstmt = env.getConn().prepareStatement(I_Product.SQL_INSERT);
 			pstmt.setInt(1, product.getProductId());
 			pstmt.setString(2, product.getProductCd());
 			pstmt.setString(3, product.getName());
