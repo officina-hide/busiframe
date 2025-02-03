@@ -42,8 +42,10 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
 		html.append(TB).append("function").append(SP).append("entryAction(id)").append(SP).append("{").append(LF);
-		html.append(T2).append("document.actionForm.action='productEntry01'").append(LF);
-		html.append(T2).append("document.actionForm.id=id").append(LF);
+		html.append(T2).append("document.actionForm.action='./productAction01';").append(LF);
+		html.append(T2).append("document.actionForm.id=id;").append(LF);
+		html.append(T2).append("document.actionForm.actionName.value=")
+			.append(SQ).append(DISPLAY_CD_PRODUCT_DATA_01).append(SQ).append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
 		html.append(SCRIPT_END).append(LF);

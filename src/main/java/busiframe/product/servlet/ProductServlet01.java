@@ -44,7 +44,6 @@ public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 		HttpSession session = request.getSession();
 		StringBuffer html = new StringBuffer();
 		Environment env = (Environment) session.getAttribute("env");
-		System.out.println(env);
 		PrintWriter out = response.getWriter();
 
 		String actionName = request.getParameter("actionName");
@@ -54,6 +53,9 @@ public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 			html.append(ppl.createHTML(env));
 			out.print(html.toString());
 			return;
+		}
+		if(actionName.equals(DISPLAY_CD_PRODUCT_DATA_01)) {
+			HtmlProductData pd = new HtmlProductData();
 		}
 	}
 
