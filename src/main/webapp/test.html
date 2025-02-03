@@ -1,33 +1,44 @@
-
 <!DOCTYPE html>
-<html>
-<script>
-	function returnMenu(name, uri) {
-		document.menuForm.actionName.value=name;
-		document.menuForm.action=uri;
-		document.menuForm.submit();
-	}
-</script>
+<html lang="ja">
 <head>
-	<meta charset="UTF-8">
-	<title>生産メニュー Lv.01</title>
-	<link rel="stylesheet" href="./css/skyblue_k.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テーブル行の色変更</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        tr:hover {
+            background-color: skyblue;
+        }
+    </style>
 </head>
 <body>
-<header>
-		<div class="container bg-dark padding-y-10">
-		<h1>生産メニュー Lv.01</h1>
-	</div>
-</header>
-<div class="container padding-y-5 text-left">
-	<form name="menuForm" method="post" >
-		<div class="row text-right">
-			<button class="btn btn-dark" onclick="returnMenu('menu01','./action01')">メニューへ戻る</button>
-		</div>
-
-		<div class="container padding-y-5 text-center">
-			<button type="button" class="btn btn-dark" onclick="returnMenu('productList01','./productAction01')">商品一覧 Lv.01</button>
-		</div>
-</form></div>
+    <table>
+        <thead>
+            <tr>
+                <th>ヘッダー1</th>
+                <th>ヘッダー2</th>
+                <th>ヘッダー3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>データ1</td>
+                <td>データ2</td>
+                <td>データ3</td>
+            </tr>
+            <tr>
+                <td>データ4</td>
+                <td>データ5</td>
+                <td>データ6</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

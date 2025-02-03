@@ -1,7 +1,6 @@
 package busiframe.product.servlet;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.List;
 
 import busiframe.core.dao.Environment;
@@ -42,6 +41,11 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		html.append(T2).append("document.actionForm.action=").append("uri").append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
+		html.append(TB).append("function").append(SP).append("entryAction(id)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.actionForm.action='productEntry01'").append(LF);
+		html.append(T2).append("document.actionForm.id=id").append(LF);
+		html.append(T2).append("document.actionForm.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
 		html.append(SCRIPT_END).append(LF);
 		
 		html.append(createHead(StandardCharsets.UTF_8, DISPLAY_TITLE_PRODUCT_LIST_01));
@@ -59,7 +63,7 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		// 遷移ボタン表示
 		html.append(setMoveButton(disp)).append(LF);
 		// 一覧表
-		html.append(TB).append(TableTag.getSource("table table-striped table-bordered")).append(LF);
+		html.append(TB).append(TableTag.getSource("table table-striped table-bordered table-hover")).append(LF);
 		// タイトル
 		html.append(T2).append("<thead>").append(LF);
 		for(X_sysDispDetail detail : disp.getDetails()) {
@@ -68,8 +72,13 @@ public class HtmlProProductList extends BaseHTML implements BaseDisplay {
 		html.append(T2).append("</thead>").append(LF);
 		// 明細
 		html.append(T2).append("<tbody>").append(LF);
-		
-		
+		for(X_Product pr : products) {
+			html.append(T3).append("<tr")
+				.append(SP).append("onclick=").append(DQ).append("entryAction(").append(pr.getProductId()).append(")").append(DQ).append(">").append(LF);
+			html.append(T4).append("<td>").append(pr.getProductCd()).append("</td>").append(LF);
+			html.append(T4).append("<td>").append(pr.getName()).append("</td>").append(LF);
+			html.append(T3).append("</tr>").append(LF);
+		}
 		html.append(T2).append("</tbody>").append(LF);
 		
 		

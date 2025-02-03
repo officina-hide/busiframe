@@ -18,7 +18,7 @@ public class TableTag implements BaseCharacter {
 	public static String getSource(String classString) {
 		StringBuffer html = new StringBuffer();
 		html.append("<table").append(SP)
-			.append("class=").append(DQ).append("table table-striped table-bordered").append(DQ).append(">");
+			.append("class=").append(DQ).append(classString).append(DQ).append(">");
 		return html.toString();
 	}
 
