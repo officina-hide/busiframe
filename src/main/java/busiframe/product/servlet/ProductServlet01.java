@@ -49,7 +49,7 @@ public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 		String actionName = request.getParameter("actionName");
 		// 商品一覧画面へ遷移する。
 		if(actionName.equals(DISPLAY_CD_PRODUCT_LIST_01)) {
-			HtmlProProductList ppl = new HtmlProProductList();
+			HtmlProductList ppl = new HtmlProductList();
 			html.append(ppl.createHTML(env));
 			out.print(html.toString());
 			return;

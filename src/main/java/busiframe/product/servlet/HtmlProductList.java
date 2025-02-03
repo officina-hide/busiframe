@@ -19,7 +19,7 @@ import busiframe.product.dao.X_Product;
  * @since 2025/01/15
  * @version 1.00 新規作成
  */
-public class HtmlProProductList extends BaseHTML implements BaseDisplay {
+public class HtmlProductList extends BaseHTML implements BaseDisplay {
 
 	public Object createHTML(Environment env) {
 		StringBuffer html = new StringBuffer();
