@@ -19,7 +19,7 @@ public interface I_Product extends I_BaseDAO {
 	public final String COL_COMMENT_PRODUCT_ID = "商品情報ID";
 	/** 商品識別コード */
 	public final String COL_NAME_PRODUCT_CD = "product_cd";
-	public final String COL_COMMENT_PRODUCT_CD = "商品識別コード";
+	public final String COL_COMMENT_PRODUCT_CD = "商品コード";
 	public final String COL_DESCRIPTION_PRODUCT_CD = "商品のマスター情報";
 	public final String COL_ALTER_PRODUCT_CD = "ALTER TABLE" + SP + TABLE_NAME_PRODUCT + SP
 			+ "ADD" + SP + COL_NAME_PRODUCT_CD + SP + "VARCHAR(100) NOT NULL UNIQUE" + SP

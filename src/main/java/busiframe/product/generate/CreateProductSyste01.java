@@ -38,9 +38,9 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 		disp.addDispData(env, DISPLAY_ID_PRODUCT_LIST_01, DISPLAY_CD_PRODUCT_LIST_01,
 				DISPLAY_TITLE_PRODUCT_LIST_01);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_LIST_01, I_Product.COL_NAME_PRODUCT_CD,
-				1, "商品コード", R_STRING);
+				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_LIST_01, I_Product.COL_NAME_NAME,
-				2, "名前", R_STRING);
+				2, "商品名", R_STRING);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "./productEntry01", "productEntry01");
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", MENU_PRODUCT01);
 		// 商品情報 Lv.01 : 採番情報登録
@@ -53,8 +53,15 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
         M_Product product01 = new M_Product();
         product01.insertProduct(env, "P0001", "商品A", "商品Aの説明");
         product01.insertProduct(env, "P0002", "商品B", "商品Bの説明");
-        
-		
+        // 商品照会 Lv01 : 表示情報関連登録
+        disp.addDispData(env, DISPLAY_ID_PRODUCT_DATA_01, DISPLAY_CD_PRODUCT_DATA_01,
+        		DISPLAY_TITLE_PRODUCT_DATA_01);
+		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_PRODUCT_CD,
+				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING);
+		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_NAME,
+				2, "商品名", R_STRING);
+		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_DESCRIPTION,
+				2, "商品説明", R_TEXT);
 	}
 
 }
