@@ -62,7 +62,7 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml, BaseDisplay {
 		html.append(TB).append(LinkTag.getSource("stylesheet", "./css/skyblue_k.css")).append(LF);
 		html.append(HEAD_END).append(LF);
 		
-		html.append("<body>").append(LF);
+		html.append(BODY_START).append(LF);
 		html.append("<header>").append(LF);
 		html.append(TB).append(TitleBar.getSource(ORDER_ENTRY_01_TITLE));
 		html.append("</header>").append(LF);
@@ -117,7 +117,7 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml, BaseDisplay {
 		
 		html.append("</form>").append(LF);
 		
-		html.append("</body>").append(LF);
+		html.append(BODY_END).append(LF);
 		html.append(HTML_END).append(LF);
 		return html.toString();
 	}

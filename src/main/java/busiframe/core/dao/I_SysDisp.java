@@ -40,7 +40,10 @@ public interface I_SysDisp extends BaseCharacter {
 			+ COL_NAME_DISP_ID + CM + COL_NAME_DISP_CD
 			+ CM + COL_NAME_DISP_TITLE + ")" + SP		//Addition 2024/12/04
 			+ "VALUES" + SP + "(?,?,?)" + SP;
-	/** SQL : 取得  Addition 2024/11/30 */
-	public final String SQL_LOAD_DISP = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISP + SP
+	/** SQL : 取得(表示識別コード)  Addition 2024/11/30 */
+	public final String SQL_LOAD_DISPCD = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISP + SP
 			+ "WHERE" + SP + COL_NAME_DISP_CD + " = ? ";
+	/** SQL : 取得(表示情報ID) Addition 2025/02/06 */
+	public final String SQL_LOAD_DISPID = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISP + SP
+			+ "WHERE" + SP + COL_NAME_DISP_ID + " = ? ";
 }
