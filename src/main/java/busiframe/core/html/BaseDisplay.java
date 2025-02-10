@@ -8,11 +8,16 @@ package busiframe.core.html;
 public interface BaseDisplay {
 
 	// 表示画面固定ID
+	// メインメニュー Addition 2025/02/10
+	public final int DISPLAY_ID_MAIN_MENU = 10001;
+	public final String DISPLAY_CD_NAIN_MENU = "mainMenu";
+	public final String DISPLAY_TITLE_MAIN_MENU = "メインメニュー";
+	
 	/** 受注登録 Lv.01 */
-	public final int DISPLAY_ID_ORDER_ENTRY_01 = 10001;
+	public final int DISPLAY_ID_ORDER_ENTRY_01 = 10101;
 	public final String DISPLAY_CD_ORDER_ENTRY_01 = "OrderEntry01";
 	/** 受注一覧 Lv.01 */
-	public final int DISPLAY_ID_ORDER_LIST_01 = 10002;
+	public final int DISPLAY_ID_ORDER_LIST_01 = 10102;
 	public final String DISPLAY_CD_ORDER_LIST_01 = "orderList01";
 	public final String DISPLAY_TITLE_ORDER_LIST_01 = "受注一覧 Lv.01";
 
