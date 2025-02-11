@@ -5,13 +5,14 @@ import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_SysDispDetail;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
+import busiframe.core.html.BaseDisplay;
 
 /**
  * 基盤システム構築<br>
  * @version 2024/11/22
  * @version 1.00 新規作成
  */
-public class CreateBaseSystem01 implements BaseTable {
+public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 
 	/**
 	 * 生成実行<br>
@@ -39,6 +40,9 @@ public class CreateBaseSystem01 implements BaseTable {
 		num_proc.getNumbering().setCurrentNumber(100000);
 		num_proc.getNumbering().setTableId(TABLE_ID_SYS_DISPPROCESS);
 		num_proc.save(env);
+		
+		// 表示情報 : メインメニュー画面 Addition 2025/02/10
+		disp.addDispData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_NAIN_MENU, DISPLAY_TITLE_MAIN_MENU);
 	}
 
 }
