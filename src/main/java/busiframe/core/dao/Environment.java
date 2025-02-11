@@ -9,7 +9,7 @@ import java.sql.Connection;
  * @version 1.00 新規作成
  * @version 1.01 loginUserIdの項目を追加。<br>
  * 						ログイン時にログインしたユーザーのIDがセットされます。
- * @version 1.02 Copyrughtの変数を追加
+ * @version 1.02 Copyrightの変数を追加
  */
 public class Environment { 
 

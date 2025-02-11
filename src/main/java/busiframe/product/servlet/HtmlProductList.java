@@ -25,7 +25,7 @@ public class HtmlProductList extends BaseHTML implements BaseDisplay {
 		StringBuffer html = new StringBuffer();
 		// 表示情報取得
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_PRODUCT_LIST_01);
+		disp.load(env, DISPLAY_ID_PRODUCT_LIST_01);
 		// 商品情報一覧
 		M_Product product = new M_Product();
 		List<X_Product> products = product.getList(env);
@@ -43,7 +43,7 @@ public class HtmlProductList extends BaseHTML implements BaseDisplay {
 		html.append(TB).append("}").append(LF);
 		html.append(TB).append("function").append(SP).append("entryAction(id)").append(SP).append("{").append(LF);
 		html.append(T2).append("document.actionForm.action='./productAction01';").append(LF);
-		html.append(T2).append("document.actionForm.id=productId;").append(LF);
+		html.append(T2).append("document.actionForm.productId.value=id;").append(LF);
 		html.append(T2).append("document.actionForm.actionName.value=")
 			.append(SQ).append(DISPLAY_CD_PRODUCT_DATA_01).append(SQ).append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
@@ -65,7 +65,7 @@ public class HtmlProductList extends BaseHTML implements BaseDisplay {
 		html.append(T2).append("<input").append(SP)
 			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
 			.append("id=").append(DQ).append("productId").append(DQ).append(SP)
-			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
+			.append("name=").append(DQ).append("productId").append(DQ).append("/>").append(LF);
 		
 		// 遷移ボタン表示
 		html.append(setMoveButton(disp)).append(LF);

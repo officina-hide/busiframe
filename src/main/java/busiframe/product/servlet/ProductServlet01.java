@@ -57,9 +57,8 @@ public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 		// 商品照会画面へ遷移する。
 		if(actionName.equals(DISPLAY_CD_PRODUCT_DATA_01)) {
 			String id = request.getParameter("productId");
-			System.out.println(id);
 			HtmlProductData01 pd = new HtmlProductData01();
-			html.append(pd.createHTML(env));
+			html.append(pd.createHTML(env, Integer.parseInt(id)));
 			out.print(html.toString());
 			return;
 		}

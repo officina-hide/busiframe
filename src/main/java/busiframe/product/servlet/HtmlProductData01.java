@@ -12,6 +12,7 @@ import busiframe.core.html.FormTag;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
 import busiframe.order.servlet.BaseHTML;
+import busiframe.product.dao.M_Product;
 
 /**
  * 商品照会 Lv.01生成クラス<br>
@@ -24,12 +25,15 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 	 * 画面表示用HTMLソース生成<br>
 	 * @since 2025/02/03
 	 * @param env 環境情報
+	 * @param productId 商品情報ID
 	 * @return 画面表示用HTMLソース
 	 */
-	public Object createHTML(Environment env) {
+	public Object createHTML(Environment env, int productId) {
 		// 表示情報取得
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_ID_PRODUCT_DATA_01);
+		// 商品情報取得
+		M_Product product = new M_Product();
 
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);
