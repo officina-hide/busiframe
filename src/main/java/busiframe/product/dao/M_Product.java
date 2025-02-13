@@ -110,4 +110,32 @@ import busiframe.core.dao.M_Numbering;
 		}
 		return list;
 	}
+
+	/**
+	 * 商品情報取得<br>
+	 * @since 2025/02/12
+	 * @param env 環境情報
+	 * @param productId 商品情報ID
+	 */
+	public void load(Environment env, int productId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD);
+			pstmt.setInt(1, productId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				product.setItems(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+	}
+
+	public X_Product getProduct() {
+		return product;
+	}
 }

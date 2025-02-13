@@ -40,4 +40,7 @@ public interface I_Product extends I_BaseDAO {
 			+ COL_NAME_NAME + CM + COL_NAME_DESCRIPTION + ") VALUES (?,?,?,?)";
 	/** SQL : 商品情報一覧取得 */
 	public final String SQL_GET_LIST = "SELECT * FROM" + SP + TABLE_NAME_PRODUCT + SP;
+	/** SQL : 商品情報取得(商品情報ID) Addition 2025\02\12 */
+	public final String SQL_LOAD = "SELECT * FROM" + SP + TABLE_NAME_PRODUCT + SP
+			+ "WHERE" + SP + COL_NAME_PRODUCT_ID + SP + " = ? ";
 }

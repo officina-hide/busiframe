@@ -12,6 +12,7 @@ import busiframe.core.html.FormTag;
 import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
 import busiframe.order.servlet.BaseHTML;
+import busiframe.product.dao.I_Product;
 import busiframe.product.dao.M_Product;
 
 /**
@@ -34,6 +35,7 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 		disp.load(env, DISPLAY_ID_PRODUCT_DATA_01);
 		// 商品情報取得
 		M_Product product = new M_Product();
+		product.load(env, productId);
 
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);
@@ -54,9 +56,22 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 		// form : 各項目を詳細情報の一覧から表示する。
 		for(int ix = 0; ix < disp.getDetails().size(); ix++) {
 			X_sysDispDetail detail = disp.getDetails().get(ix);
+			// 表示項目判定
+			String data = "";
+			switch(detail.getItemCd()) {
+			case I_Product.COL_NAME_PRODUCT_CD:
+				data = product.getProduct().getProductCd();
+				break;
+			case I_Product.COL_NAME_NAME:
+				data = product.getProduct().getName();
+				break;
+			case I_Product.COL_NAME_DESCRIPTION:
+				data = product.getProduct().getDescription();
+				break;
+			}
 			html.append(T2).append(DivTag.getSource("row")).append(LF);
 			// label
-			html.append(T3).append("<label class=" + DQ +"md-2 text-right  padding-x-10 padding-y-5"+DQ+">")
+			html.append(T3).append("<label class=" + DQ +"md-2 text-right padding-y-5 padding-x-10 "+DQ+">")
 				.append(detail.getItemLabel()).append("</label>").append(LF);
 			// item
 			switch(detail.getItemType()) {
@@ -66,15 +81,25 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 					.append("type=").append(DQ).append("text").append(DQ).append(SP)
 					.append("id=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
 					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
-					.append("value=").append(DQ).append("test").append(DQ).append(">").append(LF);
-				html.append(T3).append(DivTag.getEndTag());
+					.append("value=").append(DQ).append(data).append(DQ).append(" readonly>").append(LF);
+				html.append(T3).append(DivTag.getEndTag()).append(LF);
+				break;
+			case R_TEXT:	// 複数行文字列
+				html.append(T3).append(DivTag.getSource("md-4")).append(LF);
+				html.append(T4).append("<textarea class=").append(DQ).append("form_control").append(DQ).append(SP)
+					.append("id=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
+					.append("name=").append(DQ).append(detail.getItemCd()).append(DQ).append(SP)
+					.append("row=3").append(SP).append("cols=50").append(" readonly>")
+					.append(data)
+					.append("</textarea>").append(LF);
+				html.append(T3).append(DivTag.getEndTag()).append(LF);
 				break;
 			}
 			
 			html.append(T2).append(DivTag.getEndTag()).append(LF);
 		}
 		
-		html.append(TB).append(FormTag.getEndTag());	//<-- Form
+		html.append(TB).append(FormTag.getEndTag()).append(LF);	//<-- Form
 		
 		html.append(DivTag.getEndTag()).append(LF);	//<--1
 		html.append(BODY_END).append(LF);

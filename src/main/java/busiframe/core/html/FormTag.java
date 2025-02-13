@@ -22,6 +22,7 @@ public class FormTag implements BaseCharacter {
 		html.append("<form").append(SP)
 			.append("name=").append(DQ).append(name).append(DQ).append(SP)
 			.append("method=").append(DQ).append(method).append(DQ).append(SP)
+			.append("class=").append(DQ).append("padding-y-5").append(DQ).append(SP)
 			.append(">");
 		return html.toString();
 	}
