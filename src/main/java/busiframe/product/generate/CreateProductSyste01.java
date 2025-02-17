@@ -62,6 +62,9 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 				2, "商品名", R_STRING);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_DESCRIPTION,
 				2, "商品説明", R_TEXT);
+		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_DATA_01, "一覧へ戻る", "./productEntry01",
+				DISPLAY_CD_PRODUCT_LIST_01);
+		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_DATA_01, "編集", "./productEntry01", "productEntry01");
 	}
 
 }
