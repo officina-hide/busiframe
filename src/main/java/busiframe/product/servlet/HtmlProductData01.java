@@ -43,6 +43,11 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 		
 		// Javascript
 		html.append(SCRIPT_START).append(LF);
+		html.append(TB).append("function").append(SP).append("moveAction(name, uri)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.actionForm.actionName.value=").append("name").append(";").append(LF);
+		html.append(T2).append("document.actionForm.action=").append("uri").append(";").append(LF);
+		html.append(T2).append("document.actionForm.submit();").append(LF);
+		html.append(TB).append("}").append(LF);
 		html.append(SCRIPT_END).append(LF);
 		
 		// html
@@ -53,6 +58,16 @@ public class HtmlProductData01 extends BaseHTML implements BaseHtml, BaseCharact
 		html.append(createHeader(disp.getDispData().getDispTitle()));
 		// form
 		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);	//--> Form
+		
+		// actionName変数
+		html.append(T2).append("<input").append(SP)
+			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
+			.append("id=").append(DQ).append("actionName").append(DQ).append(SP)
+			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
+
+		// 遷移ボタン表示
+		html.append(setMoveButton(disp)).append(LF);
+		
 		// form : 各項目を詳細情報の一覧から表示する。
 		for(int ix = 0; ix < disp.getDetails().size(); ix++) {
 			X_sysDispDetail detail = disp.getDetails().get(ix);

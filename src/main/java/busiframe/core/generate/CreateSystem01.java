@@ -15,7 +15,7 @@ public class CreateSystem01 implements BaseGenerate {
 	 *  データベース選択<br>
 	 *  1 - ローカル、 2 - VPS 
 	 */
-	protected static int dbSw = 2;
+	protected static int dbSw = 1;
 
 	public static void main(String[] args) {
 		// 開始メッセージ
