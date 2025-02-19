@@ -62,6 +62,10 @@ public class ProductServlet01 extends HttpServlet implements BaseDisplay {
 			out.print(html.toString());
 			return;
 		}
+		// 商品編集画面へ遷移する。
+		if(actionName.endsWith(DISPLAY_CD_PRODUCT_ENTRY_01)) {
+			System.out.println("test");
+		}
 	}
 
 }

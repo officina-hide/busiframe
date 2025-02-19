@@ -51,5 +51,8 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_PRODUCT_DATA_01 = 10303;
 	public final String DISPLAY_CD_PRODUCT_DATA_01 = "productData01";
 	public final String DISPLAY_TITLE_PRODUCT_DATA_01 = "商品照会 Lv.01";
-	
+	// 商品編集 Lv.01 Addition 2025/02/18
+	public final int DISPLAY_ID_PRODUCT_ENTRY_01 = 10304;
+	public final String DISPLAY_CD_PRODUCT_ENTRY_01 = "productEntry01";
+	public final String DISPLAY_TITLE_PRODUCT_ENTRY_01 = "商品編集 Lv.01";
 }
