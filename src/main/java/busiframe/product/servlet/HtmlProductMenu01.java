@@ -30,17 +30,18 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		
 		// 表示情報取得 Addition 2024/12/02
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_PRODUCT_MENU_01);
+		disp.load(env, DISPLAY_ID_PRODUCT_MENU_01);
 
 		html.append(DOCTYPE_HTML).append(LF);
 		html.append(HTML_START).append(LF);
 		// JavaScript
 		html.append(SCRIPT_START).append(LF);
-		html.append(TB).append("function").append(SP).append("returnMenu(name, uri)").append(SP).append("{").append(LF);
-		html.append(T2).append("document.menuForm.actionName.value=").append("name").append(";").append(LF);
-		html.append(T2).append("document.menuForm.action=").append("uri").append(";").append(LF);
-		html.append(T2).append("document.menuForm.submit();").append(LF);
+		html.append(TB).append("function").append(SP).append("moveAction(name, uri)").append(SP).append("{").append(LF);
+		html.append(T2).append("document.actionForm.actionName.value=").append("name").append(";").append(LF);
+		html.append(T2).append("document.actionForm.action=").append("uri").append(";").append(LF);
+		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
+		
 		html.append(SCRIPT_END).append(LF);
 		
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
@@ -49,7 +50,7 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		html.append(createHeader(disp.getDispData().getDispTitle()));
 		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 -->
 		// メニュー用Form
-		html.append(TB).append(FormTag.getSource("menuForm", H_POST)).append(LF);		// form -->
+		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);		// form -->
 		// actionName変数
 		html.append(T2).append("<input").append(SP)
 			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)

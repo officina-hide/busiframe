@@ -96,19 +96,10 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 	 */
 	public String setMenuButton(X_sysDispMenu menu) {
 		StringBuffer html = new StringBuffer();
-//		html.append(T3).append("<button").append(SP)
-//		.append("type=").append(DQ).append("button").append(DQ).append(SP)
-//		.append("class=").append(DQ).append("btn btn-dark").append(DQ).append(SP)
-//		.append("onclick=").append(DQ).append("menufunction(")
-//		.append(SQ).append(menu.getDispMenuCd()).append(SQ).append(CM)
-//		.append(SQ).append(menu.getMenuAction()).append(SQ)
-//		.append(")").append(DQ).append(">")
-//		.append(menu.getMenuTItle())
-//		.append("</button>").append(LF);
 		html.append("<button").append(SP);
 		html.append("type=").append(DQ).append("button").append(DQ).append(SP);
 		html.append("class=").append(DQ).append("btn btn-dark").append(DQ).append(SP);
-		html.append("onclick=").append(DQ).append("returnMenu").append("(")
+		html.append("onclick=").append(DQ).append("moveAction").append("(")
 			.append(SQ).append(menu.getDispMenuCd()).append(SQ).append(CM)
 			.append(SQ).append(menu.getMenuAction()).append(SQ).append(")").append(DQ).append(">");
 		html.append(menu.getMenuTItle());

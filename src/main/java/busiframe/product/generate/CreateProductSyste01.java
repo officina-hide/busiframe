@@ -28,12 +28,15 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 		M_Product product = new M_Product();
 		product.dropTable(env);
 		product.createTable(env);
-		// 表示情報 : 生産メニュー
+		// 生産メニュー : 表示情報登録
 		M_Display disp = new M_Display();
 		disp.addDispData(env, DISPLAY_ID_PRODUCT_MENU_01, DISPLAY_CD_PRODUCT_MENU_01,
 				DISPLAY_TITLE_PRODUCT_MENU_01);
 		disp.addMenuData(env, DISPLAY_ID_PRODUCT_MENU_01, MENU_CD_PRODUCT_LIST, MENU_TITLE_PRODUCT_LIST,
 				MENU_ACTION_PRODUCT_LIST);
+		// 生産メニュー
+		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_MENU_01, "メニューへ戻る", "./action01", "menu01");
+		
 		// 表示情報 : 商品一覧
 		disp.addDispData(env, DISPLAY_ID_PRODUCT_LIST_01, DISPLAY_CD_PRODUCT_LIST_01,
 				DISPLAY_TITLE_PRODUCT_LIST_01);
@@ -54,6 +57,7 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
         M_Product product01 = new M_Product();
         product01.insertProduct(env, "P0001", "商品A", "商品Aの説明");
         product01.insertProduct(env, "P0002", "商品B", "商品Bの説明");
+        
         // 商品照会 Lv01 : 表示情報関連登録
         disp.addDispData(env, DISPLAY_ID_PRODUCT_DATA_01, DISPLAY_CD_PRODUCT_DATA_01,
         		DISPLAY_TITLE_PRODUCT_DATA_01);
@@ -63,7 +67,7 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 				2, "商品名", R_STRING);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_DESCRIPTION,
 				2, "商品説明", R_TEXT);
-		// 遷移処理登録 Addition 2025/02/17
+		// 商品照会 Lv01 : 遷移処理登録 Addition 2025/02/17
 		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_DATA_01, "一覧へ戻る", "./productAction01",
 				DISPLAY_CD_PRODUCT_LIST_01);
 		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_DATA_01, "編集", "./productAction01",
