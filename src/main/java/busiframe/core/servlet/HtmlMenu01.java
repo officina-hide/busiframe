@@ -2,6 +2,9 @@ package busiframe.core.servlet;
 
 import java.nio.charset.StandardCharsets;
 
+import busiframe.core.dao.Environment;
+import busiframe.core.dao.M_Display;
+import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.LinkTag;
 import busiframe.core.html.MetaTag;
 import busiframe.core.html.TitleBar;
@@ -20,17 +23,18 @@ import busiframe.core.tools.BaseCharacter;
  * @since 2024/11/14
  * @version 1.00 新規作成 2024/11/14
  */
-public class HtmlMenu01 implements BaseCharacter, BaseHtml {
+public class HtmlMenu01 implements BaseCharacter, BaseHtml, BaseDisplay {
 
 	/**
 	 * HTMLソース生成<br>
 	 * TODO 要表示関連のテーブル化 2024/11/17
 	 * @since 2024/11/14
+	 * @param env 環境情報
 	 * @return HTMLソース
 	 */
-	public String createHTML() {
+	public String createHTML(Environment env) {
 		StringBuffer html = new StringBuffer();
-		html.append(createHtmlSource());
+		html.append(createHtmlSource(env));
 		return html.toString();
 	}
 
@@ -38,10 +42,17 @@ public class HtmlMenu01 implements BaseCharacter, BaseHtml {
 	 * HTML : 総合メニューソース生成<br>
 	 * TODO 要汎用化 2024/11/16
 	 * @since 2024/11/16
+	 * @param env 環境情報
 	 * @return  総合メニューHTML文字列
 	 */
-	private String createHtmlSource() {
+	private String createHtmlSource(Environment env) {
 		StringBuffer html = new StringBuffer();
+		
+		// 画面情報取得
+		M_Display disp = new M_Display();
+		disp.load(env, DISPLAY_ID_MAIN_MENU);
+		System.out.println(disp.getMenus().size());
+		
 		html.append(DOCTYPE_HTML).append(LF);
 		// 画面遷移用Javascript設定
 		// TODO ここは後で見直す予定。 2024/11/18

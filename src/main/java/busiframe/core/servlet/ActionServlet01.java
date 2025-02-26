@@ -45,7 +45,6 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml {
 		if(actionName == null || actionName.equals("menu01")) {
 			// Menu01表示
 			HtmlMenu01 menu01 = new HtmlMenu01();
-			html.append(menu01.createHTML());
 			if(env == null) {
 				// 環境情報をsessionにセットする。
 				env = new Environment();
@@ -53,6 +52,7 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml {
 				env.setLoginUserId(1001);
 				session.setAttribute("env", env);
 			}
+			html.append(menu01.createHTML(env));
 		}
 		if(actionName != null && actionName.equals("educate01")) {
 			// 教育メニューLv.01表示

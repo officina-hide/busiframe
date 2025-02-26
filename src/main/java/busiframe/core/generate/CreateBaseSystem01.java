@@ -29,20 +29,26 @@ public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 		disp.dropTable(env);
 		disp.createTable(env);
 		// 表示詳細情報用採番情報の登録 Addition 2024/12/07
-		M_Numbering num_disp = new M_Numbering();
-		num_disp.getNumbering().setNumberingId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
-		num_disp.getNumbering().setCurrentNumber(100000);
-		num_disp.getNumbering().setTableId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
-		num_disp.save(env);
+		num.getNumbering().setNumberingId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
+		num.getNumbering().setCurrentNumber(100000);
+		num.getNumbering().setTableId(I_SysDispDetail.TABLE_ID_SYS_DISPDETAIL);
+		num.save(env);
+		// 採番情報登録 : 表示メニュー情報 Addition 2025/02/26
+		num.getNumbering().setCurrentNumber(100000);
+		num.getNumbering().setNumberingId(TABLE_ID_SYS_DISPMENU);
+		num.getNumbering().setTableId(TABLE_ID_SYS_DISPMENU);
+		num.save(env);
 		// 表示処理情報用採番情報の登録 Addition 2025/01/21
-		M_Numbering num_proc = new M_Numbering();
-		num_proc.getNumbering().setNumberingId(TABLE_ID_SYS_DISPPROCESS);
-		num_proc.getNumbering().setCurrentNumber(100000);
-		num_proc.getNumbering().setTableId(TABLE_ID_SYS_DISPPROCESS);
-		num_proc.save(env);
+		num.getNumbering().setNumberingId(TABLE_ID_SYS_DISPPROCESS);
+		num.getNumbering().setCurrentNumber(100000);
+		num.getNumbering().setTableId(TABLE_ID_SYS_DISPPROCESS);
+		num.save(env);
 		
 		// 表示情報 : メインメニュー画面 Addition 2025/02/10
-		disp.addDispData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_NAIN_MENU, DISPLAY_TITLE_MAIN_MENU);
+		disp.addDispData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_MAIN_MENU, DISPLAY_TITLE_MAIN_MENU);
+		// メインメニュー : メニュー情報登録 Addition 2025/02/25
+		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_EDUCATE_MENU_01,
+				DISPLAY_TITLE_EDUCATE_MENU_01, "./action01");
 	}
 
 }
