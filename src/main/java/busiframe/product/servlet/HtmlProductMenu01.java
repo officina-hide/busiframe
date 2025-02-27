@@ -8,7 +8,6 @@ import busiframe.core.dao.X_sysDispMenu;
 import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.DivTag;
 import busiframe.core.html.FormTag;
-import busiframe.core.servlet.BaseHtml;
 import busiframe.core.tools.BaseCharacter;
 import busiframe.order.servlet.BaseHTML;
 
@@ -17,7 +16,7 @@ import busiframe.order.servlet.BaseHTML;
  * @since 2024/11/26
  * @version 1.00 新規作成
  */
-public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter, BaseHtml, BaseDisplay {
+public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter,  BaseDisplay {
 
 	/**
 	 * 生産メニューLv.01HTMLソース生成<br>

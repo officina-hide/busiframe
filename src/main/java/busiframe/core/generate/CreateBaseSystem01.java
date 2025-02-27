@@ -49,6 +49,8 @@ public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 		// メインメニュー : メニュー情報登録 Addition 2025/02/25
 		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_EDUCATE_MENU_01,
 				DISPLAY_TITLE_EDUCATE_MENU_01, "./action01");
+		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_ORDER_LIST_01,
+				DISPLAY_TITLE_ORDER_LIST_01, "./action01");
 	}
 
 }

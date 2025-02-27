@@ -21,9 +21,6 @@ import busiframe.core.tools.BaseCharacter;
  * @version 1.00 新規作成
  */
 public class BaseHTML implements BaseCharacter, BaseHtml {
-
-	/** POST */
-	public final String H_POST = "post";
 	
 	/**
 	 * headタグソース生成

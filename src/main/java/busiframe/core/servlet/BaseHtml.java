@@ -11,6 +11,9 @@ public interface BaseHtml {
 	/** 生産メニュー */
 	public static final String MENU_PRODUCT01 = "product01";
 
+	/** POST */
+	public final String H_POST = "post";
+
 	// 画面名称 TODO データベース化 2024/11/19
 	public final String EDUCATE_MENU_01_TITLE = "教育メニュー Lv.01";
 	public final String ORDER_MENU_01_TITLE = "受注メニュー Lv.01";

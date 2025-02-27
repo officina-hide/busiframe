@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.html.BaseDisplay;
 import busiframe.educate.servlet.HtmlEducateMenu01;
 import busiframe.order.servlet.HtmlOrderMenu01;
 import busiframe.product.servlet.HtmlProductMenu01;
@@ -18,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
  * Servlet implementation class ActionServlet01
  */
 @WebServlet("/action01")
-public class ActionServlet01 extends HttpServlet implements BaseHtml {
+public class ActionServlet01 extends HttpServlet implements BaseHtml, BaseDisplay {
 
 	private static final long serialVersionUID = 1L;
        
@@ -54,7 +55,7 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml {
 			}
 			html.append(menu01.createHTML(env));
 		}
-		if(actionName != null && actionName.equals("educate01")) {
+		if(actionName != null && actionName.equals(DISPLAY_CD_EDUCATE_MENU_01)) {
 			// 教育メニューLv.01表示
 			HtmlEducateMenu01 edu01 = new HtmlEducateMenu01();
 			html.append(edu01.createHTML(env));
