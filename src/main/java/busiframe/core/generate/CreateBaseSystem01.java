@@ -51,6 +51,8 @@ public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 				DISPLAY_TITLE_EDUCATE_MENU_01, "./action01");
 		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_ORDER_LIST_01,
 				DISPLAY_TITLE_ORDER_LIST_01, "./action01");
+		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_PRODUCT_MENU_01,
+				DISPLAY_TITLE_PRODUCT_MENU_01, "./action01");
 	}
 
 }

@@ -7,9 +7,9 @@ package busiframe.core.servlet;
  * @version 1.00 新規作成
  */
 public interface BaseHtml {
-	// actionName
-	/** 生産メニュー */
-	public static final String MENU_PRODUCT01 = "product01";
+//	// actionName
+//	/** 生産メニュー */
+//	public static final String MENU_PRODUCT01 = "product01";
 
 	/** POST */
 	public final String H_POST = "post";

@@ -46,7 +46,7 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 				2, "商品名", R_STRING);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "./productAction01", 
 				DISPLAY_CD_PRODUCT_ENTRY_01);
-		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", MENU_PRODUCT01);
+		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", DISPLAY_CD_PRODUCT_MENU_01);
 		// 商品情報 Lv.01 : 採番情報登録
 		M_Numbering num = new M_Numbering();
 		num.getNumbering().setNumberingId(TABLE_ID_PRD_PRODUCT);

@@ -60,12 +60,12 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml, BaseDispla
 			HtmlEducateMenu01 edu01 = new HtmlEducateMenu01();
 			html.append(edu01.createHTML(env));
 		}
-		if(actionName != null && actionName.equals("order01")) {
+		if(actionName != null && actionName.equals(DISPLAY_CD_ORDER_LIST_01)) {
 			// 受注メニューLv.01表示
 			HtmlOrderMenu01 order01 = new HtmlOrderMenu01();
 			html.append(order01.createHTML());
 		}
-		if(actionName != null && actionName.equals(MENU_PRODUCT01)) {
+		if(actionName != null && actionName.equals(DISPLAY_CD_PRODUCT_MENU_01)) {
 			// 生産メニュー Lv.01表示
 			HtmlProductMenu01 product01 = new HtmlProductMenu01();
 			html.append(product01.createHTML(env));
