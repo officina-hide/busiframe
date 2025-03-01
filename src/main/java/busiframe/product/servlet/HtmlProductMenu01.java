@@ -33,6 +33,7 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter,  BaseD
 
 		html.append(DOCTYPE_HTML).append(LF);
 		html.append(HTML_START).append(LF);
+		
 		// JavaScript
 		html.append(SCRIPT_START).append(LF);
 		html.append(TB).append("function").append(SP).append("moveAction(name, uri)").append(SP).append("{").append(LF);
@@ -40,7 +41,6 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter,  BaseD
 		html.append(T2).append("document.actionForm.action=").append("uri").append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
-		
 		html.append(SCRIPT_END).append(LF);
 		
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));

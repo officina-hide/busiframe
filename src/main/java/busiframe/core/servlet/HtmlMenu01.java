@@ -68,28 +68,6 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 		html.append(TB).append("}").append(LF);
 		
 		html.append(SCRIPT_END).append(LF);
-//
-//		html.append("<script>").append(LF);
-//		// メニューボタンからの遷移Function 
-//		
-//		// menu01
-//		html.append(TB).append("function menu01() {").append(LF);
-//		html.append(T2).append("document.menuform.actionName.value=\"educate01\";").append(LF);
-//		html.append(T2).append("document.menuform.submit();").append(LF);
-//		html.append(TB).append("}").append(LF);
-//		// menu02
-//		html.append(TB).append("function menu02() {").append(LF);
-//		html.append(T2).append("document.menuform.actionName.value=\"order01\";").append(LF);
-//		html.append(T2).append("document.menuform.submit();").append(LF);
-//		html.append(TB).append("}").append(LF);
-//		// menu03 addtion 2024/11/26
-//		html.append(TB).append("function menu03() {").append(LF);
-//		html.append(T2).append("document.menuform.actionName.value=\""+MENU_PRODUCT01+"\";").append(LF);
-//		html.append(T2).append("document.menuform.submit();").append(LF);
-//		html.append(TB).append("}").append(LF);
-//		html.append("</script>").append(LF);
-		
-//		html.append("<html>").append(LF);
 		
 		html.append("<head>").append(LF);
 		html.append(TB).append(MetaTag.getSource(StandardCharsets.UTF_8)).append(LF);
@@ -110,7 +88,6 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 		
 		html.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
 		// メニュー一覧
-//		html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	// 2 -->
 		int rowNo = 0;
 		for(X_sysDispMenu menu : disp.getMenus()) {
 			if(rowNo == 0) {
@@ -122,17 +99,8 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);
 			}
 			html.append(T3).append(setMenuButton(menu)).append(LF);
-			System.out.println(menu.getMenuRowNo());
 		}
 		html.append(T2).append(DivTag.getEndTag()).append(LF);	// <-- 2
-
-		
-//		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
-//			+ EDUCATE_MENU_01_TITLE + "</button>").append(LF);
-//		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu02()\">"
-//			+ ORDER_MENU_01_TITLE + "</button>").append(LF);
-//		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu03()\">"
-//			+ PRODUCT_MENU_01_TITLE + "</button>").append(LF);
 
 		html.append(FormTag.getEndTag());		// <-- form
 		html.append(DivTag.getEndTag()).append(LF);	// <-- 1

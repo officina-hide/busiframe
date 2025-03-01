@@ -8,6 +8,7 @@ import busiframe.core.html.BaseDisplay;
 import busiframe.educate.servlet.HtmlEducateMenu01;
 import busiframe.order.servlet.HtmlOrderMenu01;
 import busiframe.product.servlet.HtmlProductMenu01;
+import busiframe.project.servlet.HtmlProjectMenu01;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -71,8 +72,9 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml, BaseDispla
 			html.append(product01.createHTML(env));
 		}
 		if(actionName != null && actionName.equals(DISPLAY_CD_PROJECT_MENU_01)) {
-			// プロジェクト管理メニュー Lv.01表示
-			
+			// プロジェクト管理メニュー Lv.01表示 Addition 2025/03/01
+			HtmlProjectMenu01 project01 = new HtmlProjectMenu01();
+			html.append(project01.createHTML(env));
 		}
 		
 		PrintWriter out = response.getWriter();
