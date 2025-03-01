@@ -62,4 +62,8 @@ public interface BaseDisplay {
 	public final String DISPLAY_CD_PROJECT_MENU_01 = "projectMenu01";
 	public final String DISPLAY_TITLE_PROJECT_MENU_01 = "プロジェクト管理メニュー Lv.01";
 	public final String ACTION_URI_PROJECT_MENU_01 = "./projectAction01";
+	// プロジェクト一覧
+	public final int DISPLAY_ID_PROJECT_LIST_01 = 10402;
+	public final String DISPLAY_CD_PROJECT_LIST_01 = "projectList01";
+	public final String DISPLAY_TITLE_PROJECT_LIST_01 = "プロジェクト一覧";
 }

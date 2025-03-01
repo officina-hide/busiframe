@@ -29,6 +29,9 @@ public class CreateProjectSystem01 implements BaseDisplay {
 		M_Display disp = new M_Display();
 		disp.addDispData(env, DISPLAY_ID_PROJECT_MENU_01, DISPLAY_CD_PROJECT_MENU_01,
 				DISPLAY_TITLE_PROJECT_MENU_01);
+		// 表示メニュー登録 : プロジェクト管理メニュー : プロジェクト一覧
+		disp.addMenuData(env, DISPLAY_ID_PROJECT_MENU_01, DISPLAY_CD_PROJECT_LIST_01, DISPLAY_TITLE_PROJECT_LIST_01,
+				ACTION_URI_PROJECT_MENU_01, 1);
 
 		// 完了メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : プロジェクト管理に関する機能の生成を完了しました。");
