@@ -64,5 +64,6 @@ public interface I_SysDispMenu extends BaseCharacter {
 			+ "VALUES" + "(?,?,?,?,?,?)" + SP;
 	/** SQL : 情報リスト作成用 Addition 2024/12/09 */
 	public final String SQL_LOAD_DISPMENU = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISPMENU + SP
-			+ "WHERE" + SP + I_SysDisp.COL_NAME_DISP_ID + " = ? ";
+			+ "WHERE" + SP + I_SysDisp.COL_NAME_DISP_ID + " = ? " + SP
+			+ "ORDER BY" + SP + COL_NAME_MENU_ROW_NO + SP;
 }

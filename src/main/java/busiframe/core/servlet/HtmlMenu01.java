@@ -110,10 +110,21 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 		
 		html.append(T2).append("<input type=\"hidden\" id=\"actionName\" name=\"actionName\"/>").append(LF);
 		// メニュー一覧
-		html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	// 2 -->
+//		html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	// 2 -->
+		int rowNo = 0;
 		for(X_sysDispMenu menu : disp.getMenus()) {
-			html.append(setMenuButton(menu)).append(LF);
+			if(rowNo == 0) {
+				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	
+				rowNo = menu.getMenuRowNo();
+			}
+			if(rowNo != menu.getMenuRowNo()) {
+				html.append(T2).append(DivTag.getEndTag()).append(LF);
+				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);
+			}
+			html.append(T3).append(setMenuButton(menu)).append(LF);
+			System.out.println(menu.getMenuRowNo());
 		}
+		html.append(T2).append(DivTag.getEndTag()).append(LF);	// <-- 2
 
 		
 //		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu01()\">"
@@ -123,7 +134,6 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 //		html.append(T3).append("<button type=\"button\" class=\"btn btn-dark\" onclick=\"menu03()\">"
 //			+ PRODUCT_MENU_01_TITLE + "</button>").append(LF);
 
-		html.append(T2).append(DivTag.getEndTag()).append(LF);	// <-- 2
 		html.append(FormTag.getEndTag());		// <-- form
 		html.append(DivTag.getEndTag()).append(LF);	// <-- 1
 		html.append("</body>").append(LF);

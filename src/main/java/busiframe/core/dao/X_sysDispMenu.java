@@ -20,6 +20,8 @@ public class X_sysDispMenu implements I_SysDispMenu {
 	private String menuTItle;
 	/** メニューアクション */
 	private String menuAction;
+	/** メニュー行番号 */
+	private int menuRowNo;
 	
 	/**
 	 * 検索結果からの項目セット<br>
@@ -33,6 +35,7 @@ public class X_sysDispMenu implements I_SysDispMenu {
 		setDispMenuCd(rs.getString(COL_NAME_DISPMENU_CD));
 		setMenuTItle(rs.getString(COL_NAME_MENU_TITLE));
 		setMenuAction(rs.getString(COL_NAME_MENU_ACTION));
+		setMenuRowNo(rs.getInt(COL_NAME_MENU_ROW_NO));
 	}
 
 	public int getDispMenuId() {
@@ -73,6 +76,14 @@ public class X_sysDispMenu implements I_SysDispMenu {
 
 	public void setMenuAction(String menuAction) {
 		this.menuAction = menuAction;
+	}
+
+	public int getMenuRowNo() {
+		return menuRowNo;
+	}
+
+	public void setMenuRowNo(int menuRowNo) {
+		this.menuRowNo = menuRowNo;
 	}
 
 }

@@ -35,6 +35,7 @@ public interface BaseHtml {
 	public final String HEADER_START = "<header>";
 	public final String HEADER_END = "</header>";
 
+	public final String H_BR = "<br>";
 	
 	/** DOCTYPE */
 	public static final String DOCTYPE_HTML = "<!DOCTYPE html>";

@@ -70,6 +70,10 @@ public class ActionServlet01 extends HttpServlet implements BaseHtml, BaseDispla
 			HtmlProductMenu01 product01 = new HtmlProductMenu01();
 			html.append(product01.createHTML(env));
 		}
+		if(actionName != null && actionName.equals(DISPLAY_CD_PROJECT_MENU_01)) {
+			// プロジェクト管理メニュー Lv.01表示
+			
+		}
 		
 		PrintWriter out = response.getWriter();
 		out.print(html.toString());
