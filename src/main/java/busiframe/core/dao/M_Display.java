@@ -68,6 +68,7 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 		addColumn(env, COL_ALTER_DISPMENU_CD);
 		addColumn(env, COL_ALTER_MENU_TITLE);
 		addColumn(env,COL_ALTER_MENU_ACTION);
+		addColumn(env, COL_ALTER_MENU_ROW_NO);
 		// 表示処理情報テーブル構築 Addition 2025/01/16
 		createTable(env, TABLE_NAME_SYS_DISPPROCESS, TABLE_COMMENT_SYS_DISPPROCESS,
 				COL_NAME_DISP_PROCESS_ID, COL_COMMENT_DISP_PROCESS_ID);
@@ -144,8 +145,10 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 	 * @param menuCd メニュー識別コード
 	 * @param menuTItle メニュータイトル
 	 * @param menuAction メニューアクション
+	 * @param namuRowNo メニュー行番号	Addition 2025/03/01
 	 */
-	public void addMenuData(Environment env, int dispId, String menuCd, String menuTItle, String menuAction) {
+	public void addMenuData(Environment env, int dispId, String menuCd, String menuTItle, String menuAction,
+			int namuRowNo) {
 		PreparedStatement pstmt = null;
 		M_Numbering num = new M_Numbering();
 		try {
@@ -156,6 +159,7 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 			pstmt.setString(3, menuCd);
 			pstmt.setString(4, menuTItle);
 			pstmt.setString(5, menuAction);
+			pstmt.setInt(6, namuRowNo);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

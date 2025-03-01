@@ -27,7 +27,7 @@ public class CreateEducateSystem01 implements BaseDisplay, BaseTable {
 		 *  表示情報にメニュー情報を登録する。<br> Addition 2023/12/05
 		 *  メニュー : カテゴリー一覧
 		 */
-		disp.addMenuData(env, disp.getDispData().getDispId(), "educateMenu01", "カテゴリー一覧", "./educate01");
+		disp.addMenuData(env, disp.getDispData().getDispId(), "educateMenu01", "カテゴリー一覧", "./educate01", 1);
 		// 教育カテゴリー情報を構築する。
 		M_EduCategory ecat = new M_EduCategory();
 		ecat.dropTable(env);

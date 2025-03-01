@@ -56,4 +56,10 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_PRODUCT_ENTRY_01 = 10304;
 	public final String DISPLAY_CD_PRODUCT_ENTRY_01 = "productEntry01";
 	public final String DISPLAY_TITLE_PRODUCT_ENTRY_01 = "商品編集 Lv.01";
+	
+	// プロジェクト管理メニュー Lv.01
+	public final int DISPLAY_ID_PROJECT_MENU_01 = 10401;
+	public final String DISPLAY_CD_PROJECT_MENU_01 = "projectMenu01";
+	public final String DISPLAY_TITLE_PROJECT_MENU_01 = "プロジェクト管理メニュー Lv.01";
+	public final String ACTION_URI_PROJECT_MENU_01 = "./projectAction01";
 }

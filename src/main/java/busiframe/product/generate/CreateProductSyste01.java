@@ -33,7 +33,7 @@ public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I
 		disp.addDispData(env, DISPLAY_ID_PRODUCT_MENU_01, DISPLAY_CD_PRODUCT_MENU_01,
 				DISPLAY_TITLE_PRODUCT_MENU_01);
 		disp.addMenuData(env, DISPLAY_ID_PRODUCT_MENU_01, MENU_CD_PRODUCT_LIST, MENU_TITLE_PRODUCT_LIST,
-				MENU_ACTION_PRODUCT_LIST);
+				MENU_ACTION_PRODUCT_LIST,1);
 		// 生産メニュー
 		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_MENU_01, "メニューへ戻る", "./action01", "menu01");
 		
