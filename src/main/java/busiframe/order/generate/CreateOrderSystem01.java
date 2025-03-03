@@ -1,5 +1,8 @@
 package busiframe.order.generate;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.dao.M_Numbering;
@@ -44,6 +47,16 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
+		
+		// 受注情報初期登録 Addition 2025/03/03
+		// TODO 将来的にはJSON又はCSVで出来るようにしていく。 2025/03/03
+		od.getOrder().setOrderDate(LocalDate.now());
+		od.getOrder().setPartnerName("A商店");
+		od.getOrder().setProductName("商品001");
+		od.getOrder().setOrderNumber(new BigDecimal(1));
+		od.getOrder().setOrderAmount(new BigDecimal(10000));
+		od.getOrder().setOrderId(0);
+		od.save(env);
 	}
 
 }
