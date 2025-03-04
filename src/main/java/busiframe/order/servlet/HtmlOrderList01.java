@@ -1,6 +1,7 @@
 package busiframe.order.servlet;
 
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import busiframe.core.dao.Environment;
@@ -30,7 +31,7 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		html.append(DOCTYPE_HTML).append(LF);
 		// 表示情報取得 Addition 2024/12/02
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_ORDER_LIST_01);
+		disp.load(env, DISPLAY_ID_ORDER_LIST_01);
 		// 受注情報一覧取得
 		M_Order01 order = new M_Order01();
 		List<X_Order01> orders = order.getOrderList(env);
@@ -53,11 +54,14 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		html.append(T2).append("</thead>").append(LF);
 		// 項目一覧
 		html.append(T2).append("<tbody>").append(LF);
+		DecimalFormat df = new DecimalFormat("#,##0");
 		for(X_Order01 od : orders) {
 			html.append(T3).append("<tr>").append(LF);
 			html.append(T4).append("<td>").append(od.getOrderDate()).append("</td>").append(LF);
 			html.append(T4).append("<td>").append(od.getPartnerName()).append("</td>").append(LF);
 			html.append(T4).append("<td>").append(od.getProductName()).append("</td>").append(LF);
+			html.append(T4).append("<td>").append(df.format(od.getOrderNumber().intValue())).append("</td>").append(LF);
+			html.append(T4).append("<td>").append(df.format(od.getOrderAmount().intValue())).append("</td>").append(LF);
 			html.append(T3).append("</tr>").append(LF);
 		}
 		html.append(T2).append("</tbody>").append(LF);
