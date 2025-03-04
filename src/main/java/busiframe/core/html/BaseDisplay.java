@@ -13,11 +13,16 @@ public interface BaseDisplay {
 	public final String DISPLAY_CD_MAIN_MENU = "mainMenu";
 	public final String DISPLAY_TITLE_MAIN_MENU = "メインメニュー";
 	
+	// 受注メニュー Lv.01 Addition 2025/03/04
+	public final int DISPLAY_ID_ORDER_MENU_01 = 10101;
+	public final String DISPLAY_CD_ORDER_MENU_01 = "orderMenu01";
+	public final String DISPLAY_TITLE_ORDER_MENU_01 = "受注メニュー　Lv.01";
+	
 	/** 受注登録 Lv.01 */
-	public final int DISPLAY_ID_ORDER_ENTRY_01 = 10101;
+	public final int DISPLAY_ID_ORDER_ENTRY_01 = 10102;
 	public final String DISPLAY_CD_ORDER_ENTRY_01 = "OrderEntry01";
 	/** 受注一覧 Lv.01 */
-	public final int DISPLAY_ID_ORDER_LIST_01 = 10102;
+	public final int DISPLAY_ID_ORDER_LIST_01 = 10103;
 	public final String DISPLAY_CD_ORDER_LIST_01 = "orderList01";
 	public final String DISPLAY_TITLE_ORDER_LIST_01 = "受注一覧 Lv.01";
 

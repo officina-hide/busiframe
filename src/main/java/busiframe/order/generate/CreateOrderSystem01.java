@@ -47,6 +47,8 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数", "number");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_AMOUNT, 4, "受注金額", "number");
 		
 		// 受注情報初期登録 Addition 2025/03/03
 		// TODO 将来的にはJSON又はCSVで出来るようにしていく。 2025/03/03
