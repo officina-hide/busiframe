@@ -12,6 +12,7 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_MAIN_MENU = 10001;
 	public final String DISPLAY_CD_MAIN_MENU = "mainMenu";
 	public final String DISPLAY_TITLE_MAIN_MENU = "メインメニュー";
+	public final String ACTION_URI_MAIN_MENU = "./action01";
 	
 	// 受注メニュー Lv.01 Addition 2025/03/04
 	public final int DISPLAY_ID_ORDER_MENU_01 = 10101;
@@ -71,4 +72,10 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_PROJECT_LIST_01 = 10402;
 	public final String DISPLAY_CD_PROJECT_LIST_01 = "projectList01";
 	public final String DISPLAY_TITLE_PROJECT_LIST_01 = "プロジェクト一覧";
+	
+	// システム管理メニュー Lv.01 Addition 2025/03/06
+	public final int DISPLAY_ID_SYSTEM_MENU_01 = 90101;
+	public final String DISPLAY_CD_SYSTEM_MENU_01 = "systemMenu01";
+	public final String DISPLAY_TITLE_SYSTEM_MENU_01 = "システム管理メニュー Lv.01";
+	public final String ACTION_URI_SYSTEM_MENU_01 = "./systemAction01";
 }

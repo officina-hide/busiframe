@@ -1,5 +1,8 @@
 package busiframe.core.generate;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import busiframe.core.dao.BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_SysDispDetail;
@@ -14,12 +17,18 @@ import busiframe.core.html.BaseDisplay;
  */
 public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 
+	/** 表示日付書式 */
+	protected DateTimeFormatter fomat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+
 	/**
 	 * 生成実行<br>
 	 * @since 2023/11/22
 	 * @param env 環境情報
 	 */
 	public void execute(Environment env) {
+		// 開始メッセージ
+		System.out.println(LocalDateTime.now().format(fomat) + " : 基盤システムに関する機能の生成を開始します。");
+
 		// 採番情報の生成
 		M_Numbering num = new M_Numbering();
 		num.dropTable(env);
@@ -54,7 +63,12 @@ public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_PRODUCT_MENU_01,
 				DISPLAY_TITLE_PRODUCT_MENU_01, "./action01", 1);
 		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_PROJECT_MENU_01,
-				DISPLAY_TITLE_PROJECT_MENU_01, "./action01", 2);
+				DISPLAY_TITLE_PROJECT_MENU_01, ACTION_URI_MAIN_MENU, 2);
+		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_SYSTEM_MENU_01,
+				DISPLAY_TITLE_SYSTEM_MENU_01, ACTION_URI_MAIN_MENU, 3);
+
+		// 完了メッセージ
+		System.out.println(LocalDateTime.now().format(fomat) + " : 基盤システムに関する機能の生成を完了しました。");
 	}
 
 }
