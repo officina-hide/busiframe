@@ -67,6 +67,10 @@ public class CreateBaseSystem01 implements BaseTable, BaseDisplay {
 		disp.addMenuData(env, DISPLAY_ID_MAIN_MENU, DISPLAY_CD_SYSTEM_MENU_01,
 				DISPLAY_TITLE_SYSTEM_MENU_01, ACTION_URI_MAIN_MENU, 3);
 
+		// 表示情報 : システム管理メニュー情報 Addition 2025/03/10
+		disp.addDispData(env, DISPLAY_ID_SYSTEM_MENU_01, DISPLAY_CD_SYSTEM_MENU_01, 
+				DISPLAY_TITLE_SYSTEM_MENU_01);
+		
 		// 完了メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : 基盤システムに関する機能の生成を完了しました。");
 	}
