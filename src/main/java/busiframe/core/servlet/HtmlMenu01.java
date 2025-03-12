@@ -91,16 +91,16 @@ public class HtmlMenu01 extends BaseHTML implements BaseCharacter, BaseDisplay {
 		int rowNo = 0;
 		for(X_sysDispMenu menu : disp.getMenus()) {
 			if(rowNo == 0) {
-				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	
-				rowNo = menu.getMenuRowNo();
+				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);
 			}
 			if(rowNo != menu.getMenuRowNo()) {
 				html.append(T2).append(DivTag.getEndTag()).append(LF);
 				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);
 			}
+			rowNo = menu.getMenuRowNo();
 			html.append(T3).append(setMenuButton(menu)).append(LF);
 		}
-		html.append(T2).append(DivTag.getEndTag()).append(LF);	// <-- 2
+		html.append(T2).append(DivTag.getEndTag()).append(LF);
 
 		html.append(FormTag.getEndTag());		// <-- form
 		html.append(DivTag.getEndTag()).append(LF);	// <-- 1
