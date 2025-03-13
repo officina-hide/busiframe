@@ -4,6 +4,7 @@ import busiframe.core.dao.Environment;
 import busiframe.educate.generate.CreateEducateSystem01;
 import busiframe.order.generate.CreateOrderSystem01;
 import busiframe.product.generate.CreateProductSystem01;
+import busiframe.project.generate.CreateProjectSystem01;
 import busiframe.system.generate.CreateSystemMnagement01;
 
 /**
@@ -42,6 +43,9 @@ public class CreateSystem01 implements BaseGenerate {
 		CreateProductSystem01 product = new CreateProductSystem01();
 		product.execute(env);
 		// プロジェクト管理生成 Addition 2025/03/01
+		CreateProjectSystem01 project = new CreateProjectSystem01();
+		project.execute(env);
+		// システム管理生成 Addition 2025/03/12
 		CreateSystemMnagement01 system = new CreateSystemMnagement01();
 		system.execute(env);
 		// 完了メッセージ
