@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.html.BaseDisplay;
+import busiframe.system.dao.M_Table;
 
 /**
  * システム管理生成クラス<br>
@@ -20,6 +21,11 @@ public class CreateSystemMnagement01 implements BaseDisplay {
 	public void execute(Environment env) {
 		// 開始メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : システム管理に関する機能の生成を開始します。");
+		
+		// テーブル情報構築 Addition 2025/03/14
+		M_Table table = new M_Table();
+		table.dropTable(env);
+		table.createTable(env);
 		
 		M_Display disp = new M_Display();
 		// 表示情報 : システム管理メニュー情報 Addition 2025/03/10

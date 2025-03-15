@@ -33,6 +33,10 @@ public class CreateSystem01 implements BaseGenerate {
 		// 基盤システム関連
 		CreateBaseSystem01 cbs = new CreateBaseSystem01();
 		cbs.execute(env);
+		// システム管理生成 Addition 2025/03/12
+		CreateSystemMnagement01 system = new CreateSystemMnagement01();
+		system.execute(env);
+
 		// 受注関連生成
 		CreateOrderSystem01 cos = new CreateOrderSystem01();
 		cos.execute(env);
@@ -45,9 +49,6 @@ public class CreateSystem01 implements BaseGenerate {
 		// プロジェクト管理生成 Addition 2025/03/01
 		CreateProjectSystem01 project = new CreateProjectSystem01();
 		project.execute(env);
-		// システム管理生成 Addition 2025/03/12
-		CreateSystemMnagement01 system = new CreateSystemMnagement01();
-		system.execute(env);
 		// 完了メッセージ
 		System.out.println("システムの生成を完了しました。");
 	}
