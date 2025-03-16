@@ -46,8 +46,8 @@ public class HtmlProductMenu01 extends BaseHTML implements BaseCharacter,  BaseD
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
 		
 		html.append(BODY_START).append(LF);
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 --> これは必ずBodyの次に入れる。
 		html.append(createHeader(disp.getDispData().getDispTitle()));
-		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// 1 -->
 		// メニュー用Form
 		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);		// form -->
 		// actionName変数

@@ -16,7 +16,7 @@ import busiframe.product.dao.M_Product;
  * @since 2024/12/20
  * @version 1.00 新規作成
  */
-public class CreateProductSyste01 implements BaseHtml, BaseDisplay, I_BaseDAO, I_BaseReference, BaseTable {
+public class CreateProductSystem01 implements BaseHtml, BaseDisplay, I_BaseDAO, I_BaseReference, BaseTable {
 
 	/**
 	 * 生成処理実行<br>

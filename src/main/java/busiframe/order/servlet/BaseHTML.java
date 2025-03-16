@@ -8,6 +8,7 @@ import busiframe.core.dao.X_sysDispMenu;
 import busiframe.core.dao.X_sysDispProcess;
 import busiframe.core.html.ButtonTag;
 import busiframe.core.html.DivTag;
+import busiframe.core.html.FormTag;
 import busiframe.core.html.LinkTag;
 import busiframe.core.html.MetaTag;
 import busiframe.core.html.TitleBar;
@@ -101,6 +102,40 @@ public class BaseHTML implements BaseCharacter, BaseHtml {
 			.append(SQ).append(menu.getMenuAction()).append(SQ).append(")").append(DQ).append(">");
 		html.append(menu.getMenuTItle());
 		html.append("</button>");
+		return html.toString();
+	}
+
+	/**
+	 * メニューForm生成<br>
+	 * @since 2025/03/13
+	 * @param disp 表示情報
+	 * @return メニュ用HTM文字列
+	 */
+	public String createMenuHtml(M_Display disp) {
+		StringBuffer html = new StringBuffer();
+		// メニュー用Form
+		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);		// form -->
+		// actionName変数
+		html.append(T2).append("<input").append(SP)
+			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
+			.append("id=").append(DQ).append("actionName").append(DQ).append(SP)
+			.append("name=").append(DQ).append("actionName").append(DQ).append("/>").append(LF);
+		// メニュー一覧
+		int rowNo = 0;
+		for(X_sysDispMenu menu : disp.getMenus()) {
+			if(rowNo == 0) {
+				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);	
+			}
+			if(rowNo != menu.getMenuRowNo()) {
+				html.append(T2).append(DivTag.getEndTag()).append(LF);
+				html.append(T2).append(DivTag.getSource("container padding-y-5 text-center")).append(LF);
+			}
+			rowNo = menu.getMenuRowNo();
+			html.append(T3).append(setMenuButton(menu)).append(LF);
+		}
+		html.append(T2).append(DivTag.getEndTag()).append(LF);
+
+		html.append(FormTag.getEndTag());		// <-- form		
 		return html.toString();
 	}
 }
