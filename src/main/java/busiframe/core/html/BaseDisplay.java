@@ -77,5 +77,18 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_SYSTEM_MENU_01 = 90101;
 	public final String DISPLAY_CD_SYSTEM_MENU_01 = "systemMenu01";
 	public final String DISPLAY_TITLE_SYSTEM_MENU_01 = "システム管理メニュー Lv.01";
-	public final String ACTION_URI_SYSTEM_MENU_01 = "./systemAction01";
+	public final String ACTION_URI_SYSTEM_ACTION_01 = "./systemAction01";
+	
+	// システム管理 : テーブル一覧 Lv.01 Additon 2025/03/12
+	public final int DISPLAY_ID_TABLE_LIST_01 = 90102;
+	public final String DISPLAY_CD_TABLE_LIST_01 = "tableList01";
+	public final String DISPLAY_TITLE_TABLE_LIST_01 = "テーブル一覧 Lv.01";
+	// システム管理 : エンティティ一覧 Lv.01 Additon 2025/03/13
+	public final int DISPLAY_ID_ENTITY_LIST_01 = 90103;
+	public final String DISPLAY_CD_ENTITY_LIST_01 = "entityList01";
+	public final String DISPLAY_TITLE_ENTITY_LIST_01 = "エンティティ一覧 Lv.01";
+	// システム管理 : 画面一覧 Lv.01 Additon 2025/03/13
+	public final int DISPLAY_ID_DISPLAY_LIST_01 = 90104;
+	public final String DISPLAY_CD_DISPLAY_LIST_01 = "displayList01";
+	public final String DISPLAY_TITLE_DISPLAY_LIST_01 = "画面一覧 Lv.01";
 }

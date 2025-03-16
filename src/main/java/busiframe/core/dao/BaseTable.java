@@ -27,5 +27,7 @@ public interface BaseTable {
 
 	// 商品情報
 	public final int TABLE_ID_PRD_PRODUCT = 10301;
-	
+
+	// テーブル情報　Addition 2025/03/14
+	public final int TABLE_ID_SYS_TABLE = 90101;
 }
