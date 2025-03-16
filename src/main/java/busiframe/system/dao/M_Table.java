@@ -33,4 +33,17 @@ public class M_Table extends BaseDAO implements I_Table {
 		addColumn(env, COL_ALTER_DESCRIPTION);
 	}
 
+	/**
+	 * テーブル情報登録<br>
+	 * @since 2025/03/15
+	 * @param env 環境情報
+	 * @param tableId テーブル情報ID
+	 * @param tableDescription 
+	 * @param tableCommet 
+	 * @param tableCd 
+	 */
+	public void addTableData(Environment env, int tableId, String tableCd, String tableCommet, String tableDescription) {
+		
+	}
+
 }
