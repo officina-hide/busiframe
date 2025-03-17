@@ -1,5 +1,8 @@
 package busiframe.system.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
 
@@ -43,7 +46,20 @@ public class M_Table extends BaseDAO implements I_Table {
 	 * @param tableCd 
 	 */
 	public void addTableData(Environment env, int tableId, String tableCd, String tableCommet, String tableDescription) {
-		
+		PreparedStatement pstmt = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_INSERT_TABLE);
+			pstmt.setInt(1, tableId);
+			pstmt.setString(2, tableCd);
+			pstmt.setString(3, tableCommet);
+			pstmt.setString(4, tableDescription);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
 	}
 
 }
