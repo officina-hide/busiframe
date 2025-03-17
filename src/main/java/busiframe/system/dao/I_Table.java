@@ -35,4 +35,11 @@ public interface I_Table extends BaseCharacter, I_BaseDAO {
 	public final String COL_ALTER_DESCRIPTION = "ALTER TABLE" + SP + TABLE_NAME_SYS_TABLE + SP
 			+ "ADD" + SP + COL_NAME_DESCRIPTION + SP + "VARCHAR(3000)"
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DESCRIPTION + SQ + SP;
+	
+	// SQL関係
+	/** SQL : 新規追加  Addition 2023/03/17 */
+	public final String SQL_INSERT_TABLE = "INSERT INTO" + SP + TABLE_NAME_SYS_TABLE + SP + "("
+			+ COL_NAME_TABLE_ID + CM + COL_NAME_TABLE_CD + CM + COL_NAME_NAME
+			+ CM + COL_NAME_DESCRIPTION + ") VALUES (?,?,?,?)" + SP;
+	
 }
