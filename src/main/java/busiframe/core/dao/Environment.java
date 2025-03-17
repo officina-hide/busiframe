@@ -78,7 +78,7 @@ public class Environment {
 		if(dbSw == 1) {
 			setDsn("jdbc:mariadb://localhost:3306/"+DATABASE_NAME); 
 			setDatabaseUser("root");
-			setDatabasePassword("root");
+			setDatabasePassword("qaz12wsx");
 		} else {
 			setDsn("jdbc:mariadb://www.officina-hide.net:3306/"+DATABASE_NAME);
 			setDatabaseUser("training");
