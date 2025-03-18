@@ -38,6 +38,8 @@ public class CreateSystemMnagement01 implements BaseDisplay {
 				DISPLAY_TITLE_ENTITY_LIST_01, ACTION_URI_SYSTEM_ACTION_01, 1);
 		disp.addMenuData(env, DISPLAY_ID_SYSTEM_MENU_01, DISPLAY_CD_DISPLAY_LIST_01,
 				DISPLAY_TITLE_DISPLAY_LIST_01, ACTION_URI_SYSTEM_ACTION_01, 1);
+		// 表示情報 : テーブル一覧 Addition 2025/03/18
+		disp.addDispData(env, DISPLAY_ID_TABLE_LIST_01, DISPLAY_CD_TABLE_LIST_01, DISPLAY_TITLE_TABLE_LIST_01);
 		
 		// 完了メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : システム管理に関する機能の生成を完了しました。");

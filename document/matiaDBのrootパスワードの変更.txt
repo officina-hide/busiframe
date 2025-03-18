@@ -1,0 +1,5 @@
+matiaDBのrootパスワードの変更
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '';
+
+この後、mariadbを再起動します。

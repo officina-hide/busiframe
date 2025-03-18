@@ -91,4 +91,5 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_DISPLAY_LIST_01 = 90104;
 	public final String DISPLAY_CD_DISPLAY_LIST_01 = "displayList01";
 	public final String DISPLAY_TITLE_DISPLAY_LIST_01 = "画面一覧 Lv.01";
+	
 }
