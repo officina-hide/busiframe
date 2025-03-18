@@ -97,6 +97,10 @@ public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 			html.append(orderList.createHTML(env));
 		}
 		
+		if(actionName.equals(DISPLAY_CD_ORDER_DISP_01)) {
+			System.out.println("test");
+		}
+		
 		out.print(html.toString());
 		
 		return;
