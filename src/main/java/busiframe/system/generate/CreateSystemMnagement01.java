@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.M_Display;
 import busiframe.core.html.BaseDisplay;
+import busiframe.system.dao.I_Table;
 import busiframe.system.dao.M_Table;
 
 /**
@@ -13,7 +15,7 @@ import busiframe.system.dao.M_Table;
  * @since 2025/03/13
  * @version 1.00 新規作成
  */
-public class CreateSystemMnagement01 implements BaseDisplay {
+public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference {
 	
 	/** 表示日付書式 */
 	protected DateTimeFormatter fomat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -40,6 +42,8 @@ public class CreateSystemMnagement01 implements BaseDisplay {
 				DISPLAY_TITLE_DISPLAY_LIST_01, ACTION_URI_SYSTEM_ACTION_01, 1);
 		// 表示情報 : テーブル一覧 Addition 2025/03/18
 		disp.addDispData(env, DISPLAY_ID_TABLE_LIST_01, DISPLAY_CD_TABLE_LIST_01, DISPLAY_TITLE_TABLE_LIST_01);
+		disp.addDispDetailData(env, DISPLAY_ID_TABLE_LIST_01, I_Table.COL_NAME_TABLE_ID,
+				1, I_Table.COL_COMMENT_TABLE_ID, R_STRING);
 		
 		// 完了メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : システム管理に関する機能の生成を完了しました。");
