@@ -48,13 +48,12 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 			.append(SQ).append(DISPLAY_CD_ORDER_DISP_01).append(SQ).append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
-		// 遷移Function
+		// 遷移Function Addition today
 		html.append(TB).append("function moveAction(name, url) {").append(LF);
 		html.append(T2).append("document.actionForm.action=url;").append(LF);
 		html.append(T2).append("document.actionForm.actionName.value=name;").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
 		html.append(TB).append("}").append(LF);
-		
 		html.append(SCRIPT_END).append(LF);
 		
 		// html
