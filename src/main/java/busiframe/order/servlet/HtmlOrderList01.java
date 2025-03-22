@@ -54,10 +54,13 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		html.append(HTML_START).append(LF);
 		html.append(createHead(StandardCharsets.UTF_8, DISPLAY_TITLE_ORDER_LIST_01));
 		html.append(BODY_START).append(LF);
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// --> 1.
 		html.append(createHeader(DISPLAY_TITLE_ORDER_LIST_01));
-		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);
+		html.append(DivTag.getSource("container padding-y-5 text-left")).append(LF);	// --> 2.
+		
 		// Form内にテーブルを作成する。
 		html.append(TB).append(FormTag.getSource("actionForm", H_POST)).append(LF);
+
 		// actionName変数
 		html.append(T2).append("<input").append(SP)
 			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
@@ -69,6 +72,8 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 			.append("id=").append(DQ).append("productId").append(DQ).append(SP)
 			.append("name=").append(DQ).append("productId").append(DQ).append("/>").append(LF);
 
+		// 遷移ボタン表示
+		html.append(setMoveButton(disp)).append(LF);
 		// 一覧表
 		html.append(TB).append(TableTag.getSource("table table-striped table-bordered table-hover")).append(LF);
 		// タイトル
@@ -96,7 +101,8 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		html.append(TB).append("</table>").append(LF);
 		
 		html.append(TB).append(FormTag.getEndTag()).append(LF);		
-		html.append(DivTag.getEndTag()).append(LF);
+		html.append(DivTag.getEndTag()).append(LF);	//<-- 2.
+		html.append(DivTag.getEndTag()).append(LF);	//<-- 1.
 		html.append(BODY_END).append(LF);
 		html.append(HTML_END).append(LF);
 		return html.toString();
