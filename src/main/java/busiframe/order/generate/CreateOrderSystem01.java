@@ -52,7 +52,7 @@ public class CreateOrderSystem01 implements BaseDisplay {
 		// 受注照会 Lv.01画面
 		disp.addDispData(env, DISPLAY_ID_ORDER_DISP_01, DISPLAY_CD_ORDER_DISP_01, DISPLAY_TITLE_ORDER_DISP_01);
 		disp.addDispProcessData(env, 0, DISPLAY_ID_ORDER_LIST_01, "メニューへ戻る",
-				ACTION_URI_ORDER_01, DISPLAY_CD_ORDER_MENU_01);
+				ACTION_URI_MAIN_MENU, DISPLAY_CD_ORDER_MENU_01);
 		
 		// 受注情報初期登録 Addition 2025/03/03
 		// TODO 将来的にはJSON又はCSVで出来るようにしていく。 2025/03/03
