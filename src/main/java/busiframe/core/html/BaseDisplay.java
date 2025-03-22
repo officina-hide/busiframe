@@ -18,6 +18,7 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_ORDER_MENU_01 = 10101;
 	public final String DISPLAY_CD_ORDER_MENU_01 = "orderMenu01";
 	public final String DISPLAY_TITLE_ORDER_MENU_01 = "受注メニュー　Lv.01";
+	public final String ACTION_URI_ORDER_01 = "./order01";	// Addition 2025/03/19
 	
 	/** 受注登録 Lv.01 */
 	public final int DISPLAY_ID_ORDER_ENTRY_01 = 10102;
@@ -26,6 +27,10 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_ORDER_LIST_01 = 10103;
 	public final String DISPLAY_CD_ORDER_LIST_01 = "orderList01";
 	public final String DISPLAY_TITLE_ORDER_LIST_01 = "受注一覧 Lv.01";
+	// 受注照会 Lv.01 Addition 2025/03/19
+	public final int DISPLAY_ID_ORDER_DISP_01 = 10104;
+	public final String DISPLAY_CD_ORDER_DISP_01 = "orderDisp01";
+	public final String DISPLAY_TITLE_ORDER_DISP_01 = "受注照会 Lv.01";
 
 	/** 教育メニュー Lv.01 */
 	public final int DISPLAY_ID_EDUCATE_MENU_01 = 10201;
@@ -91,4 +96,5 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_DISPLAY_LIST_01 = 90104;
 	public final String DISPLAY_CD_DISPLAY_LIST_01 = "displayList01";
 	public final String DISPLAY_TITLE_DISPLAY_LIST_01 = "画面一覧 Lv.01";
+	
 }

@@ -36,7 +36,7 @@ public class HtmlOrderEntry01 implements BaseCharacter, BaseHtml, BaseDisplay {
 	public String createHTML(Environment env) {
 		// 表示情報取得
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_ORDER_ENTRY_01);
+		disp.load(env, DISPLAY_ID_ORDER_ENTRY_01);
 		
 		StringBuffer html = new StringBuffer();
 		html.append(DOCTYPE_HTML).append(LF);
