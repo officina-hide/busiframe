@@ -8,6 +8,7 @@ import busiframe.core.dao.M_Display;
 import busiframe.core.dao.X_sysDispDetail;
 import busiframe.core.html.BaseDisplay;
 import busiframe.core.html.DivTag;
+import busiframe.order.dao.M_Order01;
 
 /**
  * 受注照会 Lv.01HTML生成<br>
@@ -20,12 +21,17 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 	 * 受注照会画面HTMLソースコード生成<br>
 	 * @since 2025/03/20
 	 * @param env 環境情報
+	 * @param orderId 受注情報ID
 	 * @return HTMLソースコード
 	 */
-	public String createHTML(Environment env) {
+	public String createHTML(Environment env, int orderId) {
 		StringBuffer html = new StringBuffer();
 		// 表示情報取得
 		M_Display disp = new M_Display();
+		// 受注情報取得
+		M_Order01 order = new M_Order01();
+		order.load(env, orderId);
+		System.out.println(order.getOrder().getPartnerName());
 
 		html.append(DOCTYPE_HTML).append(LF);
 		disp.load(env, DISPLAY_ID_ORDER_DISP_01);

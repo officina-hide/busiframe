@@ -43,7 +43,7 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		html.append(TB).append("function").append(SP).append("entryAction(id)").append(SP).append("{").append(LF);
 		html.append(T2).append("document.actionForm.action=")
 			.append(SQ).append(ACTION_URI_ORDER_01).append(SQ).append(";").append(LF);
-		html.append(T2).append("document.actionForm.productId.value=id;").append(LF);
+		html.append(T2).append("document.actionForm.orderId.value=id;").append(LF);
 		html.append(T2).append("document.actionForm.actionName.value=")
 			.append(SQ).append(DISPLAY_CD_ORDER_DISP_01).append(SQ).append(";").append(LF);
 		html.append(T2).append("document.actionForm.submit();").append(LF);
@@ -75,8 +75,8 @@ public class HtmlOrderList01 extends BaseHTML implements BaseDisplay {
 		// id変数
 		html.append(T2).append("<input").append(SP)
 			.append("type=").append(DQ).append("hidden").append(DQ).append(SP)
-			.append("id=").append(DQ).append("productId").append(DQ).append(SP)
-			.append("name=").append(DQ).append("productId").append(DQ).append("/>").append(LF);
+			.append("id=").append(DQ).append("orderId").append(DQ).append(SP)
+			.append("name=").append(DQ).append("orderId").append(DQ).append("/>").append(LF);
 
 		// 遷移ボタン表示
 		html.append(setMoveButton(disp)).append(LF);

@@ -67,4 +67,7 @@ public interface I_Order01 extends I_BaseDAO {
 			+ ") VALUES (?,?,?,?,?,?)" + SP;
 	/** SQL : 全件取得用 */
 	public final String SQL_LOAD_ALL = "SELECT * FROM" + SP + TABLE_NAME_ORD_ORDER + SP;
+	/** SQL : 個別取得(受注情報ID) Addition 2025/03/25 */
+	public final String SQL_LOAD_BY_ID = "SELECT * FROM" + SP + TABLE_NAME_ORD_ORDER + SP
+			+ "WHERE" + SP + COL_NAME_ORDER_ID + " = ? ";
 }

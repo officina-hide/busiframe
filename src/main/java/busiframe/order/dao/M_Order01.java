@@ -48,11 +48,28 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		addColumn(env, COL_ALTER_ORDER_AMOUNT);
 	}
 
-	public X_Order01 getOrder() {
-		if(order == null) {
-			order = new X_Order01();
+	/**
+	 * 情報取得<br>
+	 * @since 2025/03/25
+	 * @param env 環境情報
+	 * @param orderId 受注情報ID
+	 */
+	public void load(Environment env, int orderId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_BY_ID);
+			pstmt.setInt(1, orderId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				getOrder().setItems(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
 		}
-		return order;
 	}
 
 	/**
@@ -109,6 +126,13 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 			close(pstmt, rs);
 		}
 		return list;
+	}
+
+	public X_Order01 getOrder() {
+		if(order == null) {
+			order = new X_Order01();
+		}
+		return order;
 	}
 
 }

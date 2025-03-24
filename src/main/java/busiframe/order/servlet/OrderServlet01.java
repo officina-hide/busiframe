@@ -45,6 +45,12 @@ public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	/**
+	 *
+	 */
+	/**
+	 *
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
@@ -97,10 +103,13 @@ public class OrderServlet01 extends HttpServlet implements BaseDisplay {
 			html.append(orderList.createHTML(env));
 		}
 		
+		// 受注照会
 		if(actionName.equals(DISPLAY_CD_ORDER_DISP_01)) {
+			// 選択された受注情報IDを取得
+			String orderId = request.getParameter("orderId");
 			// 受注照会画面へ遷移する。
 			HtmlOrderDisp01 disp = new HtmlOrderDisp01();
-			html.append(disp.createHTML(env));
+			html.append(disp.createHTML(env, Integer.parseInt(orderId)));
 			out.print(html.toString());
 			return;
 		}
