@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import busiframe.system.dao.M_Table;
-
 /**
  * 表示関連情報クラス<br>
  * @since 2024/11/26
@@ -78,11 +76,6 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 		addColumn(env, COL_ALTER_BUTTON_TITLE);
 		addColumn(env, COL_ALTER_ACTION_URL);
 		addColumn(env, COL_ALTER_ACTION_NAME);
-	
-		// テーブル情報 Addition 2025/03/15
-		M_Table table = new M_Table();
-		table.addTableData(env, TABLE_ID_SYS_TABLE, TABLE_NAME_SYS_DISP,
-				TABLE_COMMENT_SYS_DISP, TABLE_DESCRIPTION_SYS_DISP);
 
 	}
 

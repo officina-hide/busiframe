@@ -9,6 +9,7 @@ package busiframe.core.dao;
 public interface BaseTable {
 
 	// 固定テーブルID
+	public final int TABLE_ID_SYS_DISP = 10101;		// 表示情報 Addition 2025/03/24
 	public final int TABLE_ID_SYS_DISPDETAIL = 10102;	//表示詳細情報
 	public final int TABLE_ID_SYS_DISPMENU = 10103;		//表示メニュー情報
 	
