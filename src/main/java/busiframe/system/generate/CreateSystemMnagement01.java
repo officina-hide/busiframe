@@ -9,7 +9,8 @@ import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.I_SysDisp;
 import busiframe.core.dao.M_Display;
 import busiframe.core.html.BaseDisplay;
-import busiframe.system.dao.I_Table;
+import busiframe.order.dao.I_Order01;
+import busiframe.system.dao.I_SysTable;
 import busiframe.system.dao.M_Table;
 
 /**
@@ -44,15 +45,31 @@ public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference, Ba
 				DISPLAY_TITLE_DISPLAY_LIST_01, ACTION_URI_SYSTEM_ACTION_01, 1);
 		// 表示情報 : テーブル一覧 Addition 2025/03/18
 		disp.addDispData(env, DISPLAY_ID_TABLE_LIST_01, DISPLAY_CD_TABLE_LIST_01, DISPLAY_TITLE_TABLE_LIST_01);
-		disp.addDispDetailData(env, DISPLAY_ID_TABLE_LIST_01, I_Table.COL_NAME_TABLE_ID,
-				1, I_Table.COL_COMMENT_TABLE_ID, R_STRING);
+		disp.addDispDetailData(env, DISPLAY_ID_TABLE_LIST_01, I_SysTable.COL_NAME_TABLE_ID,
+				1, I_SysTable.COL_COMMENT_TABLE_ID, R_STRING);
 		
 		// テーブル情報 Addition 2025/03/15
+		createTableData(env, table);
+	
+		// 完了メッセージ
+		System.out.println(LocalDateTime.now().format(fomat) + " : システム管理に関する機能の生成を完了しました。");
+	}
+
+	/**
+	 * テーブル情報の初期登録<br>
+	 * 主に固定値テーブルの情報を初期登録する。<br>
+	 * @since 2025/03/24
+	 * @param env 環境情報
+	 * @param table テーブル情報
+	 */
+	private void createTableData(Environment env, M_Table table) {
+		// 表示情報
 		table.addTableData(env, TABLE_ID_SYS_DISP, I_SysDisp.TABLE_NAME_SYS_DISP,
 				I_SysDisp.TABLE_COMMENT_SYS_DISP, I_SysDisp.TABLE_DESCRIPTION_SYS_DISP);
 		
-		// 完了メッセージ
-		System.out.println(LocalDateTime.now().format(fomat) + " : システム管理に関する機能の生成を完了しました。");
+		// 受注情報 Addition 2025/03/24
+		table.addTableData(env, TABLE_ID_ORD_ORDER, I_Order01.TABLE_NAME_ORD_ORDER,
+				I_Order01.TABLE_COMMENT_ORD_ORDER, I_Order01.TABLE_DESCRIPTION_ORD_ORDER);
 	}
 
 }

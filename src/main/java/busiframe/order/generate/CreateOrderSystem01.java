@@ -3,6 +3,7 @@ package busiframe.order.generate;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import busiframe.core.dao.BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.M_Display;
@@ -16,7 +17,7 @@ import busiframe.order.dao.M_Order01;
  * @since 2024/11/20
  * @version 1.00 新規作成
  */
-public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference {
+public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference, BaseTable {
 
 	/**
 	 * 生成実行<br>
@@ -51,7 +52,8 @@ public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference {
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数", "number");
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_AMOUNT, 4, "受注金額", "number");
 		// 受注照会 Lv.01画面
-		disp.addDispData(env, DISPLAY_ID_ORDER_DISP_01, DISPLAY_CD_ORDER_DISP_01, DISPLAY_TITLE_ORDER_DISP_01);
+		disp.addDispData(env, DISPLAY_ID_ORDER_DISP_01, DISPLAY_CD_ORDER_DISP_01, DISPLAY_TITLE_ORDER_DISP_01,
+				TABLE_ID_ORD_ORDER);
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_DISP_01, I_Order01.COL_NAME_ORDER_DATE,
 				1, 	I_Order01.COL_COMMENT_ORDER_DATE, R_DATE);
 		disp.addDispProcessData(env, 0, DISPLAY_ID_ORDER_LIST_01, "メニューへ戻る",

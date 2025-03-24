@@ -8,7 +8,7 @@ import busiframe.core.tools.BaseCharacter;
  * @since 2025/03/14
  * @version 1.00 新規作成
  */
-public interface I_Table extends BaseCharacter, I_BaseDAO {
+public interface I_SysTable extends BaseCharacter, I_BaseDAO {
 
 	// テーブル情報
 	public final String TABLE_NAME_SYS_TABLE = "sys_table";

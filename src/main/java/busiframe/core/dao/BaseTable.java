@@ -12,6 +12,8 @@ public interface BaseTable {
 	public final int TABLE_ID_SYS_DISP = 10101;		// 表示情報 Addition 2025/03/24
 	public final int TABLE_ID_SYS_DISPDETAIL = 10102;	//表示詳細情報
 	public final int TABLE_ID_SYS_DISPMENU = 10103;		//表示メニュー情報
+	// 固定テーブルID : 受注管理
+	public final int TABLE_ID_ORD_ORDER = 20101;	// 受注情報 Addition 2025/03/24
 	
 	// 表示処理情報 Addition 2025/01/16
 	public final int TABLE_ID_SYS_DISPPROCESS = 10104;	//表示処理情報

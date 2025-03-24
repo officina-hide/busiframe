@@ -53,6 +53,7 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 				COL_NAME_DISP_ID, COL_COMMENT_DISP_ID);
 		addColumn(env, COL_ALTER_DISP_CD);
 		addColumn(env, COL_ALTER_DISP_TITLE);		// Addition 2024/12/04
+		addColumn(env, COL_ALTER_TABLE_ID_ORDER);	// Addition 2025/03/24
 		// 表示詳細情報テーブル構築
 		createTable(env, TABLE_NAME_SYS_DISPDETAIL, TABLE_COMMENT_SYS_DISPDETAIL,
 				COL_NAME_DISP_DETAIL_ID, COL_COMMENT_DISP_DETAIL_ID);
@@ -88,6 +89,19 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 	 * @param dispTitle 表示タイトル Addition 2024/12/04
 	 */
 	public void addDispData(Environment env, int dispId, String dispCd, String dispTitle) {
+		addDispData(env, dispId, dispCd, dispTitle, 0);
+	}
+
+	/**
+	 * 表示情報登録 Lv.02<br>
+	 * テーブルID指定
+	 * @param env 環境情報
+	 * @param dispId 表示情報ID
+	 * @param dispCd 表示識別コード
+	 * @param dispTitle 表示タイトル Addition 2024/12/04
+	 * @param tableId　テーブル情報ID
+	 */
+	public void addDispData(Environment env,  int dispId, String dispCd, String dispTitle, int tableId) {
 		PreparedStatement pstmt = null;
 		getDispData().setDispId(dispId);
 		getDispData().setDispCd(dispCd);
@@ -98,6 +112,7 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 			pstmt.setInt(1, getDispData().getDispId());
 			pstmt.setString(2, getDispData().getDispCd());
 			pstmt.setString(3, getDispData().getDispTitle());		// Addition 2024/12/04
+			pstmt.setInt(4, tableId);	// Addition 2025/03/24
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

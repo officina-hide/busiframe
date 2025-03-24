@@ -1,11 +1,13 @@
 package busiframe.core.dao;
 
 import busiframe.core.tools.BaseCharacter;
+import busiframe.system.dao.I_SysTable;
 
 /**
  * 表示情報インターフェースクラス<br>
  * @since 2024/11/27
  * @version 1.00 新規作成
+ * @version 1.01 テーブル情報ID追加
  */
 public interface I_SysDisp extends BaseCharacter {
 	
@@ -33,13 +35,17 @@ public interface I_SysDisp extends BaseCharacter {
 	public final String COL_ALTER_DISP_TITLE = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISP + SP
 			+ "ADD" + SP + COL_NAME_DISP_TITLE + SP + "VARCHAR(100)" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DISP_TITLE + SQ + SP;
+	// テーブル情報ID addition 2025/03/24 I_SysTable参照
+	public final String COL_ALTER_TABLE_ID_ORDER = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISP + SP
+			+ "ADD" + SP + I_SysTable.COL_NAME_TABLE_ID + SP + "INT DEFAULT 0" + SP
+			+ "COMMENT" + SP + SQ + I_SysTable.COL_COMMENT_TABLE_ID + SQ + SP;
 	
 	// SQL関連
 	/** SQL : 追加 */
 	public final String SQL_INSERT_DISP = "INSERT INTO" + SP + TABLE_NAME_SYS_DISP + SP + "("
 			+ COL_NAME_DISP_ID + CM + COL_NAME_DISP_CD
-			+ CM + COL_NAME_DISP_TITLE + ")" + SP		//Addition 2024/12/04
-			+ "VALUES" + SP + "(?,?,?)" + SP;
+			+ CM + COL_NAME_DISP_TITLE + CM + I_SysTable.COL_NAME_TABLE_ID + ")" + SP		//Addition 2025/03/24
+			+ "VALUES" + SP + "(?,?,?,?)" + SP;
 	/** SQL : 取得(表示識別コード)  Addition 2024/11/30 */
 	public final String SQL_LOAD_DISPCD = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISP + SP
 			+ "WHERE" + SP + COL_NAME_DISP_CD + " = ? ";

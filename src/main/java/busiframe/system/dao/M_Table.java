@@ -12,8 +12,11 @@ import busiframe.core.dao.Environment;
  * @since 2025/03/14
  * @version 1.00 新規作成
  */
-public class M_Table extends BaseDAO implements I_Table {
+public class M_Table extends BaseDAO implements I_SysTable {
 
+	/** テーブル情報 */
+	private X_SysTable table = new X_SysTable();
+	
 	/**
 	 * テーブル削除<br>
 	 * @since 2025/03/14
@@ -60,6 +63,10 @@ public class M_Table extends BaseDAO implements I_Table {
 		} finally {
 			close(pstmt, null);
 		}
+	}
+	
+	public X_SysTable getTable() {
+		return table;
 	}
 
 }
