@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
-import busiframe.core.dao.BaseTable;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Numbering;
 
@@ -16,7 +16,7 @@ import busiframe.core.dao.M_Numbering;
  * @since 2024/12/28
  * @version 1.00 新規作成
  */
- public class M_Product extends BaseDAO implements I_Product, BaseTable {
+ public class M_Product extends BaseDAO implements I_Product, I_BaseTable {
 
 	 /** 商品情報 */
 	 X_Product product = new X_Product();

@@ -7,7 +7,7 @@ import busiframe.core.tools.BaseCharacter;
  * @since 2024/11/27
  * @version 1.00 新規作成
  */
-public interface I_SysDispDetail  extends BaseCharacter, BaseTable {
+public interface I_SysDispDetail  extends BaseCharacter, I_BaseTable {
 	
 	// テーブル関連
 	public final String TABLE_NAME_SYS_DISPDETAIL = "sys_dispdetail";

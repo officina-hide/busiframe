@@ -6,12 +6,14 @@ package busiframe.core.dao;
  * @since 2024/11/28
  * @version 1.00 新規作成
  */
-public interface BaseTable {
+public interface I_BaseTable {
 
 	// 固定テーブルID
 	public final int TABLE_ID_SYS_DISP = 10101;		// 表示情報 Addition 2025/03/24
 	public final int TABLE_ID_SYS_DISPDETAIL = 10102;	//表示詳細情報
 	public final int TABLE_ID_SYS_DISPMENU = 10103;		//表示メニュー情報
+	public final int TABLE_ID_SYS_TABLE = 90101;		// テーブル情報
+	public final int TABLE_ID_SYS_COLUMN = 90102;	// テーブル項目情報
 	// 固定テーブルID : 受注管理
 	public final int TABLE_ID_ORD_ORDER = 20101;	// 受注情報 Addition 2025/03/24
 	
@@ -30,7 +32,4 @@ public interface BaseTable {
 
 	// 商品情報
 	public final int TABLE_ID_PRD_PRODUCT = 10301;
-
-	// テーブル情報　Addition 2025/03/14
-	public final int TABLE_ID_SYS_TABLE = 90101;
 }

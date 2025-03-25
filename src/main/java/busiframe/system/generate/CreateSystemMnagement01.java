@@ -3,7 +3,7 @@ package busiframe.system.generate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import busiframe.core.dao.BaseTable;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.I_SysDisp;
@@ -18,7 +18,7 @@ import busiframe.system.dao.M_Table;
  * @since 2025/03/13
  * @version 1.00 新規作成
  */
-public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference, BaseTable {
+public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference, I_BaseTable {
 	
 	/** 表示日付書式 */
 	protected DateTimeFormatter fomat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");

@@ -3,7 +3,7 @@ package busiframe.order.generate;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import busiframe.core.dao.BaseTable;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseReference;
 import busiframe.core.dao.M_Display;
@@ -17,7 +17,7 @@ import busiframe.order.dao.M_Order01;
  * @since 2024/11/20
  * @version 1.00 新規作成
  */
-public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference, BaseTable {
+public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference, I_BaseTable {
 
 	/**
 	 * 生成実行<br>

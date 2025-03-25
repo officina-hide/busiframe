@@ -1,6 +1,6 @@
 package busiframe.educate.generate;
 
-import busiframe.core.dao.BaseTable;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.M_Display;
 import busiframe.core.html.BaseDisplay;
@@ -12,7 +12,7 @@ import busiframe.educate.dao.M_EduCategory;
  * @since 2024/12/04
  * @version 1.00 新規作成
  */
-public class CreateEducateSystem01 implements BaseDisplay, BaseTable {
+public class CreateEducateSystem01 implements BaseDisplay, I_BaseTable {
 
 	/**
 	 * 生成実行<br>
