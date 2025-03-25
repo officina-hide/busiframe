@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import busiframe.system.dao.I_SysTable;
+
 /**
  * 表示関連情報クラス<br>
  * @since 2024/11/26
@@ -314,6 +316,13 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 					X_sysDispProcess process = new X_sysDispProcess();
 					process.setItems(rs);
 					getProcesses().add(process);
+				}
+				// テーブル情報取得 Addition 2025/03/25
+				pstmt = env.getConn().prepareStatement(I_SysTable.SQL_LOAD_BY_ID);
+				pstmt.setInt(1, dispData.getTableId());
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					dispData.getTable().setItems(rs);
 				}
 			}
 		} catch (SQLException e) {

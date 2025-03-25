@@ -63,6 +63,9 @@ public class X_SysDisp implements I_SysDisp {
 		this.tableId = tableId;
 	}
 	public X_SysTable getTable() {
+		if(table == null) {
+			table = new X_SysTable();
+		}
 		return table;
 	}
 }

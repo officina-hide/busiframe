@@ -37,9 +37,12 @@ public interface I_SysTable extends BaseCharacter, I_BaseDAO {
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DESCRIPTION + SQ + SP;
 	
 	// SQL関係
-	/** SQL : 新規追加  Addition 2023/03/17 */
+	/** SQL : 新規追加  Addition 2025/03/17 */
 	public final String SQL_INSERT_TABLE = "INSERT INTO" + SP + TABLE_NAME_SYS_TABLE + SP + "("
 			+ COL_NAME_TABLE_ID + CM + COL_NAME_TABLE_CD + CM + COL_NAME_NAME
 			+ CM + COL_NAME_DESCRIPTION + ") VALUES (?,?,?,?)" + SP;
+	/** SQL : 取得（テーブル情報ID） Addition 2025/03/25 */
+	public final String SQL_LOAD_BY_ID = "SELECT * FROM" + SP + TABLE_NAME_SYS_TABLE + SP
+			+ "WHERE" + SP + COL_NAME_TABLE_ID + " = ? ";
 	
 }

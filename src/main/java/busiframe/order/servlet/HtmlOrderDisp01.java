@@ -28,13 +28,12 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 		StringBuffer html = new StringBuffer();
 		// 表示情報取得
 		M_Display disp = new M_Display();
+		disp.load(env, DISPLAY_ID_ORDER_DISP_01);
 		// 受注情報取得
 		M_Order01 order = new M_Order01();
 		order.load(env, orderId);
-		System.out.println(order.getOrder().getPartnerName());
 
 		html.append(DOCTYPE_HTML).append(LF);
-		disp.load(env, DISPLAY_ID_ORDER_DISP_01);
 		html.append(HTML_START).append(LF);
 		html.append(createHead(StandardCharsets.UTF_8, disp.getDispData().getDispTitle()));
 		html.append(BODY_START).append(LF);
@@ -57,8 +56,7 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 				break;
 			}
 		}
-		
-		
+
 		html.append(DivTag.getEndTag());	// <-- 1
 		html.append(BODY_END).append(LF);
 		html.append(HTML_END).append(LF);
