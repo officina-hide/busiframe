@@ -88,4 +88,34 @@ public class M_Table extends BaseDAO implements I_SysTable, I_SysColumn {
 		return table;
 	}
 
+	/**
+	 * テーブル項目情報登録<br>
+	 * @param env 環境情報
+	 * @param columnId テーブル項目情報ID
+	 * @param columnCd テーブル項目識別コード
+	 * @param tableId　テーブル情報ID
+	 * @param columnType　テーブル項目属性
+	 * @param name 名前　
+	 * @param description 説明
+	 */
+	public void addColumnData(Environment env, int columnId, String columnCd, int tableId,
+			String columnType, String name, String descriptionr) {
+		PreparedStatement pstmt = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_INSERT_COLUMN);
+			pstmt.setInt(1, columnId);
+			pstmt.setString(2, columnCd);
+			pstmt.setInt(3, tableId);
+			pstmt.setString(4, columnType);
+			pstmt.setString(5, name);
+			pstmt.setString(6, descriptionr);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+	}
+
 }

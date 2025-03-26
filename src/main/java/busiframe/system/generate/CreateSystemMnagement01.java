@@ -66,10 +66,6 @@ public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference, I_
 		// 表示情報
 		table.addTableData(env, TABLE_ID_SYS_DISP, I_SysDisp.TABLE_NAME_SYS_DISP,
 				I_SysDisp.TABLE_COMMENT_SYS_DISP, I_SysDisp.TABLE_DESCRIPTION_SYS_DISP);
-		
-		// 受注情報 Addition 2025/03/24
-		table.addTableData(env, TABLE_ID_ORD_ORDER, I_Order01.TABLE_NAME_ORD_ORDER,
-				I_Order01.TABLE_COMMENT_ORD_ORDER, I_Order01.TABLE_DESCRIPTION_ORD_ORDER);
 	}
 
 }

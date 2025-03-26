@@ -39,4 +39,12 @@ public interface I_SysColumn extends BaseCharacter, I_BaseDAO {
 	public final String COL_ALTER_COLUMN_TYPE = "ALTER TABLE" + SP + TABLE_NAME_SYS_COLUMN + SP
 			+ "ADD" + SP + COL_NAME_COLUMN_TYPE + SP + "VARCHAR(32) NOT NULL" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_COLUMN_TYPE + SQ + SP;
+	
+	// SQL文
+	public final String SQL_INSERT_COLUMN = "INSERT INTO " + TABLE_NAME_SYS_COLUMN + " ("
+			+ COL_NAME_COLUMN_ID + CM + COL_NAME_COLUMN_CD + CM +
+			I_SysTable.COL_NAME_TABLE_ID + CM	+ COL_NAME_COLUMN_TYPE + CM +
+			COL_NAME_NAME + ", " + COL_NAME_DESCRIPTION + ") VALUES (?, ?, ?, ?, ?, ?)";
+	
+
 }

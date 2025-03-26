@@ -34,7 +34,7 @@ public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference, I_Base
 		M_Numbering num = new M_Numbering();
 		num.getNumbering().setNumberingId(10001);
 		num.getNumbering().setCurrentNumber(100000);
-		num.getNumbering().setTableId(I_Order01.TABLE_ID_ORDER);
+		num.getNumbering().setTableId(TABLE_ID_ORD_ORDER);
 		num.save(env);
 		// 受注登録画面 : 表示情報登録
 		M_Display disp = new M_Display();

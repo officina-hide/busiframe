@@ -11,14 +11,17 @@ import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
+import busiframe.core.dao.I_BaseReference;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.M_Numbering;
+import busiframe.system.dao.M_Table;
 
 /**
  * 受注情報 Lv.01クラス<br>
  * @since 2024/11/20
  * @version 1.00 新規作成
  */
-public class M_Order01 extends BaseDAO implements I_Order01{
+public class M_Order01 extends BaseDAO implements I_Order01, I_BaseTable, I_BaseReference {
 
 	/** 受注情報構造体 */
 	private X_Order01 order;
@@ -46,6 +49,13 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 		addColumn(env, COL_ALTER_PRODUCT_NAME);
 		addColumn(env, COL_ALTER_ORDER_NUMBER);
 		addColumn(env, COL_ALTER_ORDER_AMOUNT);
+		
+		// 受注情報 Addition 2025/03/24
+		M_Table table = new M_Table();
+		table.addTableData(env, TABLE_ID_ORD_ORDER, I_Order01.TABLE_NAME_ORD_ORDER,
+				I_Order01.TABLE_COMMENT_ORD_ORDER, I_Order01.TABLE_DESCRIPTION_ORD_ORDER);
+		table.addColumnData(env, COL_ID_ORDER_ID, COL_NAME_ORDER_ID, TABLE_ID_ORD_ORDER,
+				R_INT, COL_COMMENT_ORDER_ID, TABLE_DESCRIPTION_ORD_ORDER);
 	}
 
 	/**
@@ -80,7 +90,7 @@ public class M_Order01 extends BaseDAO implements I_Order01{
 	public void save(Environment env) {
 		// ID採番 TODO 未実装 2024/11/22
 		M_Numbering num = new M_Numbering();
-		getOrder().setOrderId(num.newNumber(env, I_Order01.TABLE_ID_ORDER));
+		getOrder().setOrderId(num.newNumber(env, TABLE_ID_ORD_ORDER));
 		// 追加登録 TODO 汎用化未実装 2024/11/22
 		PreparedStatement pstmt = null;
 		try {
