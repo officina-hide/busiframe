@@ -41,14 +41,19 @@ public class M_Table extends BaseDAO implements I_SysTable, I_SysColumn {
 		createTable(env, TABLE_NAME_SYS_TABLE, TABLE_COMMENT_SYS_TABLE,
 				COL_NAME_TABLE_ID, COL_COMMENT_TABLE_ID);
 		addColumn(env, COL_ALTER_TABLE_CD);
-		addColumn(env, COL_ALTER_NAME);
-		addColumn(env, COL_ALTER_DESCRIPTION);
+		addColumn(env, COL_ALTER_NAME.replaceAll(TABLE_NAME, TABLE_NAME_SYS_TABLE));
+		addColumn(env, COL_ALTER_DESCRIPTION.replaceAll(TABLE_NAME, TABLE_NAME_SYS_TABLE));
 		// テーブル情報 : 構築メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : テーブル情報を構築しました。");
 		
 		// テーブル項目情報
 		createTable(env, TABLE_NAME_SYS_COLUMN, TABLE_COMMENT_SYS_COLUMN,
 				COL_NAME_COLUMN_ID, COL_COMMENT_COLUMN_ID);
+		addColumn(env, COL_ALTER_COLUMN_CD);
+		addColumn(env, COL_ALTER_TABLE_ID_COLUMN);
+		addColumn(env, COL_ALTER_COLUMN_TYPE);
+		addColumn(env, COL_ALTER_NAME.replaceAll(TABLE_NAME, TABLE_NAME_SYS_COLUMN));
+		addColumn(env, COL_ALTER_DESCRIPTION.replaceAll(TABLE_NAME, TABLE_NAME_SYS_COLUMN));
 		// テーブル項目情報 : 構築メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : テーブル項目情報を構築しました。");
 	}

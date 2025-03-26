@@ -1,11 +1,14 @@
 package busiframe.system.dao;
 
+import busiframe.core.dao.I_BaseDAO;
+import busiframe.core.tools.BaseCharacter;
+
 /**
  * テーブル項目情報インターフェースクラス<br>
  * @since 2025/03/25
  * @version 1.00 新規作成
  */
-public interface I_SysColumn {
+public interface I_SysColumn extends BaseCharacter, I_BaseDAO {
 	
 	// テーブル情報
 	public final String TABLE_NAME_SYS_COLUMN = "sys_column";
@@ -17,4 +20,23 @@ public interface I_SysColumn {
 	public final String COL_COMMENT_COLUMN_ID = "テーブル項目情報ID";
 	public final String COL_DESCRIPTION_COLUMN_ID = "テーブル項目情報を一意に管理する為のID<br>原則として固定値をセットする。";
 
+	// テーブル項目識別コード
+	public final String COL_NAME_COLUMN_CD = "column_cd";
+	public final String COL_COMMENT_COLUMN_CD = "テーブル項目識別コード";
+	public final String COL_DESCRIPTION_COLUMN_CD = "テーブル項目を識別する為のコード<br>テーブル内では一意のコードをセットする。";
+	public final String COL_ALTER_COLUMN_CD = "ALTER TABLE" + SP + TABLE_NAME_SYS_COLUMN + SP
+			+ "ADD" + SP + COL_NAME_COLUMN_CD + SP + "VARCHAR(100)  NOT NULL" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_COLUMN_CD + SQ + SP;
+	// テーブル情報ID
+	public final String COL_ALTER_TABLE_ID_COLUMN = "ALTER TABLE" + SP + TABLE_NAME_SYS_COLUMN + SP
+			+ "ADD" + SP + I_SysTable.COL_NAME_TABLE_ID + SP + "INT NOT NULL" + SP
+			+ "COMMENT" + SP + SQ + I_SysTable.COL_COMMENT_TABLE_ID + SQ + SP;
+	// テーブル項目属性
+	// TODO リファレンス情報が構築された時点でIDに変更する。 2025/03/26
+	public final String COL_NAME_COLUMN_TYPE = "column_type";
+	public final String COL_COMMENT_COLUMN_TYPE = "テーブル項目属性";
+	public final String COL_DESCRIPTION_COLUMN_TYPE = "テーブル項目が土の属性で管理されているかを表す。";
+	public final String COL_ALTER_COLUMN_TYPE = "ALTER TABLE" + SP + TABLE_NAME_SYS_COLUMN + SP
+			+ "ADD" + SP + COL_NAME_COLUMN_TYPE + SP + "VARCHAR(32) NOT NULL" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_COLUMN_TYPE + SQ + SP;
 }

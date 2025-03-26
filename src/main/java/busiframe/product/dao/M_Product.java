@@ -39,8 +39,8 @@ import busiframe.core.dao.M_Numbering;
 		createTable(env, TABLE_NAME_PRODUCT, TABLE_COMMENT_PRODUCT,
 				COL_NAME_PRODUCT_ID, COL_COMMENT_PRODUCT_ID);
 		addColumn(env, COL_ALTER_PRODUCT_CD);
-		addColumn(env, COL_ALTER_NAME);
-		addColumn(env, COL_ALTER_DESCRIPTION);
+		addColumn(env, COL_ALTER_NAMER);
+		addColumn(env, COL_ALTER_DESCRIPTIONR);
 	}
 
 	/**

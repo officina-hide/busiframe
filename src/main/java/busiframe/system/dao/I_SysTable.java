@@ -28,12 +28,12 @@ public interface I_SysTable extends BaseCharacter, I_BaseDAO {
 			+ "ADD" + SP + COL_NAME_TABLE_CD + SP + "VARCHAR(100)  NOT NULL UNIQUE" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_TABLE_CD + SQ + SP;
 	/** 名前 */
-	public final String COL_ALTER_NAME = "ALTER TABLE" + SP + TABLE_NAME_SYS_TABLE + SP
+	public final String COL_ALTER_NAMER = "ALTER TABLE" + SP + TABLE_NAME_SYS_TABLE + SP
 			+ "ADD" + SP + COL_NAME_NAME + SP + "VARCHAR(100)" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_NAME + SQ + SP;
 	/** 解説 */
-	public final String COL_ALTER_DESCRIPTION = "ALTER TABLE" + SP + TABLE_NAME_SYS_TABLE + SP
-			+ "ADD" + SP + COL_NAME_DESCRIPTION + SP + "VARCHAR(3000)"
+	public final String COL_ALTER_DESCRIPTIONR = "ALTER TABLE" + SP + TABLE_NAME_SYS_TABLE + SP
+			+ "ADD" + SP + COL_NAME_DESCRIPTION + SP + "VARCHAR(3000)" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_DESCRIPTION + SQ + SP;
 	
 	// SQL関係
