@@ -32,7 +32,7 @@ public class HtmlEduCategoryList extends BaseHTML implements BaseDisplay {
 		
 		// 表示情報取得
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_EDUCATE_CATEGORY_01);
+		disp.load(env, DISPLAY_ID_EDUCATE_CATEGORY_01);
 		// カテゴリー一覧取得
 		M_EduCategory cat = new M_EduCategory();
 		List<X_EduCategory> catList = cat.getCategoryList(env);

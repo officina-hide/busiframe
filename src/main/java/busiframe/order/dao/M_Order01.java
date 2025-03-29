@@ -84,7 +84,7 @@ public class M_Order01 extends BaseDAO implements I_Order01, I_BaseTable, I_Base
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				getOrder().setItems(rs);
-			}
+			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -154,5 +154,4 @@ public class M_Order01 extends BaseDAO implements I_Order01, I_BaseTable, I_Base
 		}
 		return order;
 	}
-
 }

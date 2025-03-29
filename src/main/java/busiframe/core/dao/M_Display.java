@@ -28,6 +28,68 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 	private List<X_sysDispProcess> processes = new ArrayList<>();
 	
 	/**
+	 * 取得(表示情報ID)<br>
+	 * 説明 : 表示情報IDを持つ表示情報を取得し、関連する表示詳細、メニュー、処理の子情報も取得する。<br>
+	 * @since 2025/02/06
+	 * @param env 環境情報
+	 * @param dispId 表示情報ID
+	 */
+	public void load(Environment env, int dispId) {
+		// 表示情報を取得する。
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPID);
+			pstmt.setInt(1, dispId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dispData.setItems(rs);
+			}
+			if(dispData.getDispId() > 0) {
+				// 表示詳細情報取得
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPDETAIL);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispDetail detail = new X_sysDispDetail();
+					detail.setItems(rs);
+					getDetails().add(detail);
+				}
+				// 表示メニュー情報取得
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPMENU);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispMenu menu = new X_sysDispMenu();
+					menu.setItems(rs);
+					getMenus().add(menu);
+				}
+				// 表示処理情報取得 Addition 2025/01/22
+				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPPROCESS);
+				pstmt.setInt(1, dispData.getDispId());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					X_sysDispProcess process = new X_sysDispProcess();
+					process.setItems(rs);
+					getProcesses().add(process);
+				}
+				// テーブル情報取得 Addition 2025/03/25
+				pstmt = env.getConn().prepareStatement(I_SysTable.SQL_LOAD_BY_ID);
+				pstmt.setInt(1, dispData.getTableId());
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					dispData.getTable().setItems(rs);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+	}
+
+	/**
 	 * テーブル削除<br>
 	 * @since 2024/11/27
 	 * @param env 関連情報
@@ -213,122 +275,6 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 			e.printStackTrace();
 		} finally {
 			close(pstmt, null);
-		}
-	}
-
-	/**
-	 * 取得<br>
-	 * @deprecated 2025/02/06 出来る限りIDから取得するようにする。しばらくは必要かとヴかを判定する(2025/10くらいまで）<br>
-	 * @param env 環境情報
-	 * @param dispCd 表示識別コード
-	 */
-	public void load(Environment env, String dispCd) {
-		// 表示情報を取得する。
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			connection(env);
-			pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPCD);
-			pstmt.setString(1, dispCd);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dispData.setItems(rs);
-			}
-			if(dispData.getDispId() > 0) {
-				// 表示詳細情報取得
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPDETAIL);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispDetail detail = new X_sysDispDetail();
-					detail.setItems(rs);
-					getDetails().add(detail);
-				}
-				// 表示メニュー情報取得
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPMENU);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispMenu menu = new X_sysDispMenu();
-					menu.setItems(rs);
-					getMenus().add(menu);
-				}
-				// 表示処理情報取得 Addition 2025/01/22
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPPROCESS);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispProcess process = new X_sysDispProcess();
-					process.setItems(rs);
-					getProcesses().add(process);
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt, rs);
-		}
-	}
-
-	/**
-	 * 取得(表示情報ID)<br>
-	 * 説明 : 表示情報IDを持つ表示情報を取得し、関連する表示詳細、メニュー、処理の子情報も取得する。<br>
-	 * @since 2025/02/06
-	 * @param env 環境情報
-	 * @param dispId 表示情報ID
-	 */
-	public void load(Environment env, int dispId) {
-		// 表示情報を取得する。
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			connection(env);
-			pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPID);
-			pstmt.setInt(1, dispId);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dispData.setItems(rs);
-			}
-			if(dispData.getDispId() > 0) {
-				// 表示詳細情報取得
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPDETAIL);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispDetail detail = new X_sysDispDetail();
-					detail.setItems(rs);
-					getDetails().add(detail);
-				}
-				// 表示メニュー情報取得
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPMENU);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispMenu menu = new X_sysDispMenu();
-					menu.setItems(rs);
-					getMenus().add(menu);
-				}
-				// 表示処理情報取得 Addition 2025/01/22
-				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPPROCESS);
-				pstmt.setInt(1, dispData.getDispId());
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					X_sysDispProcess process = new X_sysDispProcess();
-					process.setItems(rs);
-					getProcesses().add(process);
-				}
-				// テーブル情報取得 Addition 2025/03/25
-				pstmt = env.getConn().prepareStatement(I_SysTable.SQL_LOAD_BY_ID);
-				pstmt.setInt(1, dispData.getTableId());
-				rs = pstmt.executeQuery();
-				if(rs.next()) {
-					dispData.getTable().setItems(rs);
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt, rs);
 		}
 	}
 

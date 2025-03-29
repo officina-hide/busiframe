@@ -30,7 +30,7 @@ public class HtmlEducateMenu01 extends BaseHTML implements BaseCharacter, BaseHt
 		
 		// 表示情報取得 Addition 2024/12/02
 		M_Display disp = new M_Display();
-		disp.load(env, DISPLAY_CD_EDUCATE_MENU_01);
+		disp.load(env, DISPLAY_ID_EDUCATE_MENU_01);
 		// HTML
 		html.append(DOCTYPE_HTML).append(LF);
 		html.append(HTML_START).append(LF);

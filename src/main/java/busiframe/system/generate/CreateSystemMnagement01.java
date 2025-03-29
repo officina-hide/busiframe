@@ -3,13 +3,12 @@ package busiframe.system.generate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseReference;
+import busiframe.core.dao.I_BaseTable;
 import busiframe.core.dao.I_SysDisp;
 import busiframe.core.dao.M_Display;
 import busiframe.core.html.BaseDisplay;
-import busiframe.order.dao.I_Order01;
 import busiframe.system.dao.I_SysTable;
 import busiframe.system.dao.M_Table;
 
