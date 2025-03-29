@@ -24,6 +24,12 @@ public interface I_BaseTable {
 	
 	// 固定テーブルID : 受注管理
 	public final int TABLE_ID_ORD_ORDER = 20101;	// 受注情報 Addition 2025/03/24
+	public final int COL_ID_ORDER_ID = 20101001; // 受注情報ID
+	public final int COL_ID_ORDER_DATE = 20101002; // 受注日
+	public final int COL_ID_PARTNER_NAME = 20101003; // 相手先名
+	public final int COL_ID_PRODUCT_NAME = 20101004; // 商品名
+	public final int COL_ID_ORDER_NUMBER = 20101005; // 受注数
+	public final int COL_ID_ORDER_AMOUNT = 20101006; // 受注金額
 	
 	// 表示処理情報 Addition 2025/01/16
 	public final int TABLE_ID_SYS_DISPPROCESS = 10104;	//表示処理情報

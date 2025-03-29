@@ -13,4 +13,5 @@ public interface I_BaseReference {
 	public final String R_TEXT = "test";	//複数行 Addition 2025/02/03
 	public final String R_DATE = "date";		//日付 Addition 2025/03/24
 	public final String R_INT = "int";		//整数 Addition 2025/03/26
+	public final String R_NUMBER = "number";	//数値 Addition 2025/03/28
 }

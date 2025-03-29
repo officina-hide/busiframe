@@ -19,7 +19,9 @@ public interface I_Order01 extends I_BaseDAO {
 	// 受注情報ID
 	public final String COL_NAME_ORDER_ID = "order_id";
 	public final String COL_COMMENT_ORDER_ID = "受注情報ID";
-	public final int COL_ID_ORDER_ID = 1101001;
+//	public final int COL_ID_ORDER_ID = 1101001;
+	public final String COL_DESCRIPTION_ORDER_ID = "受注情報を一意に識別するためのID";
+	
 	// 受注日
 	public final String COL_NAME_ORDER_DATE = "order_date";
 	public final String COL_COMMENT_ORDER_DATE = "受注日";
