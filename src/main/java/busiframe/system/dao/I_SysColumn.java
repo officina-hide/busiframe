@@ -19,6 +19,9 @@ public interface I_SysColumn extends BaseCharacter, I_BaseDAO {
 	public final String COL_NAME_COLUMN_ID = "column_id";
 	public final String COL_COMMENT_COLUMN_ID = "テーブル項目情報ID";
 	public final String COL_DESCRIPTION_COLUMN_ID = "テーブル項目情報を一意に管理する為のID<br>原則として固定値をセットする。";
+	public final String COL_ALTER_COLUMN_ID = "ALTER TABLE" + SP + TABLE_NAME + SP
+			+ "ADD" + SP + COL_NAME_COLUMN_ID + SP + "INT NOT NULL" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_COLUMN_ID + SQ + SP;
 
 	// テーブル項目識別コード
 	public final String COL_NAME_COLUMN_CD = "column_cd";
@@ -50,4 +53,9 @@ public interface I_SysColumn extends BaseCharacter, I_BaseDAO {
 	 */
 	public final String SQL_LOAD_COLUMN_BY_TABLE_ID = "SELECT * FROM" + SP + TABLE_NAME_SYS_COLUMN + SP
 			+ "WHERE" + SP + I_SysTable.COL_NAME_TABLE_ID + " = ? ";
+	/*
+	 * SQL : 取得（テーブル項目識別ID） Addition 2025/03/30
+	 */
+	public final String SQL_LOAD_COLUMN_BY_COLUMN_ID = "SELECT * FROM" + SP + TABLE_NAME_SYS_COLUMN + SP
+			+ "WHERE" + SP + COL_NAME_COLUMN_ID + " = ? ";
 }

@@ -41,9 +41,9 @@ public class CreateProductSystem01 implements BaseHtml, BaseDisplay, I_BaseDAO, 
 		disp.addDispData(env, DISPLAY_ID_PRODUCT_LIST_01, DISPLAY_CD_PRODUCT_LIST_01,
 				DISPLAY_TITLE_PRODUCT_LIST_01);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_LIST_01, I_Product.COL_NAME_PRODUCT_CD,
-				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING);
+				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING, 0);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_LIST_01, I_Product.COL_NAME_NAME,
-				2, "商品名", R_STRING);
+				2, "商品名", R_STRING, 0);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "新規登録", "./productAction01", 
 				DISPLAY_CD_PRODUCT_ENTRY_01);
 		disp.addDispProcessData(env, 0, disp.getDispData().getDispId(), "メニューへ戻る", "./action01", DISPLAY_CD_PRODUCT_MENU_01);
@@ -62,11 +62,11 @@ public class CreateProductSystem01 implements BaseHtml, BaseDisplay, I_BaseDAO, 
         disp.addDispData(env, DISPLAY_ID_PRODUCT_DATA_01, DISPLAY_CD_PRODUCT_DATA_01,
         		DISPLAY_TITLE_PRODUCT_DATA_01);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_PRODUCT_CD,
-				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING);
+				1, I_Product.COL_COMMENT_PRODUCT_CD, R_STRING, 0);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_NAME,
-				2, "商品名", R_STRING);
+				2, "商品名", R_STRING, 0);
 		disp.addDispDetailData(env, DISPLAY_ID_PRODUCT_DATA_01, I_Product.COL_NAME_DESCRIPTION,
-				2, "商品説明", R_TEXT);
+				2, "商品説明", R_TEXT, 0);
 		// 商品照会 Lv01 : 遷移処理登録 Addition 2025/02/17
 		disp.addDispProcessData(env, 0, DISPLAY_ID_PRODUCT_DATA_01, "一覧へ戻る", "./productAction01",
 				DISPLAY_CD_PRODUCT_LIST_01);

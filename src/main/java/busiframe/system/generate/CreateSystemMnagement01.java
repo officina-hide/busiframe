@@ -45,7 +45,7 @@ public class CreateSystemMnagement01 implements BaseDisplay, I_BaseReference, I_
 		// 表示情報 : テーブル一覧 Addition 2025/03/18
 		disp.addDispData(env, DISPLAY_ID_TABLE_LIST_01, DISPLAY_CD_TABLE_LIST_01, DISPLAY_TITLE_TABLE_LIST_01);
 		disp.addDispDetailData(env, DISPLAY_ID_TABLE_LIST_01, I_SysTable.COL_NAME_TABLE_ID,
-				1, I_SysTable.COL_COMMENT_TABLE_ID, R_STRING);
+				1, I_SysTable.COL_COMMENT_TABLE_ID, R_STRING, 0);
 		
 		// テーブル情報 Addition 2025/03/15
 		createTableData(env, table);

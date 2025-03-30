@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import busiframe.system.dao.I_SysColumn;
 import busiframe.system.dao.I_SysTable;
 import busiframe.system.dao.M_Table;
+import busiframe.system.dao.X_SysColumn;
 
 /**
  * 表示関連情報クラス<br>
@@ -62,6 +64,9 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 					X_sysDispDetail detail = new X_sysDispDetail();
 					detail.setItems(rs);
 					getDetails().add(detail);
+					if(detail.getColumnId() > 0) {
+						detail.setColumn(getColumn(env, detail.getColumnId()));
+					}
 				}
 				// 表示メニュー情報取得
 				pstmt = env.getConn().prepareStatement(SQL_LOAD_DISPMENU);
@@ -94,6 +99,33 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 		} finally {
 			close(pstmt, rs);
 		}
+	}
+
+	/**
+	 * テーブル項目情報取得<br>
+	 * @since 2025/03/30
+	 * @param env 環境情報
+	 * @param columnId テーブル項目情報ID
+	 * @return テーブル項目情報
+	 */
+	private X_SysColumn getColumn(Environment env, int columnId) {
+		X_SysColumn column = new X_SysColumn();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(I_SysColumn.SQL_LOAD_COLUMN_BY_COLUMN_ID);
+			pstmt.setInt(1, columnId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				column.setItems(rs);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, rs);
+		}
+		return column;
 	}
 
 	/**
@@ -133,6 +165,8 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 		addColumn(env, COL_ALTER_ITEM_SEQ);
 		addColumn(env, COL_ALTER_ITEM_LABEL);
 		addColumn(env, COL_ALTER_ITEM_TYPE);
+		addColumn(env,
+				I_SysColumn.COL_ALTER_COLUMN_ID.replaceAll(TABLE_NAME, TABLE_NAME_SYS_DISPDETAIL)); // Addition 2025/03/30
 		// 表示メニュー情報テーブル構築
 		createTable(env, TABLE_NAME_SYS_DISPMENU, TABLE_COMMENT_SYS_DISPMENU,
 				COL_NAME_DISPMENU_ID, COL_COMMENT_DISPMENU_ID);
@@ -201,8 +235,9 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 	 * @param itemSeq 項目並び順
 	 * @param itemLabel 項目ラベル
 	 * @param itemType 属性名
+	 * @param columnId テーブル項目情報ID
 	 */
-	public void addDispDetailData(Environment env, int dispId, String itemCd, int itemSeq, String itemLabel, String itemType) {
+	public void addDispDetailData(Environment env, int dispId, String itemCd, int itemSeq, String itemLabel, String itemType, int columnId) {
 		PreparedStatement pstmt = null;
 		// 表示詳細情報ID採番
 		M_Numbering num = new M_Numbering();
@@ -216,6 +251,7 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 			pstmt.setInt(4, 1);
 			pstmt.setString(5, itemLabel);
 			pstmt.setString(6, itemType);
+			pstmt.setInt(7, columnId);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

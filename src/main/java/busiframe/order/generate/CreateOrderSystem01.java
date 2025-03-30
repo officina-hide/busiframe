@@ -39,23 +39,23 @@ public class CreateOrderSystem01 implements BaseDisplay, I_BaseReference, I_Base
 		// 受注登録画面 : 表示情報登録
 		M_Display disp = new M_Display();
 		disp.addDispData(env, DISPLAY_ID_ORDER_ENTRY_01, DISPLAY_CD_ORDER_ENTRY_01, "受注登録 Lv.01");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_AMOUNT, 5, "受注金額","number");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日","date", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数","number", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_ENTRY_01, I_Order01.COL_NAME_ORDER_AMOUNT, 5, "受注金額","number", 0);
 		// 受注一覧画面登録
 		disp.addDispData(env, DISPLAY_ID_ORDER_LIST_01, DISPLAY_CD_ORDER_LIST_01, "受注一覧 Lv.01");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数", "number");
-		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_AMOUNT, 4, "受注金額", "number");
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_DATE, 1, "受注日", "date", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PARTNER_NAME, 2, "相手先名","string", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_PRODUCT_NAME, 3, "商品名","string", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_NUMBER, 4, "受注数", "number", 0);
+		disp.addDispDetailData(env, DISPLAY_ID_ORDER_LIST_01, I_Order01.COL_NAME_ORDER_AMOUNT, 4, "受注金額", "number", 0);
 		// 受注照会 Lv.01画面
 		disp.addDispData(env, DISPLAY_ID_ORDER_DISP_01, DISPLAY_CD_ORDER_DISP_01, DISPLAY_TITLE_ORDER_DISP_01,
 				TABLE_ID_ORD_ORDER);
 		disp.addDispDetailData(env, DISPLAY_ID_ORDER_DISP_01, I_Order01.COL_NAME_ORDER_DATE,
-				1, 	I_Order01.COL_COMMENT_ORDER_DATE, R_DATE);
+				1, 	I_Order01.COL_COMMENT_ORDER_DATE, R_DATE, COL_ID_ORDER_DATE);
 		disp.addDispProcessData(env, 0, DISPLAY_ID_ORDER_LIST_01, "メニューへ戻る",
 				ACTION_URI_MAIN_MENU, DISPLAY_CD_ORDER_MENU_01);
 		

@@ -29,7 +29,7 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 		// 表示情報取得
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_ID_ORDER_DISP_01);
-		System.out.println(disp.getDispData().getTable().getColumns().size());
+		System.out.println(disp.getDetails().get(0).getColumn().getName());
 		// 受注情報取得
 		M_Order01 order = new M_Order01();
 		order.load(env, orderId);

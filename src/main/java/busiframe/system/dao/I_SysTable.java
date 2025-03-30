@@ -1,8 +1,5 @@
 package busiframe.system.dao;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import busiframe.core.dao.I_BaseDAO;
 import busiframe.core.tools.BaseCharacter;
 
@@ -22,6 +19,9 @@ public interface I_SysTable extends BaseCharacter, I_BaseDAO {
 	public final String COL_NAME_TABLE_ID = "table_id";
 	public final String COL_COMMENT_TABLE_ID = "テーブル情報ID";
 	public final String COL_DESCRIPTION_TABLE_ID = "テーブル情報を一意に管理する為のID<br>原則として固定値をセットする。";
+	public final String COL_ALTER_TABLE_ID = "ALTER TABLE" + SP + TABLE_NAME + SP
+			+ "ADD" + SP + COL_NAME_TABLE_ID + SP + "INT DEFAULT '0'" + SP
+			+ "COMMENT" + SP + SQ + COL_COMMENT_TABLE_ID + SQ + SP;
 	
 	// テーブル識別コード
 	public final String COL_NAME_TABLE_CD = "table_cd";

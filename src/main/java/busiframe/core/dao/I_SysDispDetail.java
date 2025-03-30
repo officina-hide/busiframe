@@ -1,11 +1,13 @@
 package busiframe.core.dao;
 
 import busiframe.core.tools.BaseCharacter;
+import busiframe.system.dao.I_SysColumn;
 
 /**
  * 表示詳細情報インターフェースクラス<br>
  * @since 2024/11/27
  * @version 1.00 新規作成
+ * @version 1.01 テーブル項目情報を追加　2025/03/30
  */
 public interface I_SysDispDetail  extends BaseCharacter, I_BaseTable {
 	
@@ -51,13 +53,15 @@ public interface I_SysDispDetail  extends BaseCharacter, I_BaseTable {
 	public final String COL_ALTER_ITEM_TYPE = "ALTER TABLE" + SP + TABLE_NAME_SYS_DISPDETAIL + SP
 			+ "ADD" + SP + COL_NAME_ITEM_TYPE + SP + "VARCHAR(32) NOT NULL" + SP
 			+ "COMMENT" + SP + SQ + COL_COMMENT_ITEM_TYPE + SQ + SP;
+	// テーブル項目情報ID (I_SysTable)
 	
 	// SQL関連
 	/** SQL : 新規追加 */
 	public final String SQL_INSERT_DISPDETAIL = "INSERT INTO" + SP + TABLE_NAME_SYS_DISPDETAIL + SP + "("
 			+ COL_NAME_DISP_DETAIL_ID + CM + I_SysDisp.COL_NAME_DISP_ID + CM
 			+ COL_NAME_ITEM_CD + CM + COL_NAME_ITEM_SEQ + CM + COL_NAME_ITEM_LABEL + CM
-			+ COL_NAME_ITEM_TYPE + ")" + SP + "VALUES" + SP + "(?,?,?,?,?,?)";
+			+ COL_NAME_ITEM_TYPE + CM + I_SysColumn.COL_NAME_COLUMN_ID + ")" + SP 
+			+ "VALUES" + SP + "(?,?,?,?,?,?,?)";
 	/** SQL : 取得 Addition 2024/11/30 */ 
 	public final String SQL_LOAD_DISPDETAIL = "SELECT * FROM" + SP + TABLE_NAME_SYS_DISPDETAIL + SP
 			+ "WHERE" + SP + I_SysDisp.COL_NAME_DISP_ID + " = ? "
