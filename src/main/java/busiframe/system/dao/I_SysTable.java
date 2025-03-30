@@ -1,5 +1,8 @@
 package busiframe.system.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import busiframe.core.dao.I_BaseDAO;
 import busiframe.core.tools.BaseCharacter;
 

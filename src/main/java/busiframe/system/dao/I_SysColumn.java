@@ -45,6 +45,9 @@ public interface I_SysColumn extends BaseCharacter, I_BaseDAO {
 			+ COL_NAME_COLUMN_ID + CM + COL_NAME_COLUMN_CD + CM +
 			I_SysTable.COL_NAME_TABLE_ID + CM	+ COL_NAME_COLUMN_TYPE + CM +
 			COL_NAME_NAME + ", " + COL_NAME_DESCRIPTION + ") VALUES (?, ?, ?, ?, ?, ?)";
-	
-
+	/* 
+	 * SQL : 一覧取得（テーブル情報ID） Addition 2025/03/30
+	 */
+	public final String SQL_LOAD_COLUMN_BY_TABLE_ID = "SELECT * FROM" + SP + TABLE_NAME_SYS_COLUMN + SP
+			+ "WHERE" + SP + I_SysTable.COL_NAME_TABLE_ID + " = ? ";
 }

@@ -2,6 +2,8 @@ package busiframe.system.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * テーブル情報クラス
@@ -18,6 +20,8 @@ public class X_SysTable implements I_SysTable {
 	private String name;
 	/** 説明 */
 	private String description;
+	/** テーブル項目情報リスト Addition 2025/03/29 */
+	private List<X_SysColumn> columns = new ArrayList<>();
 	
 	/**
 	 * 項目セット<br>
@@ -52,9 +56,11 @@ public class X_SysTable implements I_SysTable {
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public List<X_SysColumn> getColumns() {
+		return columns;
 	}
 
 }

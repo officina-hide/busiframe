@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import busiframe.system.dao.I_SysTable;
+import busiframe.system.dao.M_Table;
 
 /**
  * 表示関連情報クラス<br>
@@ -45,6 +46,12 @@ public class M_Display extends BaseDAO implements Serializable, I_SysDisp, I_Sys
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				dispData.setItems(rs);
+				// テーブル情報取得 Addition 2025/03/29
+				if(dispData.getTableId() > 0) {
+					M_Table table = new M_Table();
+					table.load(env, dispData.getTableId());
+					dispData.setTable(table.getTable());
+				}
 			}
 			if(dispData.getDispId() > 0) {
 				// 表示詳細情報取得

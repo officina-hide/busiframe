@@ -1,8 +1,11 @@
 package busiframe.system.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import busiframe.core.dao.BaseDAO;
 import busiframe.core.dao.Environment;
@@ -84,10 +87,6 @@ public class M_Table extends BaseDAO implements I_SysTable, I_SysColumn {
 		}
 	}
 	
-	public X_SysTable getTable() {
-		return table;
-	}
-
 	/**
 	 * テーブル項目情報登録<br>
 	 * @param env 環境情報
@@ -116,6 +115,64 @@ public class M_Table extends BaseDAO implements I_SysTable, I_SysColumn {
 		} finally {
 			close(pstmt, null);
 		}
+	}
+
+	/**
+	 * テーブル情報取得<br>
+	 * @param env 環境情報
+	 * @param tableId テーブル情報ID
+	 */
+	public void load(Environment env, int tableId) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_BY_ID);
+			pstmt.setInt(1, tableId);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				table.setItems(rs);
+				// テーブル項目情報リスト生成
+				table.getColumns().addAll(getColumns(env, tableId));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+	}
+
+	/**
+	 * テーブル項目情報リスト取得<br>
+	 * @since 2025/03/30
+	 * @param env 環境情報
+	 * @param tableId テーブル情報ID
+	 * @return テーブル項目情報リスト
+	 */
+	private List<X_SysColumn> getColumns(Environment env, int tableId) {
+		List<X_SysColumn> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			connection(env);
+			pstmt = env.getConn().prepareStatement(SQL_LOAD_COLUMN_BY_TABLE_ID);
+			pstmt.setInt(1, tableId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				X_SysColumn column = new X_SysColumn();
+				column.setItems(rs);
+				list.add(column);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt, null);
+		}
+		return list;
+	}
+
+	public X_SysTable getTable() {
+		return table;
 	}
 
 }
