@@ -41,6 +41,29 @@ public class X_Order01 implements I_Order01 {
 		setOrderAmount(rs.getBigDecimal(COL_NAME_ORDER_AMOUNT));
 	}
 	
+	/**
+	 * 項目名から項目情報を取得する。<br>
+	 * @param columnName　項目名
+	 * @return　項目値
+	 */
+	public Object getItemData(String columnName) {
+		switch(columnName) {
+		case COL_NAME_ORDER_ID:
+			return getOrderId();
+		case COL_NAME_ORDER_DATE:
+			return getOrderDate();
+		case COL_NAME_PARTNER_NAME:
+			return getPartnerName();
+		case COL_NAME_PRODUCT_NAME:
+			return getProductName();
+		case COL_NAME_ORDER_NUMBER:
+			return getOrderNumber();
+		case COL_NAME_ORDER_AMOUNT:
+			return getOrderAmount();
+		default:
+			return null;
+		}
+	}
 	public int getOrderId() {
 		return orderId;
 	}

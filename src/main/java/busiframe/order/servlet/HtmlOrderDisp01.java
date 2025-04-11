@@ -1,6 +1,8 @@
 package busiframe.order.servlet;
 
+import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 
 import busiframe.core.dao.Environment;
 import busiframe.core.dao.I_BaseReference;
@@ -29,7 +31,6 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 		// 表示情報取得
 		M_Display disp = new M_Display();
 		disp.load(env, DISPLAY_ID_ORDER_DISP_01);
-		System.out.println(disp.getDetails().get(0).getColumn().getName());
 		// 受注情報取得
 		M_Order01 order = new M_Order01();
 		order.load(env, orderId);
@@ -44,18 +45,36 @@ public class HtmlOrderDisp01 extends BaseHTML implements BaseDisplay, I_BaseRefe
 		// 表示詳細展開
 		for(int ix = 0; ix < disp.getDetails().size(); ix++) {
 			X_sysDispDetail detail = disp.getDetails().get(ix);
-			html.append(T2).append("<div class=\"row\">").append(LF);
+			
+			html.append(T2).append(DivTag.getSource("row")).append(LF);
 			// ラベル
 			html.append(T3).append("<label class=" + DQ +"md-1 text-right  padding-x-10 padding-y-5"+DQ+">")
 				.append(detail.getItemLabel()).append("</label>").append(LF);
 			// 項目（表示専用）
 			switch(detail.getItemType()) {
 			case R_DATE:
+			case R_STRING:
+				html.append(T3).append(DivTag.getSource("md-3")).append(LF);
+				html.append("<input type=").append(DQ).append("text").append(DQ)
+					.append(" class=").append(DQ).append("form-control").append(DQ)
+					.append(" value=").append(DQ)
+					.append(order.getOrder().getItemData(detail.getColumn().getColumnCd()).toString()).append(DQ)
+					.append(" readonly>").append(LF);
+				html.append(T3).append(DivTag.getEndTag()).append(LF);
+				break;
+			case R_NUMBER:
+				DecimalFormat df = new java.text.DecimalFormat("#,##0");
+				BigDecimal num = (BigDecimal) order.getOrder().getItemData(detail.getColumn().getColumnCd());
+				System.out.println(df.format(num));
 				html.append(T3).append(DivTag.getSource("md-2")).append(LF);
-				
+				html.append("<input type=").append(DQ).append("text").append(DQ)
+					.append(" class=").append(DQ).append("form-control text-right").append(DQ)
+					.append(" value=").append(DQ).append(df.format(num)).append(DQ)
+					.append(" readonly>").append(LF);
 				html.append(T3).append(DivTag.getEndTag()).append(LF);
 				break;
 			}
+			html.append(T2).append(DivTag.getEndTag()).append(LF);
 		}
 
 		html.append(DivTag.getEndTag());	// <-- 1
