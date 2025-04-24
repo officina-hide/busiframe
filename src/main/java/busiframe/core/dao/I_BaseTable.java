@@ -40,6 +40,7 @@ public interface I_BaseTable {
 	
 	//教育カテゴリー情報
 	public final int TABLE_ID_EDU_CATEGORY = 10201;
+	public final int TABLE_ID_EDU_ISSUE = 10202;	// 問題情報
 	public final int COL_ID_CATEGORY_ID = 11020001;
 	public final int COL_ID_CATEGORY_CD = 11020002;
 	public final int COL_ID_CATEGORY_NAME = 11020002;
