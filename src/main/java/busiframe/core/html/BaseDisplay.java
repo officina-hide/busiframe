@@ -49,6 +49,7 @@ public interface BaseDisplay {
 	public final int DISPLAY_ID_ISSUE_ENTRY_01 = 10204;
 	public final String DISPLAY_CD_ISSUE_ENTRY_01 = "eduIssueEntry01";
 	public final String DISPLAY_TITLE_ISSUE_ENTRY_01 = "問題登録 Lv.01";
+	public final String ACTION_URI_ISSUE_ENTRY_01 = "./educate01";
 	
 	// 生産メニュー Lv.01関連
 	/** 生産メニュー Lv,01 */

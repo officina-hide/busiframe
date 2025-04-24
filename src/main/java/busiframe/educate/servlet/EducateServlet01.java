@@ -48,9 +48,16 @@ public class EducateServlet01 extends HttpServlet implements BaseDisplay{
 		
 		Environment env = (Environment) session.getAttribute("env");
 		// カテゴリー一覧
-		if(actionName.equals(DISPLAY_CD_EDUCATE_MENU_01)) {
+		if(actionName.equals(DISPLAY_CD_EDUCATE_CATEGORY_01)) {
 			HtmlEduCategoryList ecl = new HtmlEduCategoryList();
 			html.append(ecl.createHTML(env));
+			out.print(html.toString());
+			return;
+		}
+		// 問題登録
+		if(actionName.equals(DISPLAY_CD_ISSUE_ENTRY_01)) {
+			HtmlEduIssueEntry ece = new HtmlEduIssueEntry();
+			html.append(ece.createHTML(env));
 			out.print(html.toString());
 			return;
 		}
