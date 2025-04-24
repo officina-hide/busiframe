@@ -61,6 +61,9 @@ public class CreateEducateSystem01 implements BaseDisplay, I_BaseTable {
 		// 問題情報を表示情報に登録する。
 		disp.addDispData(env, DISPLAY_ID_ISSUE_ENTRY_01, DISPLAY_CD_ISSUE_ENTRY_01,	
 				DISPLAY_TITLE_ISSUE_ENTRY_01, TABLE_ID_EDU_ISSUE);
+		// 問題初期登録
+		issue.addData(env, 0, I_EduCategory.CATEGORY_ID_JAVA_BASIC, "Java基礎問題01",
+				"Javaの基礎に関する問題01");
 
 		// 開始メッセージ
 		System.out.println(LocalDateTime.now().format(fomat) + " : 教育システムの生成を完了しました。");

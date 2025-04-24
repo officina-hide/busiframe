@@ -27,6 +27,21 @@ public class M_EduIssue extends BaseDAO implements I_EduIssue {
 	public void createTable(Environment env) {
 		createTable(env, TABLE_NAME_EDU_ISSUE, TABLE_COMMENT_EDU_ISSUE,
 				COL_NAME_ISSUE_ID, COL_COMMENT_ISSUE_ID);
+		addColumn(env, ALTER_CATEGORY_ID);
+		addColumn(env, COL_ALTER_ISSUE_TITLE);
+		addColumn(env, COL_ALTER_ISSUE_CONTENT);
+	}
+
+	/**
+	 * 問題情報登録<br>
+	 * @param env 環境情報
+	 * @param issueId 問題情報ID
+	 * @param categoryId 教育カテゴリー情報ID
+	 * @param title 問題タイトル
+	 * @param content 問題内容
+	 */
+	public void addData(Environment env, int issueId, int categoryId, String title, String content) {		
+		
 	}
 
 }
